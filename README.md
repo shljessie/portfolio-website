@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Music Swapper
+
+This is a Music Swapping Application created using Cochl. Machine Learning Technology
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
