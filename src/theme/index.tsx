@@ -1,7 +1,7 @@
+import { ThemeOptions } from "@material-ui/core/styles/createMuiTheme";
 import {createMuiTheme} from '@material-ui/core';
 import palette from './palette';
 import typography from './typography';
-import { ThemeOptions } from "@material-ui/core/styles/createMuiTheme";
 
 const themeOptions: ThemeOptions = {
   palette,
@@ -98,11 +98,9 @@ theme.typography.body1 = {
   [theme.breakpoints.up('sm')]: {
     fontSize: '14px',
     letterSpacing: '0.2px',
-    // lineHeight: '24px',
   },
   [theme.breakpoints.up('md')]: {
     fontSize: '16px',
-    // lineHeight: '30px',
     letterSpacing: '0.2px',
   }
 };

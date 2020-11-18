@@ -1,11 +1,13 @@
-import palette from './palette';
 import createTypography, {TypographyOptions} from "@material-ui/core/styles/createTypography";
+
+import palette from './palette';
 
 const customTypography: TypographyOptions = {
   fontFamily: [
     'Noto Sans TC',
     'Lato',
     'Roboto',
+    'Montserrat',
     'sans-serif',
   ].join(','),
   h1: {
@@ -16,9 +18,9 @@ const customTypography: TypographyOptions = {
     fontSize: '30px',
   },
   h2: {
-    fontFamily: 'Noto Sans TC, sans-serif',
-    fontWeight: 700,
-    lineHeight: '36px',
+    fontFamily: 'Montserrat, sans-serif',
+    fontWeight: 800,
+    lineHeight: '20px',
     fontSize: '26px',
     letterSpacing: '0.2px',
   },
@@ -30,14 +32,14 @@ const customTypography: TypographyOptions = {
     lineHeight: '18px',
   },
   h4: {
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: 'Montserrat, sans-serif',
     fontWeight: 600,
     fontSize: '18px',
     letterSpacing: '0px',
     lineHeight: '24px',
   },
   h5: {
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: 'Montserrat, sans-serif',
     fontWeight: 400,
     fontSize: '16px',
     letterSpacing: '0.1px',
@@ -45,15 +47,15 @@ const customTypography: TypographyOptions = {
   },
   h6: {
     fontFamily: 'Lato, sans-serif',
-    fontWeight: 400,
-    fontSize: '18px',
+    fontWeight: 700,
+    fontSize: '16px',
     letterSpacing: '0.7px',
-    lineHeight: '24px',
+    lineHeight: '20px',
   },
   subtitle1: {
     fontFamily: 'Roboto, sans-serif',
     fontWeight: 400,
-    fontSize: '16px',
+    fontSize: '12px',
     letterSpacing: '0.2px',
     lineHeight: '26px',
   },
@@ -66,22 +68,24 @@ const customTypography: TypographyOptions = {
   body1: {
     fontFamily: 'Lato, sans-serif',
     fontWeight: 400,
-    fontSize: '14px',
+    fontSize: '16px',
     letterSpacing: '0.2px',
-    lineHeight: '25px',
+    lineHeight: '23.92px',
   },
   body2: {
-    fontFamily: 'Lato, sans-serif',
+    fontFamily: 'Roboto, sans-serif',
     fontWeight: 400,
-    fontSize: '14px',
+    fontSize: '22px',
     letterSpacing: '0.2px',
-    lineHeight: '22px',
+    lineHeight: '20px',
   },
   button: {
     fontFamily: 'Lato, sans-serif',
-    fontWeight: 700,
-    fontSize: '16px',
+    fontWeight: 600,
+    fontSize: '14px',
     letterSpacing: '1px',
+    lineHeight: '20px',
+    textTransform: 'none'
   },
   caption: {
     color: palette.text.secondary,
