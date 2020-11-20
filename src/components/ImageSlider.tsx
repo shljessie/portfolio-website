@@ -1,5 +1,6 @@
 import 'swiper/swiper-bundle.css'
 
+import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {Pagination} from 'swiper';
 
@@ -15,7 +16,7 @@ export const ImageSlider = () => {
     slides.push(
       <>
       <SwiperSlide key ={1} >
-      <Typography variant= "h4" style = {{color: 'white', marginBottom: theme.spacing(4)}}>
+      <Typography variant= "h5" style = {{color: 'white', marginBottom: theme.spacing(4)}}>
         Unwanted music in your audio/ video
       </Typography>
           <img 
@@ -24,7 +25,7 @@ export const ImageSlider = () => {
           />
       </SwiperSlide>
       <SwiperSlide key ={2} >
-      <Typography variant= "h4" style = {{color: 'white',marginBottom: theme.spacing(4)}}>
+      <Typography variant= "h5" style = {{color: 'white',marginBottom: theme.spacing(4)}}>
         Violations of music copyright infringements
       </Typography>
           <img 
@@ -33,7 +34,7 @@ export const ImageSlider = () => {
           />
       </SwiperSlide>
       <SwiperSlide key ={`3`} >
-      <Typography variant= "h4" style = {{color: 'white', marginBottom: theme.spacing(4)}}>
+      <Typography variant= "h5" style = {{color: 'white', marginBottom: theme.spacing(4)}}>
         Need for similiar noncopyrighted music
       </Typography>
           <img 
@@ -46,13 +47,15 @@ export const ImageSlider = () => {
 
   
   return (
-    <div style= {{marginBottom: theme.spacing(15)}}>
-    <Typography variant="h2" style={{color:'white', marginBottom: theme.spacing(8)}}>Discover. Change. Go Live</Typography>
-    <Typography variant="subtitle2" style={{color:'white' }}>If you have experienced...</Typography>
-      <Swiper pagination>
-        {slides}
-      </Swiper>
-    </div>
+    <DefaultOuterRootCont>
+      <DefaultInnerRootCont>
+      <Typography variant="h2" style={{color:'white', marginBottom: theme.spacing(4)}}>Discover. Change. Go Live</Typography>
+      <Typography variant="subtitle2" style={{color:'white' }}>If you have experienced...</Typography>
+        <Swiper pagination>
+          {slides}
+        </Swiper>
+      </DefaultInnerRootCont>
+    </DefaultOuterRootCont>
   );
 };
 

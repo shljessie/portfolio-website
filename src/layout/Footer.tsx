@@ -1,8 +1,8 @@
 import * as React from 'react'
 
-import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
 import { FOOTER_NAV_LINK_ITEMS, NavLinkItem } from "../constants/Links"
 
+import { DefaultInnerRootCont } from "../components/Containers"
 import { FOOTER_IMAGE_URLS } from "../constants/ImageUrls"
 import { LINK_HOVER_COLOR } from "../theme/palette"
 import { SNS_LINKS } from "../constants/Urls"
@@ -15,7 +15,9 @@ import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   root: {
+    display: 'flex',
     backgroundColor: '#000',
+    justifyContent:'center',
     fontFamily: 'Lato',
     color: '#fff',
     padding: theme.spacing(8, 0)
@@ -241,7 +243,7 @@ const Footer = (props: Props) => {
   const classes = useStyles()
 
   return (
-    <DefaultOuterRootCont className={classes.root}>
+    <div className={classes.root}>
       <DefaultInnerRootCont>
         <div className={classes.topRow}>
           <img className={classes.logo} src={FOOTER_IMAGE_URLS.logo} alt='footer_logo' />
@@ -249,7 +251,7 @@ const Footer = (props: Props) => {
         </div>
         <BottomRow/>
       </DefaultInnerRootCont>
-    </DefaultOuterRootCont>
+    </div>
   )
 }
 

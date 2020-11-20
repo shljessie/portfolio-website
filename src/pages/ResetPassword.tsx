@@ -1,11 +1,14 @@
+import {NOTIFY_TYPE, notify} from "../constants";
+import React, {useState} from 'react';
+
 import EmailIcon from '@material-ui/icons/Email';
 import FilledButton from '../components/Buttons'
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import {InputCont} from "../components/InputCont";
 import InputLabel from '@material-ui/core/InputLabel';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import React from 'react';
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
 import Typography from '@material-ui/core/Typography';
@@ -39,6 +42,9 @@ const useStyles = makeStyles(theme => ({
     width: '310px',
     flexDirection: 'column',
     marginLeft: theme.spacing(3.5)
+  },
+  inputCont: {
+    padding: theme.spacing(2, 1, 0),
   },
   inputLabel:{
     textAlign:'start'
@@ -74,8 +80,47 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+type SignInInputs = {
+  email: string,
+  password: string
+}
 
- const ResetPassword= ()=>{
+type SignInFormState = {
+  isValid: boolean,
+  values: SignInInputs,
+  touched: any,
+  errors: any
+}
+
+ const ResetPassword= (props :Props)=>{
+
+  const hasError = (field: string): boolean => formState.touched[field] && formState.errors[field]
+
+  const handleChange = (event: any) => {
+    event.persist()
+
+    setFormState(formState => ({
+      ...formState,
+      values: {
+        ...formState.values,
+        [event.target.name]: event.target.value
+      },
+      touched: {
+        ...formState.touched,
+        [event.target.name]: true
+      }
+    }))
+  }
+
+  const [formState, setFormState] = useState<SignInFormState>({
+    isValid: false,
+    values: {
+      email: '',
+      password: ''
+    },
+    touched: {},
+    errors: {}
+  })
 
     const classes = useStyles()
     
@@ -88,18 +133,17 @@ const useStyles = makeStyles(theme => ({
         <form className={classes.form}>
         <div className={classes.inputs}>
         <Typography variant= "h6" style={{ textAlign: 'start', marginBottom: theme.spacing(2), color:'white'}}> Reset your password </Typography>
-              <InputLabel htmlFor="input-with-icon-adornment"className={classes.inputLabel}>
-                <Typography variant="body2" style={{fontSize: '10px', color:'white'}}>EMAIL</Typography>
-              </InputLabel>
-              <Input
-                id="input-with-icon-adornment"
-                startAdornment={
-                  <InputAdornment position="start">
-                    <EmailIcon style={{color:'#FFFFFF'}}/>
-                  </InputAdornment>
-                }
-                style={{marginBottom: theme.spacing(3), marginTop:theme.spacing(1), width: '340px'}}
-              />
+              <InputCont
+                    label='EMAIL'
+                    name='email'
+                    value={formState.values.email}
+                    handleChange={handleChange}
+                    type='email'
+                    isError={hasError('email')}
+                    helperText={hasError('email') ? formState.errors.email[0] : null}
+                    color='black'
+                    className={classes.inputCont}
+                  />
               <Typography variant="body1" style={{color:'white', fontSize: '12px', marginTop: theme.spacing(1.5), textAlign: 'start'}}>
               Enter the email you use for your account and get a link to reset your password
               </Typography>
@@ -116,7 +160,7 @@ const useStyles = makeStyles(theme => ({
               Reset password
             </FilledButton>
           </Link>
-          <Link component={RouterLink} to="register" className={classes.link}> 
+          <Link component={RouterLink} to="/login" className={classes.link}> 
             Cancel
           </Link>
         </div>
@@ -148,4 +192,14 @@ const useStyles = makeStyles(theme => ({
     </>
         )
 }
+
+
+
+type Props = {
+  setAccessToken: any,
+  setIsPending: (isPending: boolean) => void,
+  notifySubmitSuccess: (msg: string) => void,
+  notifySubmitFailure: (msg: string) => void,
+}
+
 export default ResetPassword;

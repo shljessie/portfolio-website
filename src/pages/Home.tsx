@@ -45,7 +45,7 @@ const SubscribeForm= () =>{
     <div  style={{ paddingBottom: theme.spacing(20)}}>
       <Typography variant = "subtitle2" style= {{color: 'white', marginBottom: theme.spacing(4)}}>Subscribe to our newsletter</Typography>
       <input type="e-mail" style={{width: '200px', height:'30px'}} placeholder="Email address" />
-      <FilledButton style={{  height: '38px', marginLeft: '23px', fontFamily:'Lato'}}> Sign up </FilledButton>
+      <FilledButton style={{  width: "90px", height: '38px', marginLeft: '23px'}}><Typography variant="button"> Sign up </Typography></FilledButton>
     </div>
   );
 }

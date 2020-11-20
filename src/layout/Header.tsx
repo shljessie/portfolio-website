@@ -1,14 +1,5 @@
 import {FilledButton, HollowButton} from '../components/Buttons'
 import { HEADER_HEIGHT, SIDE_MENU_PADDING_RIGHT } from "../constants/GlobalStyles"
-import {
-  Link,
-  Redirect,
-  Route,
-  BrowserRouter as Router,
-  Switch,
-  useHistory,
-  useLocation
-} from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 
@@ -16,6 +7,9 @@ import BurgerMenu from "../components/BurgerMenu"
 import { DefaultInnerRootCont } from "../components/Containers"
 import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
+import {
+  Link,
+} from "react-router-dom";
 import { Modal } from "../components/Modal"
 import SideMenu from "../components/SideMenu"
 import { ThemeContext } from "../context/ThemeContext"
@@ -60,7 +54,6 @@ const useStyles = makeStyles(theme => ({
   subMenuName: {
     height: 'auto',
     display: 'flex',
-    // padding: theme.spacing(0.5),
     justifyContent: 'space-between',
     '&:hover + div': {
       transform: 'translateX(100%)',
@@ -75,7 +68,6 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     boxSizing: 'border-box',
     zIndex: 500,
-    // boxSizing: 'border-box',
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(0, 3),

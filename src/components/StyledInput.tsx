@@ -2,26 +2,25 @@ import {createStyles, withStyles} from "@material-ui/styles";
 
 import {TextField} from "@material-ui/core";
 import {Theme} from "@material-ui/core/styles";
+import {dialog} from "../theme/palette";
 import styled from "styled-components";
 
 const DefaultInput = withStyles((theme: Theme) =>
   createStyles({
     root: {
       position: 'relative',
-      textAlign: 'left',
-      borderRadius: '4px',
       '& label.Mui-focused': {
         color: '#8687FF',
       },
       '& .MuiInput-underline:after': {
-        borderBottomColor: '#8687FF',
+        borderBottomColor:'#8687FF',
       },
       '& .MuiOutlinedInput-root': {
         '& fieldset': {
-          border: '#8687FF',
+          border: '1px solid #8687FF',
         },
         '&:hover fieldset': {
-          borderColor: '#8687FF',
+          borderColor: 'none',
         },
         '& .Mui-focused fieldset': {
           borderColor: '#8687FF',
@@ -35,17 +34,21 @@ const DefaultInput = withStyles((theme: Theme) =>
 )(TextField);
 
 export const StyledInput = styled(DefaultInput)`
-  background: ${props => props.color ? props.color : '#11161C'};
-
+  // Commenting below allows safari contact info auto complete button color to be white not black.
+  background: ${props => props.color ? props.color : dialog};
+  
   & input {
-    -webkit-box-shadow: #8687FF;
+    // This is workaround to changing background color when Chrome's autofill because
+    // Chrome doesnt support css rule.
+    -webkit-box-shadow: 0 0 0px 1000px ${props => props.color ? props.color : dialog} inset !important;
     border-radius: 4px;
-    -webkit-text-fill-color: #fff;
+    -webkit-text-fill-color: #fff !important;
     -webkit-animation-name: autofill;
     -webkit-animation-fill-mode: both;
-    background-color: #000;
+    background-color: ${props => props.color ? props.color : dialog} !important;
     transition: background-color 5000s ease-in-out 0s;
-    color: #8687FF;
+    // border: 1px solid rgba(255, 255, 255, 1);
+    color: rgb(255, 255, 255) !important;
   }
   
   & .MuiOutlinedInput-root {

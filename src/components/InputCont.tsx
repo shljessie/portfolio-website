@@ -1,27 +1,24 @@
-import {Theme, createStyles, fade, makeStyles, withStyles} from "@material-ui/core/styles";
-
-import FormControl from '@material-ui/core/FormControl';
 import {InputAdornment} from "@material-ui/core";
-import InputBase from '@material-ui/core/InputBase';
-import InputLabel from '@material-ui/core/InputLabel';
 import React from "react";
 import {StyledInput} from "./StyledInput";
 import clsx from "clsx";
+import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   inputCont: {
-    flexGrow: 1,
     display: 'flex',
     flexDirection: 'column',
   },
   inputLabel: {
     display: 'block',
     fontSize: '12px',
-    textAlign:'start'
+    color:'white',
+    textAlign: 'start',
+    marginBottom: theme.spacing(1)
   },
   input: {
     display: 'block',
-    padding: theme.spacing(0.5),
+    paddingTop: theme.spacing(1.5),
   },
   inputIcon: {
     height: '26px',
@@ -33,42 +30,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(0.5)
   }
 }))
-
-const BootstrapInput = withStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      'label + &': {
-        marginTop: theme.spacing(3),
-      },
-    },
-    input: {
-      borderRadius: 4,
-      position: 'relative',
-      backgroundColor: theme.palette.common.white,
-      border: '1px solid #8687FF',
-      fontSize: 16,
-      width: 'auto',
-      padding: '10px 12px',
-      transition: theme.transitions.create(['border-color', 'box-shadow']),
-      fontFamily: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(','),
-      '&:focus': {
-        boxShadow: `${fade('#8687FF', 0.25)} 0 0 0 0.2rem`,
-        borderColor: '#8687FF',
-      },
-    },
-  }),
-)(InputBase);
 
 export const InputCont = (props: Props) => {
   const {
@@ -87,7 +48,7 @@ export const InputCont = (props: Props) => {
         size={size || 'small'}
         name={name}
         type={type || null}
-        variant='outlined'
+        variant='filled'
         fullWidth
         value={value}
         onChange={handleChange}
@@ -97,28 +58,27 @@ export const InputCont = (props: Props) => {
           inputIconComp
             ? {
               startAdornment: (
-                <InputAdornment position="start" style={{color:'#8687FF'}}>
+                <InputAdornment position="start">
                   {inputIconComp}
                 </InputAdornment>
               ),
               style: {
                 "&:-webkit-autofill": {
-                  WebkitBoxShadow: `#8687FF`
+                  WebkitBoxShadow: `0 0 0 1000px ${color ? color : '#11161C'} inset`
                 }
               }
             }
             : {
               style: {
                 "&:-webkit-autofill": {
-                  WebkitBoxShadow: `#8687FF`
+                  WebkitBoxShadow: `0 0 0 1000px ${color ? color : '#11161C'} inset`
                 }
               }
             }
         }
         error={isError}
         helperText={helperText}
-
-        autoComplete={disableAutofill ? 'new-password' : null} 
+        autoComplete={disableAutofill ? 'new-password' : null}
       />
     </div>
   )

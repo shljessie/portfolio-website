@@ -9,7 +9,6 @@ import styled from "styled-components"
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
-  root: {},
   innerRoot: {
     textAlign: 'center',
     [theme.breakpoints.up('sm')]: {
@@ -46,16 +45,16 @@ const PageHeader = (props: Props) => {
   const classes = useStyles()
 
   return (
-    <DefaultOuterRootCont style={{ paddingTop: HEADER_HEIGHT, height: '100%'}} >
+    <DefaultOuterRootCont style={{ paddingTop: HEADER_HEIGHT}} >
       <DefaultInnerRootCont className={classes.innerRoot}>
         <Typography variant='h2' className={classes.title}>
           { title }
         </Typography>
 
         
-        <Typography variant= "body1" style= {{color: "white", marginTop: '48px', marginBottom: '81px'}} >
-        Lorem ipsum dolor sit amet, 
-        <a href="#" style = {{textDecoration: 'none', color: '#8783C8'}}> How it works</a> adipiscing elit. 
+        <Typography variant= "body1" style= {{color: "white", marginTop: '48px', marginBottom: '81px', fontFamily: 'Montserrat'}} >
+        Lorem ipsum dolor sit amet,  
+        <a href="#" style = {{textDecoration: 'none', color: '#8783C8'}}>  How it works</a> adipiscing elit. 
         Rhoncus maecenas ut mi <br/> faucibus augue vulputate. 
         Lorem ipsum <a href="#" style = {{textDecoration: 'none', color: '#8783C8'}}> Target audience.</a>
         </Typography>
@@ -66,8 +65,7 @@ const PageHeader = (props: Props) => {
         </FilledButton>
 
         {/* insert down button here!  */}
-
-        <FilledButton style={{marginTop: theme.spacing(22), marginBottom: theme.spacing(10)}} />
+        <FilledButton style={{marginTop: theme.spacing(22)}} />
         </ButtonCont>
     
 

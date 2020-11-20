@@ -62,6 +62,7 @@ export const LayoutRootCont = styled.div`
 export const DefaultOuterRootCont = styled.div`
   display: flex;
   justify-content: center;
+  height: 100vh;
 `
 
 export const DefaultInnerRootCont = (props: DefaultProps) => {

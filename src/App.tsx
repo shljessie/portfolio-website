@@ -24,6 +24,7 @@ function App() {
               <Route path="/resetpassword" component={ResetPassword} />
               <Route path="/checkemail" component={CheckEmail} />
               <Route path="/signup" component={Signup} />
+              <Route path="/termsofservice" component={TermsofService} />
             </Router>
       </div>
     </MuiThemeProvider>

@@ -7,17 +7,13 @@ import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
 
-const HEADER_OPACITY_SWITCH_HEIGHT = 160
-
 const useStyles = makeStyles(theme => ({
   inner: {
-    height: HEADER_HEIGHT,
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between'
+    marginTop: theme.spacing(3)
   },
   logo: {
+    justifyContent:'center',
+    alignItems: 'center',
     cursor: 'pointer',
     height: '24px',
     width: 'auto',
@@ -60,7 +56,6 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     boxSizing: 'border-box',
     zIndex: 500,
-    // boxSizing: 'border-box',
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(0, 3),
@@ -82,7 +77,7 @@ type HeaderProps = {
 const Root = styled.div`
   position: fixed;
   width: 100%;
-  height: ${HEADER_HEIGHT}px;
+  height: 40px;
   display: flex;
   justify-content: center;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);

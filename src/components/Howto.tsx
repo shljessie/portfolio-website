@@ -2,7 +2,6 @@ import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Contai
 import React, { useContext } from "react"
 
 import { FUNCTION_ITEM_DATA } from "../constants/PageData"
-import Link from "react-router-dom"
 import { TECHNOLOGY_IMAGE_URLS } from "../constants/ImageUrls"
 import { ThemeContext } from "../context/ThemeContext"
 import { Typography } from "@material-ui/core"
@@ -40,6 +39,7 @@ const Container = styled.div`
 `
 
 const Tabs = styled.div`
+height: '50px';
 `
 
 type TabProps = {
@@ -49,10 +49,9 @@ type TabProps = {
 const Tab = styled.div`
   display: flex;
   align-items: center;
-  text-align: start;
   padding-left: 24px;
-  width:30%;
-  margin: 0px 47px;
+  width: 40%;
+  margin: 0px 30px;
   color: ${(props: TabProps) => props.isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.3)'};
   cursor: pointer;
   &:hover {
@@ -117,14 +116,14 @@ const Howto = (props: Props) => {
                       <Tabs style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
                         <Tab onClick={(e) => onTabIndexChange(e, 0)} isActive={tabIndex === 0} style= {{ height :'100px',}}>
                           <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
-                            <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(4)}}>1  Upload File</Typography>
-                            <Typography variant="body1" style={{marginBottom: '32px'}}>Upload an audio or video file. 
+                            <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2)}}>1  Upload File</Typography>
+                            <Typography variant="body1" style={{marginBottom: '18px'}}>Upload an audio or video file. 
                               Click to add media or drag and drop a file.</Typography>
                           </div>
                         </Tab>
                         <Tab onClick={(e) => onTabIndexChange(e, 1)} isActive={tabIndex === 1} style= {{ height :'128px'}}>
                           <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
-                          <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(4)}}>2  Separate Audio</Typography>
+                          <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2)}}>2  Separate Audio</Typography>
                           <Typography variant="body1">We detected music in the numbered sections. 
                             All numbered section will be separated. 
                               Click on a number or drag a new selections and Start editing.</Typography>
@@ -132,8 +131,8 @@ const Howto = (props: Props) => {
                         </Tab>
                         <Tab onClick={(e) => onTabIndexChange(e, 2)} isActive={tabIndex === 2} style= {{ height :'100px'}}>
                           <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
-                          <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(4)}}>3  Swap Music</Typography>
-                          <Typography variant="body1">We have recommended similar music to the ones we have detected and removed.
+                          <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2),marginTop: theme.spacing(4)}}>3  Swap Music</Typography>
+                          <Typography variant="body1" >We have recommended similar music to the ones we have detected and removed.
                                Click on a numbered section to add music to.</Typography>
                           </div>
                         </Tab>

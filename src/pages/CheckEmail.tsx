@@ -1,8 +1,4 @@
-import EmailIcon from '@material-ui/icons/Email';
 import FilledButton from '../components/Buttons'
-import Input from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import InputLabel from '@material-ui/core/InputLabel';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import React from 'react';
@@ -49,16 +45,9 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     marginTop: theme.spacing(1),
-    marginLeft: theme.spacing(5),
-    marginRight: theme.spacing(3),
+    marginLeft: theme.spacing(3.5),
+    marginRight: theme.spacing(1),
     color: '#8687FF',
-    textDecoration: 'none'
-  },
-  linkTwo: {
-    marginTop: theme.spacing(2),
-    marginLeft: theme.spacing(2),
-    color: '#8687FF',
-    fontSize: '12px',
     textDecoration: 'none'
   },
   footer:{
@@ -69,6 +58,7 @@ const useStyles = makeStyles(theme => ({
     left: '33%',
   },
   resetButton:{
+    width:'90%',
     display:'flex',
     flexDirection :'row',
     marginTop: theme.spacing(7),
@@ -90,20 +80,20 @@ const useStyles = makeStyles(theme => ({
         <form className={classes.form}>
         <div className={classes.inputs}>
         <Typography variant= "h6" style={{ textAlign: 'start', marginBottom: theme.spacing(2), color:'white'}}> Check your email</Typography>
-              <Typography variant="body1" style={{color:'white', fontSize: '12px', marginTop: theme.spacing(1.5), textAlign: 'start'}}>
+              <Typography variant="body1" style={{color:'white', fontSize: '15px', marginTop: theme.spacing(1.5), textAlign: 'start'}}>
               Reset link to hjkim@cochlear.ai. Didn’t receive it? You might have signed up with a different email address.
               </Typography>
         </div>
          
          <div className={classes.resetButton}>
-          <Link component={RouterLink} to="register" className={classes.link}> 
+          <Link component={RouterLink} to="/login" className={classes.link}> 
             Back to login page
           </Link>
           <FilledButton
             type="submit"
             fullWidth
             variant="contained"
-            style={{width:'199px',  height: '41px', borderRadius: '0px'}}
+            style={{width:'170px',  height: '41px', borderRadius: '0px'}}
           >
             Resend Email
           </FilledButton>
