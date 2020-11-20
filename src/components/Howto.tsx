@@ -2,6 +2,7 @@ import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Contai
 import React, { useContext } from "react"
 
 import { FUNCTION_ITEM_DATA } from "../constants/PageData"
+import Link from "react-router-dom"
 import { TECHNOLOGY_IMAGE_URLS } from "../constants/ImageUrls"
 import { ThemeContext } from "../context/ThemeContext"
 import { Typography } from "@material-ui/core"
@@ -89,6 +90,7 @@ const Howto = (props: Props) => {
   }
 
   return (
+          <div className="howto">
           <DefaultOuterRootCont style={{ backgroundColor: '#101010', marginBottom: theme.spacing(30) }}>
             <DefaultInnerRootCont>
               <Container>
@@ -142,6 +144,7 @@ const Howto = (props: Props) => {
               </Container>
             </DefaultInnerRootCont>
           </DefaultOuterRootCont>
+          </div>
   )
 }
 

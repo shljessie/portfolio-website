@@ -118,11 +118,6 @@ export const ThemeContextProvider = ({ children }: Props) => {
         return
       }
     }
-
-    import("audio-recorder-polyfill").then(AudioContext => {
-      window.MediaRecorder = AudioContext.default
-    });
-    // window.MediaRecorder = AudioRecorder
   }, [window])
 
   function resetAudioAnalyzer() {

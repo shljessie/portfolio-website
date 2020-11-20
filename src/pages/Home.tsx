@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 
 import FilledButton from '../components/Buttons'
+import Footer from '../layout/Footer'
 import Header from "../layout/Header"
 import Howto from '../components/Howto'
 import ImageSlider from "../components/ImageSlider"
@@ -65,6 +66,7 @@ const HomePage = (props: Props) => {
               <Howto />
               <ImageSlider />
               <SubscribeForm />
+              <Footer/>
         </div>
     </Layout>
   )

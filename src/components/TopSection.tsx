@@ -1,26 +1,11 @@
-import {FilledButton, HollowButton} from '../components/Buttons'
-import { HEADER_HEIGHT, SIDE_MENU_PADDING_RIGHT } from "../constants/GlobalStyles"
-import {
-  Link,
-  Redirect,
-  Route,
-  BrowserRouter as Router,
-  Switch,
-  useHistory,
-  useLocation
-} from "react-router-dom";
 import React, { useContext, useEffect, useState } from "react"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 
-import BurgerMenu from "../components/BurgerMenu"
 import { DefaultInnerRootCont } from "../components/Containers"
+import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
-import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
-import { Modal } from "../components/Modal"
-import SideMenu from "../components/SideMenu"
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
-import { useMediaQuery } from "@material-ui/core"
 
 const HEADER_OPACITY_SWITCH_HEIGHT = 160
 
@@ -108,26 +93,6 @@ const Root = styled.div`
   background-color: ${(props: HeaderProps) => props.isHeaderBackgroundTransparent ? props.backgroundColorHover : props.backgroundColorNormal};
 `
 
-const ButtonContainer = styled.div`
-  align-items:'flex-end';
-`
-
-const BURGER_MENU_BUTTON_SIZE = '24px'
-const MobileMenuButton = styled.div`
-  padding: 4px;
-  position: absolute;
-  display: block;
-  top: 50%;
-  right: ${ SIDE_MENU_PADDING_RIGHT }px;
-  width: ${ BURGER_MENU_BUTTON_SIZE };
-  height: ${ BURGER_MENU_BUTTON_SIZE };
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  z-index: 55;
-  border: 0;
-  -webkit-transition: opacity .2s linear .1s;
-  transition: opacity .2s linear .1s;
-`
 
 type HeaderComponentThemeColorProps = {
   fontColor: string,
@@ -148,13 +113,13 @@ export const HEADER_COMPONENT_THEME_COLORS: {[key: string]: HeaderComponentTheme
   dark: {
     fontColor: '#fff',
     barColor: '#fff',
-    backgroundColorNormal: '#000',
-    backgroundColorHover: '#000',
+    backgroundColorNormal: ' #31343E',
+    backgroundColorHover: ' #31343E',
     navMenuBackgroundColor: '#000'
   }
 }
 
-const Header = (props: Props) => {
+const TopSection= (props: Props) => {
   const {} = props
 
   const classes = useStyles()
@@ -163,13 +128,8 @@ const Header = (props: Props) => {
 
   const [scrollPosition, setScrollPosition] = useState(0)
   const [isHeaderBackgroundTransparent, setIsHeaderBackgroundTransparent] = useState(true)
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
-  const theme = useTheme()
 
-  const isDesktop = useMediaQuery(theme.breakpoints.up(1080), {
-    defaultMatches: true
-  })
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -179,16 +139,6 @@ const Header = (props: Props) => {
     };
   }, [])
 
-  useEffect(() => {
-    const shouldBeTransparent = scrollPosition <= HEADER_OPACITY_SWITCH_HEIGHT
-
-    if (shouldBeTransparent && !isHeaderBackgroundTransparent) {
-      setIsHeaderBackgroundTransparent(true)
-
-    } else if (!shouldBeTransparent && isHeaderBackgroundTransparent) {
-      setIsHeaderBackgroundTransparent(false)
-    }
-  }, [scrollPosition])
 
   function onScroll() {
     setScrollPosition(window.pageYOffset)
@@ -205,35 +155,6 @@ const Header = (props: Props) => {
               <img className={classes.logo} src={HEADER_IMAGE_URLS[headerTheme].logo} alt='header_logo' />
             </a>
 
-            <div className={classes.navCont}>
-              {
-                !isDesktop
-                //on mobile tablet
-                  ? <>
-                  <MobileMenuButton>
-                    <BurgerMenu isSideMenuOpen={isSideMenuOpen} setIsSideMenuOpen={setIsSideMenuOpen} />
-                  </MobileMenuButton>
-                  <SideMenu isSideMenuOpen={isSideMenuOpen} items={HEADER_NAV_LINK_ITEMS} />
-                
-                  </>
-                  : //when desktop
-                  <>
-                   <ButtonContainer>
-                      <Link to="/Login" style={{textDecoration: 'none'}}>
-                        <HollowButton style={{color:'#8687FF', fontWeight: '500', fontFamily:'Lato'}}>
-                          Log in 
-                        </HollowButton>
-                      </Link>
-                      <Link to="/Tutorial" style={{textDecoration: 'none'}}>
-                        <FilledButton style={{  margin: '23px', fontFamily:'Lato'}}> 
-                          Tutorial 
-                        </FilledButton>
-                      </Link>
-                  </ButtonContainer>
-                </>
-              }
-              <Modal isSideMenuOpen={isSideMenuOpen} onClick={() => setIsSideMenuOpen(false)}/>
-            </div>
           </DefaultInnerRootCont>
     </Root>
   )
@@ -242,4 +163,4 @@ const Header = (props: Props) => {
 type Props = {
 }
 
-export default Header
+export default TopSection

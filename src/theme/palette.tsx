@@ -18,7 +18,7 @@ const customPalette: PaletteOptions = {
     main: red.A400,
   },
   background: {
-    paper: '#fff',
+    paper: '#282828',
     default: '#101010'
   },
   action: {

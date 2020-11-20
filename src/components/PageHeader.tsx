@@ -1,6 +1,5 @@
 import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
 
-import Button_Scroll from "../images/Button_Scroll.png"
 import FilledButton from '../components/Buttons'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import React from "react"
@@ -67,6 +66,7 @@ const PageHeader = (props: Props) => {
         </FilledButton>
 
         {/* insert down button here!  */}
+
         <FilledButton style={{marginTop: theme.spacing(22), marginBottom: theme.spacing(10)}} />
         </ButtonCont>
     
