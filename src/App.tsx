@@ -9,6 +9,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import ResetPassword from './pages/ResetPassword'
 import Signup from './pages/Signup'
+import TermsofService from './pages/TermsofService'
 import Tutorial from './pages/Tutorial'
 import theme from './theme'
 
