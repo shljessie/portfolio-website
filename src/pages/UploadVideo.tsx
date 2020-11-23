@@ -62,17 +62,10 @@ const PageTemplate = (props: Props) => {
     <Layout>
       <UserHeader/>
       <DefaultOuterRootCont>
-        <ReadyCont> 
           <DefaultInnerRootCont className={classes.readyInnerRoot}>
 
-          <Typography variant='h2' className={classes.readyTitle}>
-            Ready Let's Try ~ 
-          </Typography>
-          <Typography variant='subtitle2' className={classes.descrip}>
-          Music Swapper is free to use for terms of __size. we also offer____and support.
-          </Typography>
+        
           </DefaultInnerRootCont>
-      </ReadyCont>
       </DefaultOuterRootCont>
     </Layout>
   )

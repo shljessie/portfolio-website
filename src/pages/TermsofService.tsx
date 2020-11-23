@@ -27,12 +27,10 @@ const AccordionSummary = withStyles({
 
 const AccordCont = styled.div`
     width: 100%; 
-    margin-bottom:400px;
 `
 const ReadyCont = styled.div`
     width: 100%; 
     height:50vh;
-    margin-bottom: 0%;
     background-color: #8687FF;
 `
 
@@ -43,7 +41,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       maxWidth: 940
     },
-    height: '200vh'
+    height: '50vh',
+    paddingBottom: '700px',
+    margin: 'auto',
   },
   title: {
     fontWeight: 'bold',
@@ -136,7 +136,7 @@ const PageHeader = (props: Props) => {
   return (
     <Layout>
       <Header />
-      <DefaultOuterRootCont style={{ paddingTop: HEADER_HEIGHT}} >
+      <div style={{ paddingTop: HEADER_HEIGHT}} >
       <DefaultInnerRootCont className={classes.innerRoot}>
         <Typography variant='h4' className={classes.title}>
           Terms of Service
@@ -230,29 +230,26 @@ const PageHeader = (props: Props) => {
             </AccordionDetails>
           </Accordion>
         </AccordCont>
-       
-        
       </DefaultInnerRootCont>
-    </DefaultOuterRootCont>
 
-    <ReadyCont> 
-      <DefaultInnerRootCont className={classes.readyInnerRoot}>
+          <ReadyCont> 
+            <DefaultInnerRootCont className={classes.readyInnerRoot}>
 
-      <Typography variant='h4' className={classes.readyTitle}>
-         Ready to get started?
-      </Typography>
-      <FilledButton className={classes.button} component={RouterLink} to="/uploadvideo">
-          <Typography variant= 'button'>Create a workspace</Typography>
-      </FilledButton>
-      <Link component={RouterLink} to="tryfree" className={classes.link}> 
-          Or, Try Free
-      </Link>
-      <Typography variant='subtitle2' className={classes.descrip}>
-      Music Swapper is free to use for terms of __size. we also offer____and support.
-      </Typography>
-      </DefaultInnerRootCont>
-    </ReadyCont>
-
+            <Typography variant='h4' className={classes.readyTitle}>
+              Ready to get started?
+            </Typography>
+            <FilledButton className={classes.button} component={RouterLink} to="/uploadvideo">
+                <Typography variant= 'button'>Create a workspace</Typography>
+            </FilledButton>
+            <Link component={RouterLink} to="tryfree" className={classes.link}> 
+                Or, Try Free
+            </Link>
+            <Typography variant='subtitle2' className={classes.descrip}>
+            Music Swapper is free to use for terms of __size. we also offer____and support.
+            </Typography>
+            </DefaultInnerRootCont>
+          </ReadyCont>
+    </div>
     <Footer />
   </Layout>
   )
