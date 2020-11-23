@@ -242,6 +242,8 @@ type SignUpFormState = {
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>
+      <img  src= { `https://picsum.photos/id/${3}/400/400`} alt='login_image' style={{height: '400px', marginLeft: theme.spacing(5)}}/>
+
       <Paper className={classes.paper}>
         <form className={classes.form}>
         <div className={classes.inputs}>
@@ -322,7 +324,6 @@ type SignUpFormState = {
          
         </form>
       </Paper>
-      <img  src= { `https://picsum.photos/id/${3}/400/400`} alt='login_image' style={{height: '400px', marginLeft: theme.spacing(5)}}/>
     </main>
     </div>
     <FormFooter/>

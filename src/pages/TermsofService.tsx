@@ -27,7 +27,7 @@ const AccordionSummary = withStyles({
 
 const AccordCont = styled.div`
     width: 100%; 
-    margin-bottom: 50%;
+    margin-bottom:400px;
 `
 const ReadyCont = styled.div`
     width: 100%; 
@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       maxWidth: 940
     },
+    height: '200vh'
   },
   title: {
     fontWeight: 'bold',
@@ -85,7 +86,8 @@ const useStyles = makeStyles(theme => ({
   readyTitle: {
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(3),
+    marginTop: theme.spacing(5)
   },
   link: {
     marginTop: theme.spacing(2),
@@ -104,6 +106,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(10),
     marginRight: 'auto',
     width: '50%',
+    marginTop: theme.spacing(20)
   },
   button:{
     backgroundColor: 'black',
@@ -124,6 +127,12 @@ const PageHeader = (props: Props) => {
 
   const classes = useStyles()
 
+  const [expanded, setExpanded] = React.useState<string | false>(false);
+
+  const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
     <Layout>
       <Header />
@@ -141,7 +150,7 @@ const PageHeader = (props: Props) => {
 
 
         <AccordCont>
-          <Accordion>
+          <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
             <AccordionSummary
               expandIcon={<AddIcon style={{color: 'white'}}/>}
               aria-controls="panel1a-content"
@@ -160,7 +169,7 @@ const PageHeader = (props: Props) => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
             <AccordionSummary
               expandIcon={<AddIcon style={{color: 'white'}} />}
               aria-controls="panel1a-content"
@@ -175,7 +184,7 @@ const PageHeader = (props: Props) => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
             <AccordionSummary
               expandIcon={<AddIcon  style={{color: 'white'}}/>}
               aria-controls="panel1a-content"
@@ -190,7 +199,7 @@ const PageHeader = (props: Props) => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
             <AccordionSummary
               expandIcon={<AddIcon style={{color: 'white'}}/>}
               aria-controls="panel1a-content"
@@ -205,7 +214,7 @@ const PageHeader = (props: Props) => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}> 
             <AccordionSummary
               expandIcon={<AddIcon style={{color: 'white'}}/>}
               aria-controls="panel1a-content"
@@ -235,7 +244,7 @@ const PageHeader = (props: Props) => {
       <FilledButton className={classes.button} component={RouterLink} to="/uploadvideo">
           <Typography variant= 'button'>Create a workspace</Typography>
       </FilledButton>
-      <Link component={RouterLink} to="/tryfree" className={classes.link}> 
+      <Link component={RouterLink} to="tryfree" className={classes.link}> 
           Or, Try Free
       </Link>
       <Typography variant='subtitle2' className={classes.descrip}>
