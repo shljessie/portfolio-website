@@ -14,11 +14,11 @@ const useStyles = makeStyles(theme => ({
     fontSize: '12px',
     color:'white',
     textAlign: 'start',
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
+    marginTop: theme.spacing(1),
   },
   input: {
     display: 'block',
-    paddingTop: theme.spacing(1.5),
   },
   inputIcon: {
     height: '26px',
@@ -47,7 +47,7 @@ export const InputCont = (props: Props) => {
         autoFocus
         size={size || 'small'}
         name={name}
-        type={type || null}
+        type={type}
         variant='filled'
         fullWidth
         value={value}

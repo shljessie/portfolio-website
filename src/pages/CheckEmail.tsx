@@ -1,4 +1,6 @@
+import { DefaultOuterRootCont } from '../components/Containers'
 import FilledButton from '../components/Buttons'
+import FormFooter from '../layout/FormFooter'
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import React from 'react';
@@ -74,6 +76,7 @@ const useStyles = makeStyles(theme => ({
   return(
     <>
     <TopSection/>
+    <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>
       <Paper className={classes.paper}>
@@ -104,25 +107,8 @@ const useStyles = makeStyles(theme => ({
       <img  src= { `https://picsum.photos/id/${3}/400/400`} alt='login_image' style={{height: '400px', marginLeft: theme.spacing(5)}}/>
     </main>
     </div>
-
-    
-    <div className={classes.footer}>
-    <Link component={RouterLink} to="register">
-      <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-            Terms of Service
-      </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Privacy
-    </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Contact us
-    </Typography>
-    </Link>
-    </div>
+    <FormFooter />
+    </DefaultOuterRootCont>
     </>
         )
 }

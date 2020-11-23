@@ -3,10 +3,12 @@ import React, {useEffect, useState} from 'react';
 import {SignUpForm, getRefreshToken} from "../shared/API";
 
 import { Button } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+import { DefaultOuterRootCont } from '../components/Containers'
+import DividerComponent from '../layout/Divider'
 import EmailIcon from '@material-ui/icons/Email';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
+import FormFooter from '../layout/FormFooter'
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import {InputCont} from "../components/InputCont";
@@ -237,6 +239,7 @@ type SignUpFormState = {
   return(
     <>
     <TopSection/>
+    <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>
       <Paper className={classes.paper}>
@@ -284,21 +287,16 @@ type SignUpFormState = {
             type="submit"
             fullWidth
             variant="contained"
-            style={{width:'80%',  height: '41px', borderRadius: '0px', marginTop: theme.spacing(2)}}
+            style={{width:'80%',  height: '41px', borderRadius: '0px', marginTop: theme.spacing(3)}}
           >
             Create an account
           </FilledButton>
         </div>
 
-        <div style={{display: 'flex', flexDirection: 'row', marginTop: theme.spacing(2), marginBottom: theme.spacing(2) }}>
-          <Divider style={{width: '40%', backgroundColor: 'gray', marginTop: theme.spacing(1.5), marginRight: theme.spacing(1.5), marginLeft: theme.spacing(1.5)}}></Divider>
-          <Typography variant="body2" style={{color: 'gray'}}>Or</Typography>
-          <Divider style={{width: '40%', backgroundColor: 'gray', marginTop: theme.spacing(1.5), marginLeft: theme.spacing(1.5)}}></Divider>
-        </div>
+        <DividerComponent />
 
         <SocialButtons>
               <SocialButton
-                startIcon={<img width="22" height="22" src={"/"} />}
                 style={{ backgroundColor: '#000' }}
               >
                 <Typography variant="button" style={{color: 'white'}}>
@@ -321,30 +319,14 @@ type SignUpFormState = {
          </Typography>
          <Link component={RouterLink} to="/login" className={classes.linkTwo}>Log in</Link>
          </div>
-
          
         </form>
       </Paper>
       <img  src= { `https://picsum.photos/id/${3}/400/400`} alt='login_image' style={{height: '400px', marginLeft: theme.spacing(5)}}/>
     </main>
     </div>
-    <div className={classes.footer}>
-    <Link component={RouterLink} to="register">
-      <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-            Terms of Service
-      </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Privacy
-    </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Contact us
-    </Typography>
-    </Link>
-    </div>
+    <FormFooter/>
+    </DefaultOuterRootCont>
     </>
         )
 }

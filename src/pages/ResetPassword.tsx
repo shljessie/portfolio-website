@@ -1,8 +1,10 @@
 import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useState} from 'react';
 
+import { DefaultOuterRootCont } from '../components/Containers'
 import EmailIcon from '@material-ui/icons/Email';
 import FilledButton from '../components/Buttons'
+import  FormFooter from '../layout/FormFooter'
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import {InputCont} from "../components/InputCont";
@@ -127,6 +129,7 @@ type SignInFormState = {
   return(
     <>
     <TopSection/>
+    <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>
       <Paper className={classes.paper}>
@@ -170,25 +173,10 @@ type SignInFormState = {
       <img  src= { `https://picsum.photos/id/${3}/400/400`} alt='login_image' style={{height: '400px', marginLeft: theme.spacing(5)}}/>
     </main>
     </div>
-
+      <FormFooter/>
+    </DefaultOuterRootCont>
     
-    <div className={classes.footer}>
-    <Link component={RouterLink} to="register">
-      <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-            Terms of Service
-      </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Privacy
-    </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Contact us
-    </Typography>
-    </Link>
-    </div>
+    
     </>
         )
 }

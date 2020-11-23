@@ -1,23 +1,22 @@
+import { Button, InputAdornment, InputLabel, Typography } from '@material-ui/core';
 import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useEffect, useState} from 'react';
-import { makeStyles, withStyles } from "@material-ui/core/styles"
 
-import { Button } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+import { DefaultOuterRootCont } from "../components/Containers"
+import DividerComponent from '../layout/Divider'
 import EmailIcon from '@material-ui/icons/Email';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
-import InputAdornment from '@material-ui/core/InputAdornment';
+import FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
-import InputLabel from '@material-ui/core/InputLabel';
 import Link from '@material-ui/core/Link';
 import LockIcon from '@material-ui/icons/Lock';
 import Paper from '@material-ui/core/Paper';
 import { Link as RouterLink } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import TopSection from '../components/TopSection';
-import Typography from '@material-ui/core/Typography';
 import {getRefreshToken} from "../shared/API";
+import { makeStyles, } from "@material-ui/core/styles"
 import styled from 'styled-components';
 import theme from '../theme';
 import validate from "validate.js";
@@ -67,7 +66,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(3.5)
   },
   inputCont: {
-    padding: theme.spacing(2, 1, 0),
+    padding: '0px'
   },
   inputLabel:{
     textAlign:'start'
@@ -89,13 +88,6 @@ const useStyles = makeStyles(theme => ({
     fontSize: '12px',
     textDecoration: 'none'
   },
-  footer:{
-    display: 'flex',
-    flexDirection: 'row',
-    position: 'fixed',
-    top: '95%',
-    left: '33%',
-  }
 }))
 
 const schema = {
@@ -206,6 +198,7 @@ type SignInFormState = {
   return(
     <>
     <TopSection/>
+    <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>
       <Paper className={classes.paper}>
@@ -239,7 +232,6 @@ type SignInFormState = {
               
         </div>
          
-         <div>
           <FilledButton
             type="submit"
             fullWidth
@@ -251,13 +243,8 @@ type SignInFormState = {
           <Link component={RouterLink} to="resetpassword" className={classes.link}> 
             Forgot Password? 
           </Link>
-        </div>
 
-        <div style={{display: 'flex', flexDirection: 'row', marginTop: theme.spacing(2) }}>
-          <Divider style={{width: '40%', backgroundColor: 'gray', marginTop: theme.spacing(1.5), marginRight: theme.spacing(1.5),marginLeft: theme.spacing(1.5)}}></Divider>
-          <Typography variant="body2" style={{color: 'gray'}}>Or</Typography>
-          <Divider style={{width: '40%', backgroundColor: 'gray', marginTop: theme.spacing(1.5), marginLeft: theme.spacing(1.5)}}></Divider>
-        </div>
+        <DividerComponent />
 
         <SocialButtons>
               <SocialButton
@@ -291,24 +278,9 @@ type SignInFormState = {
       <img  src= { `https://picsum.photos/id/${3}/400/500`} alt='login_image' style={{height: '500px', marginLeft: theme.spacing(5)}}/>
     </main>
     </div>
-    <div className={classes.footer}>
-    <Link component={RouterLink} to="register">
-      <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-            Terms of Service
-      </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Privacy
-    </Typography>
-    </Link>
-    <Link component={RouterLink} to="register">
-    <Typography variant="body1" style={{color:'white', fontSize: '12px', marginLeft: theme.spacing(10)}}>
-           Contact us
-    </Typography>
-    </Link>
-    </div>
-    </>
+    <FormFooter/>
+  </DefaultOuterRootCont>
+  </>
         )
 }
 
