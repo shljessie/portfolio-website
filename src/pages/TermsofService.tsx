@@ -232,10 +232,10 @@ const PageHeader = (props: Props) => {
       <Typography variant='h4' className={classes.readyTitle}>
          Ready to get started?
       </Typography>
-      <FilledButton className={classes.button}>
+      <FilledButton className={classes.button} component={RouterLink} to="/uploadvideo">
           <Typography variant= 'button'>Create a workspace</Typography>
       </FilledButton>
-      <Link component={RouterLink} to="resetpassword" className={classes.link}> 
+      <Link component={RouterLink} to="/tryfree" className={classes.link}> 
           Or, Try Free
       </Link>
       <Typography variant='subtitle2' className={classes.descrip}>

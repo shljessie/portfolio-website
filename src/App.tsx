@@ -10,7 +10,9 @@ import React from 'react';
 import ResetPassword from './pages/ResetPassword'
 import Signup from './pages/Signup'
 import TermsofService from './pages/TermsofService'
+import TryFree from './pages/TryFree'
 import Tutorial from './pages/Tutorial'
+import UploadVideo from './pages/UploadVideo'
 import theme from './theme'
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
               <Route path="/checkemail" component={CheckEmail} />
               <Route path="/signup" component={Signup} />
               <Route path="/termsofservice" component={TermsofService} />
+              <Route path="/uploadvideo" component={UploadVideo} />
+              <Route path="/tryfree" component={TryFree} />
             </Router>
       </div>
     </MuiThemeProvider>
