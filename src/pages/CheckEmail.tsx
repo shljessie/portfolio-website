@@ -37,9 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
   inputs:{
     display:'flex',
-    width: '310px',
     flexDirection: 'column',
-    marginLeft: theme.spacing(3.5)
   },
   link: {
     marginTop: theme.spacing(1),
@@ -49,7 +47,6 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none'
   },
   resetButton:{
-    width:'90%',
     display:'flex',
     flexDirection :'row',
     marginTop: theme.spacing(7),

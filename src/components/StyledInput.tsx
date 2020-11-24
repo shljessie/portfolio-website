@@ -37,8 +37,6 @@ export const StyledInput = styled(DefaultInput)`
   background: ${props => props.color ? props.color : dialog};
   
   & input {
-    // This is workaround to changing background color when Chrome's autofill because
-    // Chrome doesnt support css rule.
     -webkit-box-shadow: 0 0 0px 1000px ${props => props.color ? props.color : dialog} inset !important;
     border-radius: 4px;
     -webkit-text-fill-color: #fff !important;

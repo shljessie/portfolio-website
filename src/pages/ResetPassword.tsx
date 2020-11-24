@@ -33,12 +33,9 @@ const useStyles = makeStyles(theme => ({
   },
   inputs:{
     display:'flex',
-    width: '310px',
     flexDirection: 'column',
-    marginLeft: theme.spacing(3.5)
   },
   inputCont: {
-    padding: theme.spacing(2, 1, 0),
   },
   inputLabel:{
     textAlign:'start'
@@ -48,9 +45,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#000',
   },
   link: {
-    marginTop: theme.spacing(2),
-    marginLeft: theme.spacing(5),
-    marginRight: theme.spacing(5),
+    margin: 'auto',
     color: '#8687FF',
     textDecoration: 'none'
   },
@@ -70,6 +65,7 @@ const useStyles = makeStyles(theme => ({
   },
   resetButton:{
     marginTop: theme.spacing(5),
+    display:'flex',
     justifyContent:'space-between'
   }
 }))

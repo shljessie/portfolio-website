@@ -94,7 +94,7 @@ const UploadVideo = () => {
               type="file"
             />
             <label htmlFor="contained-button-file">
-              <Button variant="contained" color="primary" component="span" style={{marginTop: theme.spacing(3)}}>
+              <Button variant="contained" component="span" style={{marginTop: theme.spacing(3), backgroundColor: '#8687FF'}}>
                 Add media
               </Button>
             </label>

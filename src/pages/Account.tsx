@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'start',
-    width: '35vw',
+    width: '40vw',
     marginTop: theme.spacing(6)
   },
   signOutButton:{
@@ -38,6 +38,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(10),
     backgroundColor: 'gray',
     border: 'none',
+    '&:hover': {
+      boxShadow: `0 0 14px gray`,
+      backgroundColor: 'gray',
+    },
   },
   subCont:{
     display: 'flex',
@@ -45,11 +49,19 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'start',
     marginTop: theme.spacing(6),
   },
+  buttonCont:{
+   width: '100%',
+   display: 'flex',
+   justifyContent: 'flex-end'
+  },
   deleteButton:{
     backgroundColor: 'red',
     border: 'none',
     width: '120px',
-    marginLeft: '46vw'
+    '&:hover': {
+      boxShadow: `0 0 14px red`,
+      backgroundColor: 'red',
+    },
   }
   
 }))
@@ -74,7 +86,7 @@ const PageTemplate = () => {
             </div>
             <FilledButton  className={classes.signOutButton}><Typography variant="button">Sign Out</Typography></FilledButton>
           </div>
-          <Divider style={{ width:"780px ", backgroundColor: 'gray', marginTop: theme.spacing(1.5)}}></Divider>
+          <Divider style={{ width:"100%", backgroundColor: 'gray', marginTop: theme.spacing(1.5)}}></Divider>
           <div className= {classes.subCont}>
             <Typography variant= "body1">BILLING HISTORY</Typography>
             <Typography variant= "body2">No payments to show. If you upgrade a workspace or pay Music Swapper in the future, your transaction history will show up here. </Typography>
@@ -83,7 +95,9 @@ const PageTemplate = () => {
             <Typography variant= "body1">DELETE ACCOUNT</Typography>
             <Typography variant= "body2">This will delete your Music Swapper account and everything associated with it.</Typography>
           </div>
+          <div className={classes.buttonCont}>
           <FilledButton className={classes.deleteButton}><Typography variant="button">Delete</Typography></FilledButton>
+          </div>
           </div>
         </DefaultInnerRootCont>
       </DefaultOuterRootCont>
