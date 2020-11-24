@@ -1,9 +1,12 @@
-import React, { useContext } from "react"
+import { Link, animateScroll as scroll } from "react-scroll";
+import React, { useContext, useEffect, useState } from "react"
 
+import ExapndLessIcon from '@material-ui/icons/ExpandLess'
 import FilledButton from '../components/Buttons'
 import Footer from '../layout/Footer'
 import Header from "../layout/Header"
 import Howto from '../components/Howto'
+import IconButton from '@material-ui/core/IconButton'
 import ImageSlider from "../components/ImageSlider"
 import Layout from "../components/layout"
 import PageHeader from "../components/PageHeader"
@@ -49,7 +52,6 @@ const SubscribeForm= () =>{
     </div>
   );
 }
-
 
 const HomePage = (props: Props) => {
 

@@ -2,6 +2,7 @@ import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Contai
 
 import FilledButton from '../components/Buttons'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
+import { Link } from "react-scroll";
 import React from "react"
 import { Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
@@ -65,9 +66,21 @@ const PageHeader = (props: Props) => {
         </FilledButton>
 
         {/* insert down button here!  */}
-        <FilledButton style={{marginTop: theme.spacing(22)}} />
-        </ButtonCont>
+        <FilledButton style={{marginTop: theme.spacing(22)}} >
+        <Link
+          className={classes.innerRoot}
+          activeClass="active"
+          to="howto"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          > MORE
+          </Link>
+        </FilledButton>
     
+        </ButtonCont>
+
 
       </DefaultInnerRootCont>
     </DefaultOuterRootCont>

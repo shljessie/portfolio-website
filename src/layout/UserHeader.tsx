@@ -1,19 +1,33 @@
 import {FilledButton, HollowButton} from '../components/Buttons'
 import { HEADER_HEIGHT, SIDE_MENU_PADDING_RIGHT } from "../constants/GlobalStyles"
 import React, { useContext, useEffect, useState } from "react"
+import { StyledMenu, StyledMenuItem } from '../components/StyledMenu'
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import BurgerMenu from "../components/BurgerMenu"
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { DefaultInnerRootCont } from "../components/Containers"
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Grow from '@material-ui/core/Grow';
 import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
+import {IconButton} from '@material-ui/core'
 import {
   Link,
 } from "react-router-dom";
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 import { Modal } from "../components/Modal"
+import {OverridableComponent} from "@material-ui/core/OverridableComponent";
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import SettingsIcon from '@material-ui/icons/Settings';
 import SideMenu from "../components/SideMenu"
+import {SvgIconTypeMap} from "@material-ui/core/SvgIcon/SvgIcon";
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
+import { useHistory } from "react-router-dom";
 import { useMediaQuery } from "@material-ui/core"
 
 const HEADER_OPACITY_SWITCH_HEIGHT = 160
@@ -64,6 +78,9 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(3),
     borderRight: '2px solid black',
   },
+  profileButton: {
+    margin: theme.spacing(0)
+  },
   mobileHeader: {
     width: '100%',
     boxSizing: 'border-box',
@@ -74,6 +91,15 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('md')]: {
     },
+  },
+  cont: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  rightCont: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
 }))
 
@@ -146,19 +172,50 @@ export const HEADER_COMPONENT_THEME_COLORS: {[key: string]: HeaderComponentTheme
   }
 }
 
-const Header = (props: Props) => {
-  const {} = props
+const UserHeader = () => {
 
-  const classes = useStyles()
+
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef<HTMLButtonElement>(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event: React.MouseEvent<EventTarget>) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  function handleListKeyDown(event: React.KeyboardEvent) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current!.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
+
+  const history = useHistory();
 
   const { headerTheme } = useContext(ThemeContext);
-
   const [scrollPosition, setScrollPosition] = useState(0)
   const [isHeaderBackgroundTransparent, setIsHeaderBackgroundTransparent] = useState(true)
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
   const theme = useTheme()
-
   const isDesktop = useMediaQuery(theme.breakpoints.up(1080), {
     defaultMatches: true
   })
@@ -210,18 +267,34 @@ const Header = (props: Props) => {
                   </>
                   : //when desktop
                   <>
-                   <ButtonContainer>
-                      <Link to="/Login" style={{textDecoration: 'none'}}>
-                        <HollowButton style={{color:'#8687FF', fontWeight: '500', fontFamily:'Lato'}}>
-                          Log in 
-                        </HollowButton>
-                      </Link>
-                      <Link to="/Tutorial" style={{textDecoration: 'none'}}>
-                        <FilledButton style={{  margin: '23px', fontFamily:'Lato'}}> 
-                          Tutorial 
-                        </FilledButton>
-                      </Link>
-                  </ButtonContainer>
+                  <div className={classes.cont}>
+                    <div className={classes.rightCont}>
+                      <IconButton ref={anchorRef} onClick={handleToggle} className={classes.profileButton} aria-controls={open ? 'menu-list-grow' : undefined}
+                      aria-haspopup="true">
+                        <AccountCircleIcon style= {{color: 'white', fontSize: "40"}}/>
+                      </IconButton>
+                      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                        {({ TransitionProps, placement }) => (
+                          <Grow
+                            {...TransitionProps}
+                            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                          >
+                          <Paper>
+                            <ClickAwayListener onClickAway={handleClose}>
+                            <MenuList
+                              autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}
+                            >
+                              <MenuItem onClick={handleClose} style={{color: 'white'}}>hjkim@cochlear.ai</MenuItem>
+                              <MenuItem onClick={handleClose} style={{color: 'white'}}><SettingsIcon style={{color: 'white'}}/> User settings</MenuItem>
+                              <MenuItem onClick={handleClose} style={{color: 'white'}}><ExitToAppIcon style={{color: 'white'}}/> Logout</MenuItem>
+                            </MenuList>
+                            </ClickAwayListener>
+                      </Paper>
+                      </Grow>
+                        )}
+                      </Popper>
+                    </div>
+                  </div>
                 </>
               }
               <Modal isSideMenuOpen={isSideMenuOpen} onClick={() => setIsSideMenuOpen(false)}/>
@@ -231,7 +304,5 @@ const Header = (props: Props) => {
   )
 }
 
-type Props = {
-}
 
-export default Header
+export default UserHeader

@@ -117,7 +117,7 @@ const UploadVideo = () => {
         }}
       />
       <Link component={RouterLink} to="resetpassword" className={classes.link}> 
-        Or Try a Sample
+        Or Explore Tutorial
       </Link>
       </DefaultInnerRootCont>
     </DefaultOuterRootCont>
