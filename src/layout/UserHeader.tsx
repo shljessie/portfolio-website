@@ -13,15 +13,14 @@ import Grow from '@material-ui/core/Grow';
 import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
 import {IconButton} from '@material-ui/core'
-import {
-  Link,
-} from "react-router-dom";
+import Link from '@material-ui/core/Link';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { Modal } from "../components/Modal"
 import {OverridableComponent} from "@material-ui/core/OverridableComponent";
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
+import { Link as RouterLink } from 'react-router-dom'
 import SettingsIcon from '@material-ui/icons/Settings';
 import SideMenu from "../components/SideMenu"
 import {SvgIconTypeMap} from "@material-ui/core/SvgIcon/SvgIcon";
@@ -285,7 +284,9 @@ const UserHeader = () => {
                               autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}
                             >
                               <MenuItem onClick={handleClose} style={{color: 'white'}}>hjkim@cochlear.ai</MenuItem>
-                              <MenuItem onClick={handleClose} style={{color: 'white'}}><SettingsIcon style={{color: 'white'}}/> User settings</MenuItem>
+                              <Link component={RouterLink} to="/account" > 
+                                <MenuItem onClick={handleClose} style={{color: 'white'}}><SettingsIcon style={{color: 'white'}}/> User settings</MenuItem>
+                              </Link>
                               <MenuItem onClick={handleClose} style={{color: 'white'}}><ExitToAppIcon style={{color: 'white'}}/> Logout</MenuItem>
                             </MenuList>
                             </ClickAwayListener>

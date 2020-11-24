@@ -3,7 +3,7 @@ import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useEffect, useState} from 'react';
 
 import { DefaultOuterRootCont } from "../components/Containers"
-import DividerComponent from '../layout/Divider'
+import { DividerComponent }from '../layout/Divider'
 import EmailIcon from '@material-ui/icons/Email';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'

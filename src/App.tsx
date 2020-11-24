@@ -2,6 +2,7 @@ import './App.css';
 
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
+import Account from './pages/Account'
 import CheckEmail from './pages/CheckEmail'
 import Home from './pages/Home';
 import Login from './pages/Login'
@@ -30,6 +31,7 @@ function App() {
               <Route path="/termsofservice" component={TermsofService} />
               <Route path="/uploadvideo" component={UploadVideo} />
               <Route path="/tryfree" component={TryFree} />
+              <Route path="/account" component={Account} />
             </Router>
       </div>
     </MuiThemeProvider>

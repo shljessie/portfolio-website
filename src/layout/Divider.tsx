@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const DividerComponent = () => {
+export const DividerComponent = () => {
 
   const classes = useStyles()
 
@@ -31,5 +31,14 @@ const DividerComponent = () => {
   )
 }
 
+export const LongDividerComponent = () => {
 
-export default DividerComponent;
+  const classes = useStyles()
+
+  return (
+    <div style={{display: 'flex', flexDirection: 'row', marginTop: theme.spacing(2) }}>
+    <Divider style={{ backgroundColor: 'gray', marginTop: theme.spacing(1.5), marginRight: theme.spacing(1.5),marginLeft: theme.spacing(1.5)}}></Divider>
+    </div>
+  )
+}
+
