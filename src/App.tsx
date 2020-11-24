@@ -12,7 +12,6 @@ import ResetPassword from './pages/ResetPassword'
 import Signup from './pages/Signup'
 import TermsofService from './pages/TermsofService'
 import TryFree from './pages/TryFree'
-import Tutorial from './pages/Tutorial'
 import UploadVideo from './pages/UploadVideo'
 import theme from './theme'
 
@@ -24,7 +23,6 @@ function App() {
            <Router>
               <Route exact path="/" component={Home} />
               <Route path="/login" component={Login} />
-              <Route path="/tutorial" component={Tutorial} />
               <Route path="/resetpassword" component={ResetPassword} />
               <Route path="/checkemail" component={CheckEmail} />
               <Route path="/signup" component={Signup} />

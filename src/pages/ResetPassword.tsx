@@ -1,20 +1,12 @@
-import {NOTIFY_TYPE, notify} from "../constants";
+import { Link, Paper, Typography, makeStyles }  from '@material-ui/core';
 import React, {useState} from 'react';
 
 import { DefaultOuterRootCont } from '../components/Containers'
-import EmailIcon from '@material-ui/icons/Email';
 import FilledButton from '../components/Buttons'
 import  FormFooter from '../layout/FormFooter'
-import Input from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import {InputCont} from "../components/InputCont";
-import InputLabel from '@material-ui/core/InputLabel';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from "@material-ui/core/styles"
 import theme from '../theme';
 
 const useStyles = makeStyles(theme => ({

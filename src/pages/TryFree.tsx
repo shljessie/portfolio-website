@@ -1,14 +1,13 @@
+import { Typography, makeStyles } from "@material-ui/core"
+
 import { DefaultInnerRootCont } from "../components/Containers"
 import FilledButton from '../components/Buttons'
 import Footer from '../layout/Footer'
 import Header from '../layout/Header'
 import Layout from "../components/layout"
-import Link from '@material-ui/core/Link';
 import React from "react"
 import { Link as RouterLink } from 'react-router-dom'
 import StarsIcon from '@material-ui/icons/Stars';
-import { Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
 import theme from "../theme"
 

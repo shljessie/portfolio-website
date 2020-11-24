@@ -1,13 +1,16 @@
+import {
+  Link,
+  Paper,
+  Typography,
+  makeStyles
+} from '@material-ui/core';
+
 import { DefaultOuterRootCont } from '../components/Containers'
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from "@material-ui/core/styles"
 import theme from '../theme';
 
 const useStyles = makeStyles(theme => ({
@@ -38,26 +41,12 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     marginLeft: theme.spacing(3.5)
   },
-  inputLabel:{
-    textAlign:'start'
-  },
-  submit: {
-    marginTop: theme.spacing(3),
-    backgroundColor: '#000',
-  },
   link: {
     marginTop: theme.spacing(1),
     marginLeft: theme.spacing(3.5),
     marginRight: theme.spacing(1),
     color: '#8687FF',
     textDecoration: 'none'
-  },
-  footer:{
-    display: 'flex',
-    flexDirection: 'row',
-    position: 'fixed',
-    top: '95%',
-    left: '33%',
   },
   resetButton:{
     width:'90%',
@@ -112,4 +101,5 @@ const useStyles = makeStyles(theme => ({
     </>
         )
 }
+
 export default CheckEmail;

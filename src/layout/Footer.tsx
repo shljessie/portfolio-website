@@ -1,16 +1,15 @@
 import * as React from 'react'
 
 import { FOOTER_NAV_LINK_ITEMS, NavLinkItem } from "../constants/Links"
+import { Typography, makeStyles } from "@material-ui/core"
 
 import { DefaultInnerRootCont } from "../components/Containers"
 import { FOOTER_IMAGE_URLS } from "../constants/ImageUrls"
 import { LINK_HOVER_COLOR } from "../theme/palette"
 import { SNS_LINKS } from "../constants/Urls"
 import { ThemeProvider } from 'styled-components'
-import { Typography } from "@material-ui/core"
 import UnstyledLink from "../components/UnstyledLink"
 import { VerticalDelimiter } from "../components/Delimiters"
-import {makeStyles} from "@material-ui/core/styles";
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
@@ -27,8 +26,6 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    // [theme.breakpoints.up('sm')]: {
-    // },
     [theme.breakpoints.up('md')]: {
       flexWrap: 'unset',
     },
@@ -86,7 +83,6 @@ const useStyles = makeStyles(theme => ({
     height: 'auto',
     width: '220px',
     justifyContent: 'space-between'
-    // margin: theme.spacing(2, 0, 1)
   },
   unstyledExternalLink: {
     textDecoration: 'none',

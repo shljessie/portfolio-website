@@ -1,11 +1,10 @@
 import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
+import { Typography, makeStyles } from "@material-ui/core"
 
 import FilledButton from '../components/Buttons'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import { Link } from "react-scroll";
 import React from "react"
-import { Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
 import theme from "../theme"
 

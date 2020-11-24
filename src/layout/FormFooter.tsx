@@ -1,9 +1,9 @@
 import * as React from 'react'
 
+import { Typography, makeStyles } from "@material-ui/core"
+
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom'
-import { Typography } from "@material-ui/core"
-import {makeStyles} from "@material-ui/core/styles";
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({

@@ -6,8 +6,6 @@ import WarningIcon from '@material-ui/icons/Warning';
 import theme from "../src/theme"
 import {toast} from "react-toastify";
 
-type NotifyType = 'error' | 'success' | 'info' | 'warning'
-
 const NOTIFY_DATA_BY_TYPE: {[key: string]: any} = {
   error: {
     icon: ErrorIcon,

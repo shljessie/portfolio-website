@@ -1,20 +1,12 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import "./layout.css"
 
-import Footer from "../layout/Footer"
-// import Header from "../layout/Header"
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   main: {
     minHeight: '100vh',
+    backgroundColor: "#101010",
   },
 }))
 

@@ -1,11 +1,10 @@
 import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
 import React, { useContext } from "react"
+import { Typography, makeStyles } from "@material-ui/core"
 
 import { FUNCTION_ITEM_DATA } from "../constants/PageData"
 import { TECHNOLOGY_IMAGE_URLS } from "../constants/ImageUrls"
 import { ThemeContext } from "../context/ThemeContext"
-import { Typography } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
 import theme from "../theme"
 

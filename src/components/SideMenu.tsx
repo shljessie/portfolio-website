@@ -1,15 +1,14 @@
-import { HEADER_NAV_LINK_ITEMS, NavLinkItem } from "../constants/Links"
 import React, { useContext } from "react"
 import { SIDE_MENU_PADDING_RIGHT, SIDE_MENU_TRANSITION } from "../constants/GlobalStyles"
-import UnstyledLink, { NavTextItem } from "./UnstyledLink"
+import { makeStyles, useMediaQuery } from "@material-ui/core"
 
 import { HEADER_COMPONENT_THEME_COLORS } from "../layout/Header"
 import { HorizontalDelimiter } from "./Delimiters"
+import { NavLinkItem } from "../constants/Links"
 import { ThemeContext } from "../context/ThemeContext"
-import { makeStyles } from "@material-ui/core/styles"
+import UnstyledLink from "./UnstyledLink"
 import styled from 'styled-components';
 import theme from "../theme"
-import { useMediaQuery } from "@material-ui/core"
 
 const SIDE_MENU_ITEM_HEIGHT = 34
 const SIDE_MENU_WIDTH_LARGE = 300

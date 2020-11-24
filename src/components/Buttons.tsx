@@ -1,8 +1,7 @@
+import {Button, Theme} from "@material-ui/core";
 import {createStyles, withStyles} from "@material-ui/styles";
 
-import {Button} from "@material-ui/core";
 import React from "react";
-import {Theme} from "@material-ui/core/styles";
 
 export const HollowButton = withStyles((theme: Theme) =>
   createStyles({

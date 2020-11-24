@@ -1,33 +1,32 @@
-import {FilledButton, HollowButton} from '../components/Buttons'
+import {
+  ClickAwayListener,
+  Grow,
+  IconButton,
+  Link,
+  MenuItem,
+  MenuList,
+  Paper,
+  Popper,
+  makeStyles,
+  useMediaQuery,
+  useTheme
+} from "@material-ui/core"
 import { HEADER_HEIGHT, SIDE_MENU_PADDING_RIGHT } from "../constants/GlobalStyles"
 import React, { useContext, useEffect, useState } from "react"
-import { StyledMenu, StyledMenuItem } from '../components/StyledMenu'
-import { makeStyles, useTheme } from "@material-ui/core/styles"
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import BurgerMenu from "../components/BurgerMenu"
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import { DefaultInnerRootCont } from "../components/Containers"
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Grow from '@material-ui/core/Grow';
 import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
-import {IconButton} from '@material-ui/core'
-import Link from '@material-ui/core/Link';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
 import { Modal } from "../components/Modal"
-import {OverridableComponent} from "@material-ui/core/OverridableComponent";
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
 import { Link as RouterLink } from 'react-router-dom'
 import SettingsIcon from '@material-ui/icons/Settings';
 import SideMenu from "../components/SideMenu"
-import {SvgIconTypeMap} from "@material-ui/core/SvgIcon/SvgIcon";
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
 import { useHistory } from "react-router-dom";
-import { useMediaQuery } from "@material-ui/core"
 
 const HEADER_OPACITY_SWITCH_HEIGHT = 160
 

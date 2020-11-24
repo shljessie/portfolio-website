@@ -1,30 +1,26 @@
 import { DefaultInnerRootCont, DefaultOuterRootCont }  from '../components/Containers'
-import { LayoutRootCont, PageTitleCont } from "../components/Containers"
+import { Divider, Typography, makeStyles } from '@material-ui/core';
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Divider from '@material-ui/core/Divider';
 import FilledButton from '../components/Buttons'
 import Layout from "../components/layout"
-import { LongDividerComponent } from '../layout/Divider'
 import React from "react"
-import Typography from '@material-ui/core/Typography';
 import UserHeader from '../layout/UserHeader'
-import { makeStyles } from "@material-ui/core/styles"
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
+  innerRoot :{
+    display:'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'white',
+  },
   accountCont :{
     display:'flex',
     alignItems: 'start',
     flexDirection: 'column',
     color: 'white',
-  },
-  innerRoot :{
-    display:'flex',
-    flexDirection: 'column',
-    color: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   info:{
     display: 'flex',
@@ -38,10 +34,10 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(6)
   },
   signOutButton:{
+    width: '120px',
+    marginTop: theme.spacing(10),
     backgroundColor: 'gray',
     border: 'none',
-    width: '120px',
-    marginTop: theme.spacing(10)
   },
   subCont:{
     display: 'flex',
@@ -58,8 +54,7 @@ const useStyles = makeStyles(theme => ({
   
 }))
 
-const PageTemplate = (props: Props) => {
-  const {} = props
+const PageTemplate = () => {
 
   const classes = useStyles()
 
@@ -96,6 +91,5 @@ const PageTemplate = (props: Props) => {
   )
 }
 
-type Props = {}
 
 export default PageTemplate

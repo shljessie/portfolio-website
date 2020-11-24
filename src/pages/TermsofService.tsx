@@ -1,9 +1,8 @@
-import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
+import { Accordion, AccordionDetails, Typography } from '@material-ui/core';
 import { makeStyles, withStyles } from "@material-ui/core/styles"
 
-import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AddIcon from '@material-ui/icons/Add';
+import { DefaultInnerRootCont } from "../components/Containers"
 import FilledButton from '../components/Buttons'
 import Footer from '../layout/Footer'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
@@ -13,7 +12,6 @@ import Link from '@material-ui/core/Link';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import React  from "react"
 import { Link as RouterLink } from 'react-router-dom'
-import { Typography } from "@material-ui/core"
 import styled from "styled-components"
 import theme from "../theme"
 

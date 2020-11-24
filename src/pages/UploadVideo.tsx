@@ -1,15 +1,8 @@
+import { Box, Button, Link, TextField, Typography, makeStyles, withStyles } from "@material-ui/core"
 import { DefaultInnerRootCont, DefaultOuterRootCont }  from '../components/Containers'
-import { makeStyles, withStyles } from "@material-ui/core/styles"
 
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import FilledButton from "../components/Buttons"
-import {InputCont} from "../components/InputCont";
-import Link from '@material-ui/core/Link';
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 import UserHeader from '../layout/UserHeader'
 import VideoCallIcon from '@material-ui/icons/VideoCall';
 import theme from "../theme"

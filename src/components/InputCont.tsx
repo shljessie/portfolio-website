@@ -1,8 +1,8 @@
-import {InputAdornment} from "@material-ui/core";
+import {InputAdornment, makeStyles} from "@material-ui/core";
+
 import React from "react";
 import {StyledInput} from "./StyledInput";
 import clsx from "clsx";
-import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   inputCont: {

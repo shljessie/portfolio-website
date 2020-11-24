@@ -1,7 +1,6 @@
+import {TextField, Theme} from "@material-ui/core";
 import {createStyles, withStyles} from "@material-ui/styles";
 
-import {TextField} from "@material-ui/core";
-import {Theme} from "@material-ui/core/styles";
 import {dialog} from "../theme/palette";
 import styled from "styled-components";
 

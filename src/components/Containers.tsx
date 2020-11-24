@@ -1,9 +1,8 @@
 import { HEADER_HEIGHT, MAX_WIDTH } from "../constants/GlobalStyles"
+import { Typography, makeStyles } from "@material-ui/core"
 
 import React from "react"
-import { Typography } from "@material-ui/core"
 import clsx from "clsx"
-import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
 
 const useStyles = makeStyles(theme => ({

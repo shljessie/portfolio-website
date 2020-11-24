@@ -1,12 +1,13 @@
+import {} from "@material-ui/core/styles";
+
+import {Dialog, makeStyles} from "@material-ui/core";
 import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useEffect, useState} from "react";
 
-import {Dialog} from "@material-ui/core";
 import FilledButton from "../components/Buttons"
 import {InputCont} from "./InputCont";
 import {StyledDialogContent} from "../components/StyledDialogContent";
 import {StyledDialogTitle} from "../components/StyledDialogTitle";
-import {makeStyles} from "@material-ui/core/styles";
 import {postForgotPassword} from "../shared/API";
 import validate from "validate.js";
 

@@ -1,10 +1,7 @@
 import * as React from 'react'
 
-import Divider from '@material-ui/core/Divider';
-import Link from '@material-ui/core/Link';
-import { Link as RouterLink } from 'react-router-dom'
-import { Typography } from "@material-ui/core"
-import {makeStyles} from "@material-ui/core/styles";
+import { Divider, Typography, makeStyles } from "@material-ui/core"
+
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
@@ -31,14 +28,4 @@ export const DividerComponent = () => {
   )
 }
 
-export const LongDividerComponent = () => {
-
-  const classes = useStyles()
-
-  return (
-    <div style={{display: 'flex', flexDirection: 'row', marginTop: theme.spacing(2) }}>
-    <Divider style={{ backgroundColor: 'gray', marginTop: theme.spacing(1.5), marginRight: theme.spacing(1.5),marginLeft: theme.spacing(1.5)}}></Divider>
-    </div>
-  )
-}
 

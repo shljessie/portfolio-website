@@ -1,12 +1,9 @@
-import { Theme, Typography } from "@material-ui/core"
+import { Link, Theme, Typography, makeStyles } from "@material-ui/core"
 
 import { LINK_HOVER_COLOR } from "../theme/palette"
-import { Link } from "@reach/router"
 import React from "react"
+import { Link as RouterLink } from 'react-router-dom'
 import clsx from "clsx"
-import { makeStyles } from "@material-ui/core/styles"
-import styled from "styled-components"
-import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   navTextCont: {
@@ -30,7 +27,6 @@ const useLinkStyles = makeStyles<Theme, Props>(theme => ({
     transition: 'color .1s ease',
     '&:hover': {
       color: ({hoverColor}) => hoverColor || LINK_HOVER_COLOR,
-      // opacity: 0.7
     }
   },
 }))
@@ -63,12 +59,12 @@ export const UnstyledLink = (props: Props) => {
     href
       ?
       isExternalLink
-        ? <a href={href} className={classes.link} target='_blank'>
+        ? <a href={href} className={classes.link}>
           <NavTextItem height={height || 'auto'} variant={variant} className={className} color={color}>
             {name}
           </NavTextItem>
         </a>
-        : <Link to={href} className={classes.link}>
+        : <Link component={RouterLink} to={href}>
           <NavTextItem height={height || 'auto'} variant={variant} className={className} color={color}>
             {name}
           </NavTextItem>

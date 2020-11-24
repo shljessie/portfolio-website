@@ -1,45 +1,19 @@
+import { Button, Link, Paper, Typography, makeStyles }  from '@material-ui/core';
 import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useEffect, useState} from 'react';
 import {SignUpForm, getRefreshToken} from "../shared/API";
 
-import { Button } from '@material-ui/core';
 import { DefaultOuterRootCont } from '../components/Containers'
 import { DividerComponent }  from '../layout/Divider'
-import EmailIcon from '@material-ui/icons/Email';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
-import Input from '@material-ui/core/Input';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import {InputCont} from "../components/InputCont";
-import InputLabel from '@material-ui/core/InputLabel';
-import Link from '@material-ui/core/Link';
-import LockIcon from '@material-ui/icons/Lock';
-import Paper from '@material-ui/core/Paper';
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from "@material-ui/core/styles"
 import styled from 'styled-components';
 import theme from '../theme';
 import validate from "validate.js";
-
-const SocialButtons = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 12px;
-  align-items: center;
-`
-
-const SocialButton = styled(Button)`
-  flex: 1;
-  min-height: 48px;
-  width: 80%;
-  color: 'white';
-  margin: 5px;
-  text-align: center;
-`
-
 
 const useStyles = makeStyles(theme => ({
   root:{
@@ -66,9 +40,6 @@ const useStyles = makeStyles(theme => ({
   inputs:{
     display:'flex',
     flexDirection: 'column',
-  },
-  inputLabel:{
-    textAlign:'start'
   },
   inputCont: {
     padding: theme.spacing(2, 1, 0),
@@ -99,6 +70,23 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const SocialButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  align-items: center;
+`
+
+const SocialButton = styled(Button)`
+  flex: 1;
+  min-height: 48px;
+  width: 80%;
+  color: 'white';
+  margin: 5px;
+  text-align: center;
+`
+
+
 
 const schema = {
   email: {
@@ -114,19 +102,6 @@ const schema = {
       maximum: 128
     }
   }
-}
-
-
-type SignInInputs = {
-  email: string,
-  password: string
-}
-
-type SignUpFormState = {
-  isValid: boolean,
-  values: SignUpForm,
-  touched: any,
-  errors: any
 }
 
  const Signup = (props: Props)=>{
@@ -330,6 +305,18 @@ type SignUpFormState = {
     </DefaultOuterRootCont>
     </>
         )
+}
+
+type SignInInputs = {
+  email: string,
+  password: string
+}
+
+type SignUpFormState = {
+  isValid: boolean,
+  values: SignUpForm,
+  touched: any,
+  errors: any
 }
 
 

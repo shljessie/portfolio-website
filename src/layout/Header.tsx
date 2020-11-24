@@ -1,7 +1,7 @@
 import {FilledButton, HollowButton} from '../components/Buttons'
 import { HEADER_HEIGHT, SIDE_MENU_PADDING_RIGHT } from "../constants/GlobalStyles"
 import React, { useContext, useEffect, useState } from "react"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core"
 
 import BurgerMenu from "../components/BurgerMenu"
 import { DefaultInnerRootCont } from "../components/Containers"
@@ -14,7 +14,6 @@ import { Modal } from "../components/Modal"
 import SideMenu from "../components/SideMenu"
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
-import { useMediaQuery } from "@material-ui/core"
 
 const HEADER_OPACITY_SWITCH_HEIGHT = 160
 

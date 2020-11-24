@@ -1,22 +1,16 @@
-import { Button, InputAdornment, InputLabel, Typography } from '@material-ui/core';
+import { Button, Link, Paper, Typography, makeStyles } from '@material-ui/core';
 import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useEffect, useState} from 'react';
 
 import { DefaultOuterRootCont } from "../components/Containers"
 import { DividerComponent }from '../layout/Divider'
-import EmailIcon from '@material-ui/icons/Email';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
-import Link from '@material-ui/core/Link';
-import LockIcon from '@material-ui/icons/Lock';
-import Paper from '@material-ui/core/Paper';
 import { Link as RouterLink } from 'react-router-dom'
-import TextField from '@material-ui/core/TextField';
 import TopSection from '../components/TopSection';
 import {getRefreshToken} from "../shared/API";
-import { makeStyles, } from "@material-ui/core/styles"
 import styled from 'styled-components';
 import theme from '../theme';
 import validate from "validate.js";

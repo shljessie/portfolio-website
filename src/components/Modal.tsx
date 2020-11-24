@@ -1,13 +1,10 @@
-import React from "react"
-import styled from 'styled-components';
 import { SIDE_MENU_TRANSITION } from "../constants/GlobalStyles"
+import styled from 'styled-components';
 
 type ModalProps = {
   isSideMenuOpen: boolean
 }
 
-// setting theme if not using MUI
-// https://css-tricks.com/hamburger-menu-with-a-side-of-react-hooks-and-styled-components/
 export const Modal = styled.div`
   position: absolute;
   background-color: #000;
