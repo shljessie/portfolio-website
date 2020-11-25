@@ -23,7 +23,7 @@ export const HEADER_IMAGE_URLS: {[key: string]: HeaderImageUrlsProps} = {
 export const FOOTER_IMAGE_URLS = {
   logo: IMAGE_DIRECTORY_PATH.footer + '/footer_logo.png',
   sns: {
-    medium: IMAGE_DIRECTORY_PATH.footer + '/footer_icon_facebook.png',
+    medium: IMAGE_DIRECTORY_PATH.footer + '/footer_icon_medium.png',
     facebook: IMAGE_DIRECTORY_PATH.footer + '/footer_icon_facebook.png',
     instagram: IMAGE_DIRECTORY_PATH.footer + '/footer_icon_instagram.png',
     linkedIn: IMAGE_DIRECTORY_PATH.footer + '/footer_icon_linkedin.png',

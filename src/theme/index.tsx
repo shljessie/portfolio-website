@@ -98,9 +98,11 @@ theme.typography.body1 = {
   [theme.breakpoints.up('sm')]: {
     fontSize: '14px',
     letterSpacing: '0.2px',
+    // lineHeight: '24px',
   },
   [theme.breakpoints.up('md')]: {
     fontSize: '16px',
+    // lineHeight: '30px',
     letterSpacing: '0.2px',
   }
 };

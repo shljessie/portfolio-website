@@ -47,7 +47,7 @@ export const FOOTER_NAV_LINK_ITEMS: NavLinkItem[] = [
         url: '/press/'
       },
       {
-        name: 'Career opportunities',
+        name: 'Join Our Team',
         url: '/career/'
       }
     ]

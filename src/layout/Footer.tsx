@@ -1,25 +1,24 @@
 import * as React from 'react'
 
 import { FOOTER_NAV_LINK_ITEMS, NavLinkItem } from "../constants/Links"
-import { Typography, makeStyles } from "@material-ui/core"
 
 import { DefaultInnerRootCont } from "../components/Containers"
 import { FOOTER_IMAGE_URLS } from "../constants/ImageUrls"
 import { LINK_HOVER_COLOR } from "../theme/palette"
 import { SNS_LINKS } from "../constants/Urls"
-import { ThemeProvider } from 'styled-components'
+import { Typography } from "@material-ui/core"
 import UnstyledLink from "../components/UnstyledLink"
 import { VerticalDelimiter } from "../components/Delimiters"
+import {makeStyles} from "@material-ui/core/styles";
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    justifyContent: 'center',
     backgroundColor: '#000',
-    justifyContent:'center',
-    fontFamily: 'Lato',
     color: '#fff',
-    padding: theme.spacing(8, 0)
+    padding: theme.spacing(8, 0),
   },
   topRow: {
     width: '100%',
@@ -83,6 +82,7 @@ const useStyles = makeStyles(theme => ({
     height: 'auto',
     width: '220px',
     justifyContent: 'space-between'
+    // margin: theme.spacing(2, 0, 1)
   },
   unstyledExternalLink: {
     textDecoration: 'none',
@@ -91,8 +91,10 @@ const useStyles = makeStyles(theme => ({
     opacity: 1,
     textAlign: 'center',
     '&:hover': {
+      // opacity: 0.7
       color: LINK_HOVER_COLOR,
     },
+    // transition: 'opacity 0.15s ease-in-out 0s'
     transition: 'color .1s ease',
   },
   navMenuCont: {
@@ -100,7 +102,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '640px',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    alignItems: 'space-between',
+    justifyContent: 'flex-start',
     marginTop: theme.spacing(2),
     height: '420px',
     [theme.breakpoints.up('sm')]: {
@@ -116,8 +120,13 @@ const useStyles = makeStyles(theme => ({
     }
   },
   navMenuUnit: {
+    // width: '33.3%',
+    // maxWidth: '250px',
     marginTop: theme.spacing(2),
-
+    display: 'inline-block',
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(8),
+    },
   }
 }))
 
@@ -131,7 +140,7 @@ const SnsLink = (props: SnsLinkProps) => {
   const classes = useStyles()
 
   return (
-    <a className={classes.snsLink} href={props.href} target='_blank'>
+    <a className={classes.snsLink} href={props.href}>
       <img src={props.src} alt={props.alt} className={classes.snsLogo} />
     </a>
   )
@@ -147,7 +156,7 @@ const UnstyledExternalLink = (props: UnstyledExternalLinkProps) => {
 
   return (
     <a href={props.href} className={classes.unstyledExternalLink}>
-      <Typography variant='body2' style= {{fontFamily: 'Lato'}}>
+      <Typography variant='body2'>
         {props.name}
       </Typography>
     </a>
@@ -162,8 +171,8 @@ const NavMenuCategoryCont = ({ navLinkItem }: NaveMenuCategoryContProps) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.navMenuUnit}>
-      <Typography variant='body1' style={{ color: '#fff', padding: '4px', fontWeight: 700, textAlign: 'start'}}>
+    <div>
+      <Typography variant='body1' style={{ color: '#fff', padding: theme.spacing(0.5), fontWeight: 700, textAlign: 'start' }}>
         {navLinkItem.name}
       </Typography>
       <div style={{margin: theme.spacing(1.5, 0), textAlign: 'start'}}>
@@ -176,7 +185,8 @@ const NavMenuCategoryCont = ({ navLinkItem }: NaveMenuCategoryContProps) => {
                 href={subItem.url}
                 isExternalLink={subItem.isExternalLink}
                 variant='body2'
-                height='24px'
+                height='30px'
+                hoverColor={'#6D33F1'}
               />
             )
           })
@@ -204,32 +214,30 @@ const BottomRow = () => {
   const classes = useStyles()
 
   return (
-    <ThemeProvider theme={theme}>
     <div className={classes.bottomRow}>
       <div className={classes.flexWrapper}>
         <div style={{display: 'flex', alignItems: 'center', marginRight: theme.spacing(5)}}>
           <Typography variant='body2' style={{color: '#fff'}}>
-            @ 2020 Cochlear.ai
+            &copy; 2020 Cochlear.ai
           </Typography>
         </div>
         <div className={classes.termsCont}>
           <UnstyledExternalLink href='' name='Cookie Settings'/>
           <VerticalDelimiter color='#fff' length='20px'/>
-          <UnstyledExternalLink href='/TermsofService' name='Terms of Service'/>
+          <UnstyledExternalLink href='' name='Terms of Service'/>
           <VerticalDelimiter color='#fff' length='20px'/>
           <UnstyledExternalLink href='' name='Privacy  Policy'/>
         </div>
       </div>
       <div className={classes.snsCont}>
-      <SnsLink href={SNS_LINKS.facebook} src={FOOTER_IMAGE_URLS.sns.facebook} alt='facebook_logo'/>
+        <SnsLink href={SNS_LINKS.medium} src={FOOTER_IMAGE_URLS.sns.medium} alt='medium_logo'/>
         <SnsLink href={SNS_LINKS.facebook} src={FOOTER_IMAGE_URLS.sns.facebook} alt='facebook_logo'/>
-        <SnsLink href={SNS_LINKS.twitter} src={FOOTER_IMAGE_URLS.sns.twitter} alt='twitter_logo'/>
-        <SnsLink href={SNS_LINKS.linkedIn} src={FOOTER_IMAGE_URLS.sns.linkedIn} alt='linkedin_logo'/>
-        <SnsLink href={SNS_LINKS.github} src={FOOTER_IMAGE_URLS.sns.github} alt='github_logo'/>
         <SnsLink href={SNS_LINKS.instagram} src={FOOTER_IMAGE_URLS.sns.instagram} alt='instagram_logo'/>
+        <SnsLink href={SNS_LINKS.linkedIn} src={FOOTER_IMAGE_URLS.sns.linkedIn} alt='linkedin_logo'/>
+        <SnsLink href={SNS_LINKS.twitter} src={FOOTER_IMAGE_URLS.sns.twitter} alt='twitter_logo'/>
+        <SnsLink href={SNS_LINKS.github} src={FOOTER_IMAGE_URLS.sns.github} alt='github_logo'/>
       </div>
     </div>
-  </ThemeProvider>
   )
 }
 
