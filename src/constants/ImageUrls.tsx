@@ -1,4 +1,4 @@
-const ROOT_PATH = 'https://cochl-images.s3.ap-northeast-2.amazonaws.com/official_website'
+const ROOT_PATH = 'https://cochl-images.s3.ap-northeast-2.amazonaws.com/music-swapper'
 
 export const IMAGE_DIRECTORY_PATH = {
   header: ROOT_PATH + '/header',
@@ -38,12 +38,5 @@ export const TECHNOLOGY_IMAGE_URLS = {
     IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_1.mp4',
     IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_2.mp4',
     IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_3.mp4'
-  ],
-  special: [
-    IMAGE_DIRECTORY_PATH.technology + '/tech_special_1.gif',
-    IMAGE_DIRECTORY_PATH.technology + '/tech_special_2.png',
-    IMAGE_DIRECTORY_PATH.technology + '/tech_special_3.png',
-    IMAGE_DIRECTORY_PATH.technology + '/tech_special_4.gif',
-    IMAGE_DIRECTORY_PATH.technology + '/tech_special_5.png',
   ]
 }

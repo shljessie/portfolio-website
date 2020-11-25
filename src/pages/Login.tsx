@@ -8,6 +8,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
+import ResetPassword from "../pages/ResetPassword";
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
 import {getRefreshToken} from "../shared/API";
@@ -114,6 +115,7 @@ type SignInFormState = {
 
 
  const Login = (props: Props)=>{
+  const classes = useStyles()
   const { setAccessToken, setIsPending, notifySubmitSuccess, notifySubmitFailure } = props
 
   const [formState, setFormState] = useState<SignInFormState>({
@@ -175,7 +177,6 @@ type SignInFormState = {
     }).catch(e => {
       switch (e.response.status) {
         case 401:
-          // notifySubmitFailure('Email or password is incorrect.')
           notify('Email or password is incorrect.', 'error')
           break;
         case 403:
@@ -186,8 +187,6 @@ type SignInFormState = {
       setIsPending(false)
     })
   }
-
-    const classes = useStyles()
     
   return(
     <>
@@ -196,7 +195,7 @@ type SignInFormState = {
     <div className={classes.root}>
     <main className={classes.main}>
       <Paper className={classes.paper}>
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={handleSignIn}>
         <div className={classes.inputs}>
         <Typography variant= "h6" style={{ textAlign: 'start', marginBottom: theme.spacing(2), color:'white', fontSize:'24px'}}>
            Log in 
@@ -227,6 +226,7 @@ type SignInFormState = {
         </div>
          
           <FilledButton
+            isFilled={true}
             type="submit"
             fullWidth
             variant="contained"
@@ -234,9 +234,9 @@ type SignInFormState = {
           >
             Log in
           </FilledButton>
-          <Link component={RouterLink} to="resetpassword" className={classes.link}> 
-            Forgot Password? 
-          </Link>
+            <Link component={RouterLink} to="/resetpassword" className={classes.link} onClick={() => setIsResetPasswordDialogOpen(true)}> 
+                Forgot Password? 
+            </Link>
 
         <DividerComponent />
 

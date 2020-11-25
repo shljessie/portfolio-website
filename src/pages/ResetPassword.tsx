@@ -1,5 +1,6 @@
-import { Link, Paper, Typography, makeStyles }  from '@material-ui/core';
-import React, {useState} from 'react';
+import { Dialog, Link, Paper, Typography, makeStyles }  from '@material-ui/core';
+import {NOTIFY_TYPE, notify} from "../constants";
+import React, {useEffect, useState} from 'react';
 
 import { DefaultOuterRootCont } from '../components/Containers'
 import FilledButton from '../components/Buttons'
@@ -7,7 +8,9 @@ import  FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
+import {postForgotPassword} from "../shared/API";
 import theme from '../theme';
+import validate from "validate.js";
 
 const useStyles = makeStyles(theme => ({
   root:{
@@ -67,8 +70,30 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(5),
     display:'flex',
     justifyContent:'space-between'
+  },
+  dialog:{
+    
   }
 }))
+
+
+const schema = {
+  email: {
+    presence: {allowEmpty: false, message: 'is requried'},
+    email: true,
+    length: {
+      maximum: 64
+    }
+  }
+}
+
+type EmailInput = {
+  isValid: boolean,
+  value: {[key: string]: string},
+  touched: boolean,
+  errors: {[key: string]: string[]}
+}
+
 
 type SignInInputs = {
   email: string,
@@ -84,35 +109,73 @@ type SignInFormState = {
 
  const ResetPassword= (props :Props)=>{
 
-  const hasError = (field: string): boolean => formState.touched[field] && formState.errors[field]
+  const {isOpen, onClose, setIsPending, notifySubmitSuccess, notifySubmitFailure } = props
+  const classes = useStyles()
+  const [emailInput, setEmailInput] = useState<EmailInput>({
+    isValid: false,
+    value: {email: ''},
+    touched: false,
+    errors: {
+      email: []
+    }
+  })
 
-  const handleChange = (event: any) => {
+  useEffect(() => {
+    const errors = validate(emailInput.value, schema)
+
+    setEmailInput(
+      EmailInput => ({
+        ...EmailInput,
+        isValid: !errors,
+        errors: !errors ? {email: []} : errors
+      })
+    )
+  }, [emailInput.value])
+
+  const refreshForm = () => {
+    setEmailInput({
+      isValid: false,
+      value: {email: ''},
+      touched: false,
+      errors: {
+        email: []
+      }
+    })
+  }
+
+  const submitForgotPassword = async (event: any, onClose: () => void) => {
+    event.preventDefault()
+
+    setIsPending(true)
+
+    try {
+      await postForgotPassword(emailInput.value.email).then((resp) => {
+        notify('We sent an email with reset password Link.\nPlease check the inbox of your email account.',
+          NOTIFY_TYPE.SUCCESS)
+      })
+    } catch (e) {
+      notify('There was a problem with sending an email. Please try again later.', NOTIFY_TYPE.ERROR)
+    }
+    setIsPending(false)
+    refreshForm()
+    onClose()
+  }
+
+  const handleEmailInput = (event: any) => {
     event.persist()
 
-    setFormState(formState => ({
-      ...formState,
-      values: {
-        ...formState.values,
-        [event.target.name]: event.target.value
+    setEmailInput(emailInput => ({
+      ...emailInput,
+      value: {
+        ...emailInput.value,
+        email: event.target.value
       },
-      touched: {
-        ...formState.touched,
-        [event.target.name]: true
-      }
+      touched: true
     }))
   }
 
-  const [formState, setFormState] = useState<SignInFormState>({
-    isValid: false,
-    values: {
-      email: '',
-      password: ''
-    },
-    touched: {},
-    errors: {}
-  })
+  const hasError = (): boolean => emailInput.touched && emailInput.errors.email.length > 0
 
-    const classes = useStyles()
     
   return(
     <>
@@ -127,11 +190,11 @@ type SignInFormState = {
               <InputCont
                     label='EMAIL'
                     name='email'
-                    value={formState.values.email}
-                    handleChange={handleChange}
+                    value={emailInput.value.email}
+                    handleChange={handleEmailInput}
                     type='email'
-                    isError={hasError('email')}
-                    helperText={hasError('email') ? formState.errors.email[0] : null}
+                    isError={hasError()}
+                    helperText={hasError() ?  emailInput.errors.email[0] : undefined}
                     color='black'
                     className={classes.inputCont}
                   />
@@ -143,7 +206,7 @@ type SignInFormState = {
          <div className={classes.resetButton}>
          <Link component={RouterLink} to="checkemail"> 
             <FilledButton
-              type="submit"
+              onClick={(event: any) => submitForgotPassword(event, onClose)}
               fullWidth
               variant="contained"
               style={{width:'199px',  height: '41px', borderRadius: '0px'}}
@@ -162,9 +225,7 @@ type SignInFormState = {
     </main>
     </div>
       <FormFooter/>
-    </DefaultOuterRootCont>
-    
-    
+    </DefaultOuterRootCont>  
     </>
         )
 }
@@ -172,7 +233,8 @@ type SignInFormState = {
 
 
 type Props = {
-  setAccessToken: any,
+  isOpen: boolean,
+  onClose: () => void,
   setIsPending: (isPending: boolean) => void,
   notifySubmitSuccess: (msg: string) => void,
   notifySubmitFailure: (msg: string) => void,
