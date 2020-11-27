@@ -341,7 +341,7 @@ type Props = StateProps & DispatchProps & OwnProps
          <Typography variant="body1" style={{color:'white', fontSize: '12px', marginTop: theme.spacing(1.5)}}>
            Already have an account?
          </Typography>
-         <Link component={RouterLink} to="/login" className={classes.linkTwo} style={{    textDecoration: 'none'}}>
+         <Link component={RouterLink} to="/login" className={classes.linkTwo} style={{textDecoration: 'none'}}>
            Log in
         </Link>
          </div>

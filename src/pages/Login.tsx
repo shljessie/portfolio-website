@@ -259,7 +259,7 @@ type SignInFormState = {
          <Typography variant="body1" style={{color:'white', fontSize: '12px', marginTop: theme.spacing(1.5)}}>
            Don't have an account?
          </Typography>
-         <Link component={RouterLink} to="signup" className={classes.linkTwo}>Sign up</Link>
+         <Link component={RouterLink} to="signup" className={classes.linkTwo} style={{textDecoration: 'none'}}>Sign up</Link>
          </div>
 
          
