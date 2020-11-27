@@ -45,7 +45,7 @@ const FilledButtonTemplate = withStyles((theme: Theme) =>
       },
     },
     disabled: {
-      color: `#8687FF`,
+      color: `#fff`,
       border: '2px solid #565656',
       background: `#8687FF`,
     }

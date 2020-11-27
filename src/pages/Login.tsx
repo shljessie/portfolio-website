@@ -8,7 +8,6 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
-import ResetPassword from "../pages/ResetPassword";
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
 import {getRefreshToken} from "../shared/API";
@@ -62,9 +61,6 @@ const useStyles = makeStyles(theme => ({
   },
   inputCont: {
     padding: '0px'
-  },
-  inputLabel:{
-    textAlign:'start'
   },
   submit: {
     marginTop: theme.spacing(3),
@@ -208,7 +204,7 @@ type SignInFormState = {
                     type='email'
                     isError={hasError('email')}
                     helperText={hasError('email') ? formState.errors.email[0] : null}
-                    color='black'
+                    color='#000'
                     className={classes.inputCont}
                   />
                   <InputCont
@@ -230,13 +226,13 @@ type SignInFormState = {
             type="submit"
             fullWidth
             variant="contained"
-            style={{width:'133px',  height: '41px', borderRadius: '0px'}}
-          >
-            Log in
+            style={{width:'133px',  height: '41px', borderRadius: '2px'}}
+          > 
+          Log in
           </FilledButton>
-            <Link component={RouterLink} to="/resetpassword" className={classes.link} onClick={() => setIsResetPasswordDialogOpen(true)}> 
-                Forgot Password? 
-            </Link>
+          <Link component={RouterLink} to="/resetpassword" className={classes.link} onClick={() => setIsResetPasswordDialogOpen(true)} style={{textDecoration: 'none'}}> 
+          Forgot Password? 
+          </Link>
 
         <DividerComponent />
 

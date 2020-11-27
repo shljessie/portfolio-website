@@ -4,6 +4,7 @@ import { Typography, makeStyles } from "@material-ui/core"
 import FilledButton from '../components/Buttons'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import { Link } from "react-scroll";
+import { Link as PageLink } from "react-router-dom";
 import React from "react"
 import styled from "styled-components"
 import theme from "../theme"
@@ -25,13 +26,6 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const DescriptionCont = styled.div`
-  color: #fff;
-  height: 48px;
-  margin: 48px;
-  text-align: 'center';
-  line-height:23.92px;
-`
 const ButtonCont = styled.div`
   display:flex;
   flex-direction: column;
@@ -60,11 +54,12 @@ const PageHeader = (props: Props) => {
         </Typography>
 
         <ButtonCont>
+        <PageLink to="/videoeditor" style={{textDecoration: 'none'}}>
         <FilledButton style={{width:'133px',  height: '41px'}}>
           <Typography variant= 'button'>Get Started</Typography>
         </FilledButton>
-
-        {/* insert down button here!  */}
+        </PageLink>
+        
         <FilledButton style={{marginTop: theme.spacing(22)}} >
         <Link
           className={classes.innerRoot}

@@ -13,6 +13,7 @@ import Signup from './pages/Signup'
 import TermsofService from './pages/TermsofService'
 import TryFree from './pages/TryFree'
 import UploadVideo from './pages/UploadVideo'
+import VideoEditor from './pages/VideoEditor'
 import theme from './theme'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <Route path="/uploadvideo" component={UploadVideo} />
               <Route path="/tryfree" component={TryFree} />
               <Route path="/account" component={Account} />
+              <Route path="/videoeditor" component={VideoEditor} />
             </Router>
       </div>
     </MuiThemeProvider>

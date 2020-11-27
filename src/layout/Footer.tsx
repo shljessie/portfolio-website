@@ -224,7 +224,7 @@ const BottomRow = () => {
         <div className={classes.termsCont}>
           <UnstyledExternalLink href='' name='Cookie Settings'/>
           <VerticalDelimiter color='#fff' length='20px'/>
-          <UnstyledExternalLink href='' name='Terms of Service'/>
+          <UnstyledExternalLink href='/termsofservice' name='Terms of Service'/>
           <VerticalDelimiter color='#fff' length='20px'/>
           <UnstyledExternalLink href='' name='Privacy  Policy'/>
         </div>

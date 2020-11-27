@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   inputCont: {
+    width: '90%'
   },
   inputLabel:{
     textAlign:'start'
@@ -49,8 +50,7 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     margin: 'auto',
-    color: '#8687FF',
-    textDecoration: 'none'
+    color: '#8687FF'
   },
   linkTwo: {
     marginTop: theme.spacing(2),
@@ -94,21 +94,7 @@ type EmailInput = {
   errors: {[key: string]: string[]}
 }
 
-
-type SignInInputs = {
-  email: string,
-  password: string
-}
-
-type SignInFormState = {
-  isValid: boolean,
-  values: SignInInputs,
-  touched: any,
-  errors: any
-}
-
  const ResetPassword= (props :Props)=>{
-
   const {isOpen, onClose, setIsPending, notifySubmitSuccess, notifySubmitFailure } = props
   const classes = useStyles()
   const [emailInput, setEmailInput] = useState<EmailInput>({
@@ -150,7 +136,7 @@ type SignInFormState = {
 
     try {
       await postForgotPassword(emailInput.value.email).then((resp) => {
-        notify('We sent an email with reset password Link.\nPlease check the inbox of your email account.',
+        notify('We sent an email with reset password Link.\n Please check the inbox of your email account.',
           NOTIFY_TYPE.SUCCESS)
       })
     } catch (e) {
@@ -204,17 +190,18 @@ type SignInFormState = {
         </div>
          
          <div className={classes.resetButton}>
-         <Link component={RouterLink} to="checkemail"> 
+         <Link component={RouterLink} to="checkemail" style={{textDecoration: 'none'}}> 
             <FilledButton
               onClick={(event: any) => submitForgotPassword(event, onClose)}
               fullWidth
               variant="contained"
-              style={{width:'199px',  height: '41px', borderRadius: '0px'}}
+              style={{width:'199px',  height: '41px', borderRadius: '2px',color:'white', backgroundColor:"#8687FF",}}
+              disabled={!emailInput.isValid}
             >
               Reset password
             </FilledButton>
           </Link>
-          <Link component={RouterLink} to="/login" className={classes.link}> 
+          <Link component={RouterLink} to="/login" className={classes.link} style={{textDecoration: 'none'}}> 
             Cancel
           </Link>
         </div>

@@ -1,7 +1,13 @@
-import { Button, Link, Paper, Typography, makeStyles }  from '@material-ui/core';
+import {
+  Button,
+  Link,
+  Paper,
+  Typography,
+  makeStyles,
+}  from '@material-ui/core';
 import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useEffect, useState} from 'react';
-import {SignUpForm, getRefreshToken} from "../shared/API";
+import {SignUpForm, postSignUp} from "../shared/API";
 
 import { DefaultOuterRootCont } from '../components/Containers'
 import { DividerComponent }  from '../layout/Divider'
@@ -9,10 +15,14 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
+import {RootState} from "../modules";
 import { Link as RouterLink } from 'react-router-dom'
 import TopSection from '../components/TopSection';
+import { bindActionCreators } from 'redux';
+import {signUpActions} from "../modules/signUpStateManager";
 import styled from 'styled-components';
 import theme from '../theme';
+import {useGoogleAnalytics} from "../hooks"
 import validate from "validate.js";
 
 const useStyles = makeStyles(theme => ({
@@ -59,7 +69,6 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(2),
     color: '#8687FF',
     fontSize: '12px',
-    textDecoration: 'none'
   },
   footer:{
     display: 'flex',
@@ -86,8 +95,6 @@ const SocialButton = styled(Button)`
   text-align: center;
 `
 
-
-
 const schema = {
   email: {
     presence: { allowEmpty: false, message: 'is required' },
@@ -101,15 +108,38 @@ const schema = {
     length: {
       maximum: 128
     }
-  }
+  },
+  name: {
+    presence: { allowEmpty: false, message: 'is required' },
+    length: {
+      maximum: 64,
+    },
+  },
 }
+
+type SignUpFormState = {
+  isValid: boolean,
+  values: SignUpForm,
+  touched: any,
+  errors: any
+}
+
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = ReturnType<typeof mapDispatchToProps>;
+type OwnProps = {
+  history: any,
+  setIsPending: (isPending: boolean) => void,
+  notifySubmitSuccess: (msg: string) => void,
+  notifySubmitFailure: (msg: string) => void,
+  dispatch: any,
+}
+
+type Props = StateProps & DispatchProps & OwnProps
 
  const Signup = (props: Props)=>{
 
-  const { setAccessToken, setIsPending, notifySubmitSuccess, notifySubmitFailure } = props
-
-
   const classes = useStyles()
+  const { setIsPending, notifySubmitSuccess, notifySubmitFailure, dispatch, isSignedUp, email, SignUpActions } = props
 
   const [formState, setFormState] = useState<SignUpFormState>({
     isValid: false,
@@ -152,8 +182,6 @@ const schema = {
     },
   })
 
-  const hasError = (field: string): boolean => formState.touched[field] && formState.errors[field]
-
   useEffect(() => {
     const errors = validate(formState.values, schema)
 
@@ -166,49 +194,67 @@ const schema = {
     )
   }, [formState.values])
 
-  const handleChange = (event: any) => {
-    event.persist()
+  const hasError = (field: string): boolean => formState.touched[field] && formState.errors[field]
 
-    setFormState(formState => ({
+  const handleChange = (event: any) => {
+    event.persist();
+
+    const target = event.target as HTMLInputElement
+    setFormStateInput(target.name, target.type, target.value, target.checked)
+  };
+
+  const setFormStateInput = (
+    inputName: string,
+    inputType: string,
+    inputValue: any,
+    inputChecked?: boolean
+  ) => {
+    setFormState((formState) => ({
       ...formState,
       values: {
         ...formState.values,
-        [event.target.name]: event.target.value
+        [inputName]:
+          inputType === 'checkbox' ? inputChecked : inputValue,
       },
       touched: {
         ...formState.touched,
-        [event.target.name]: true
-      }
-    }))
+        [inputName]: true,
+      },
+    }));
   }
 
-  const handleSignIn = async (event: any) => {
+  const handleSignUp = async (event: any) => {
     event.preventDefault()
+
+    if (!validateConfirmPassword()) return
+
     setIsPending(true)
 
-    getRefreshToken(formState.values as SignInInputs).then((resp) => {
-        if (resp.status === 200) {
-          localStorage.setItem('refresh_token', resp.data.refresh_token)
-          return localStorage.getItem('refresh_token')
-        }
-      }
-    ).then((rtn) => {
-      setAccessToken(rtn)
-      notify('login success!', NOTIFY_TYPE.SUCCESS)
-      setIsPending(false)
+    try {
+      const input = { ...formState.values, confirm_password: undefined }
+      await postSignUp(input).then((resp) => {
+        setIsPending(false)
+        dispatch(SignUpActions.updateSignUpState(true, formState.values.email))
+        useGoogleAnalytics.gaEvent('Sign Up', 'Create User', formState.values.email, 1)
+      })
 
-    }).catch(e => {
-      switch (e.response.status) {
-        case 401:
-          notify('Email or password is incorrect.', 'error')
-          break;
-        case 403:
-          notify('Email has not been confirmed.', NOTIFY_TYPE.ERROR)
-          break;
-        default:
+    } catch (e) {
+      if (e.response && e.response.status === 409) {
+        notify('There is already a user with this E-mail address.', NOTIFY_TYPE.ERROR)
       }
       setIsPending(false)
-    })
+    }
+  };
+
+  const validateConfirmPassword = () => {
+    const password = formState.values.password
+    const confirmPassword = formState.values.confirm_password
+
+    if (password !== confirmPassword) {
+      notify('The passwords did not match.', NOTIFY_TYPE.ERROR)
+      return false
+    }
+    return true
   }
     
   return(
@@ -230,8 +276,8 @@ const schema = {
                   name='name'
                   value={formState.values.firstname}
                   handleChange={handleChange}
-                  isError={hasError('firstname')}
-                  helperText={hasError('firstname') ? formState.errors.firstname[0] : null}
+                  isError={hasError('name')}
+                  helperText={hasError('name') ? formState.errors.name[0] : null}
                   color='#000'
                   className={classes.inputCont}
                 />
@@ -264,7 +310,8 @@ const schema = {
             type="submit"
             fullWidth
             variant="contained"
-            style={{width:'80%',  height: '41px', borderRadius: '0px', marginTop: theme.spacing(3)}}
+            style={{width:'80%',  height: '41px', borderRadius: '2px', marginTop: theme.spacing(3)}}
+            onClick={handleSignUp}
           >
             Create an account
           </FilledButton>
@@ -294,7 +341,9 @@ const schema = {
          <Typography variant="body1" style={{color:'white', fontSize: '12px', marginTop: theme.spacing(1.5)}}>
            Already have an account?
          </Typography>
-         <Link component={RouterLink} to="/login" className={classes.linkTwo}>Log in</Link>
+         <Link component={RouterLink} to="/login" className={classes.linkTwo} style={{    textDecoration: 'none'}}>
+           Log in
+        </Link>
          </div>
          
         </form>
@@ -307,24 +356,16 @@ const schema = {
         )
 }
 
-type SignInInputs = {
-  email: string,
-  password: string
+const mapStateToProps = (state: RootState) => {
+  return ({
+    isSignedUp: state.signUp.isSignedUp,
+    email: state.signUp.email,
+  })
 }
 
-type SignUpFormState = {
-  isValid: boolean,
-  values: SignUpForm,
-  touched: any,
-  errors: any
-}
+const mapDispatchToProps = (dispatch: any) => ({
+  SignUpActions: bindActionCreators(signUpActions, dispatch),
+})
 
-
-type Props = {
-  setAccessToken: any,
-  setIsPending: (isPending: boolean) => void,
-  notifySubmitSuccess: (msg: string) => void,
-  notifySubmitFailure: (msg: string) => void,
-}
 
 export default Signup;
