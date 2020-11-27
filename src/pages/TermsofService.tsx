@@ -111,7 +111,7 @@ const useStyles = makeStyles(theme => ({
     width:'180px',
     height: '41px',
     border:"none",
-    borderRadius: '0px',
+    borderRadius: '2px',
     '&:hover': {
       backgroundColor: '#fff',
       boxShadow: `0 0 14px #fff`,
@@ -239,7 +239,7 @@ const PageHeader = (props: Props) => {
             <FilledButton className={classes.button} component={RouterLink} to="/uploadvideo">
                 <Typography variant= 'button'>Create a workspace</Typography>
             </FilledButton>
-            <Link component={RouterLink} to="tryfree" className={classes.link}> 
+            <Link component={RouterLink} to="tryfree" className={classes.link} style={{textDecoration: 'none'}}> 
                 Or, Try Free
             </Link>
             <Typography variant='subtitle2' className={classes.descrip}>

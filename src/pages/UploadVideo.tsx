@@ -5,7 +5,14 @@ import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import UserHeader from '../layout/UserHeader'
 import VideoCallIcon from '@material-ui/icons/VideoCall';
+import styled from "styled-components"
 import theme from "../theme"
+import {useForm} from 'react-hook-form'
+
+const ButtonCont = styled.div`
+    display:'flex';
+    align-items: 'center';
+`
 
 const UrlCont = withStyles({
   root: {
@@ -33,16 +40,24 @@ const useStyles = makeStyles(theme => ({
   innerRoot :{
     display:'flex',
     alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    width: '55%',
+    height: '30%'
+  },
+  formCont:{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width:'-webkit-fill-available',
   },
   uploadbox: {
     margin: 'auto',
     justifyContent: 'center'
   },
   box:{
-    width: '700px',
+    width:'-webkit-fill-available',
     height: '400px',
-    marginTop: '10%',
+    marginTop: '1%',
     border: '1px solid white',
     display:'flex',
     justifyContent: 'center',
@@ -59,8 +74,8 @@ const useStyles = makeStyles(theme => ({
     textDecoration: 'none'
   },
   urlCont: {
-    margin: theme.spacing(3),
-    width: '700px',
+    marginTop: theme.spacing(3),
+    width:'-webkit-fill-available',
     color: 'white'
   },
   inputText:{
@@ -70,8 +85,10 @@ const useStyles = makeStyles(theme => ({
 
 const UploadVideo = () => {
 
-  const handleChange = (event: any) => {
-    
+  const { register, handleSubmit } = useForm()
+   
+  const onSubmit = (data: any) =>{
+    console.log(data)
   }
 
   const classes = useStyles()
@@ -80,18 +97,23 @@ const UploadVideo = () => {
     <UserHeader />
     <DefaultOuterRootCont>
       <DefaultInnerRootCont className={classes.innerRoot}>
+
+      <form onSubmit={handleSubmit(onSubmit)} className={classes.formCont} style={{ marginTop: theme.spacing(18)}}>
       <Box color="white" className={classes.box}>
         <VideoCallIcon style={{ fontSize: "90" }} />
           <Typography variant="body1">
           Upload an audio or video file. <br/>
           Click to add media or drag and drop a file
           </Typography>
+          {/* check console to see file type submitted */}
           <input
-              accept="video/*,audio/*"
+              ref= {register}
+              // accept="video/*,audio/*"
               className={classes.input}
               id="contained-button-file"
               multiple
               type="file"
+              name="video" 
             />
             <label htmlFor="contained-button-file">
               <Button variant="contained" component="span" style={{marginTop: theme.spacing(3), backgroundColor: '#8687FF'}}>
@@ -109,7 +131,26 @@ const UploadVideo = () => {
           className: classes.inputText
         }}
       />
-      <Link component={RouterLink} to="resetpassword" className={classes.link}> 
+      <ButtonCont>
+        <button 
+          style={{
+            width: '77px',
+            height: '29px',
+            display:'flex',
+            alignItems: 'center',
+            color: '#fff',
+            border: `2px solid #8687FF`,
+            borderRadius: '6px',
+            padding: '10px',
+            backgroundColor: '#8687FF',
+            marginTop: theme.spacing(3)
+          }}> 
+          <Typography variant="button">Submit</Typography>
+        </button>
+
+      </ButtonCont>
+      </form>
+      <Link component={RouterLink} to="resetpassword" className={classes.link} style={{textDecoration:'none'}} > 
         Or Explore Tutorial
       </Link>
       </DefaultInnerRootCont>
