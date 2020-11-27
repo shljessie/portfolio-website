@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import React from "react"
 import { Link as RouterLink } from 'react-router-dom'
 import StarsIcon from '@material-ui/icons/Stars';
+import SubscribeForm from '../components/SubscribeForm'
 import styled from "styled-components"
 import theme from "../theme"
 
@@ -83,16 +84,6 @@ const PageTemplate = (props: Props) => {
   const {} = props
 
   const classes = useStyles()
-
-  const SubscribeForm= () =>{
-    return(
-      <div  style={{ paddingTop: theme.spacing(10) , paddingBottom: theme.spacing(20)}}>
-        <Typography variant = "subtitle2" style= {{color: 'white', marginBottom: theme.spacing(4)}}>Subscribe to our newsletter</Typography>
-        <input type="e-mail" style={{width: '200px', height:'30px'}} placeholder="Email address" />
-        <FilledButton style={{  width: "90px", height: '38px', marginLeft: '23px'}}><Typography variant="button"> Sign up </Typography></FilledButton>
-      </div>
-    );
-  }
 
   return (
     <Layout>

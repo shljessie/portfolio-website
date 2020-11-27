@@ -1,4 +1,4 @@
-import { Dialog, Link, Paper, Typography, makeStyles }  from '@material-ui/core';
+import { Link, Paper, Typography, makeStyles }  from '@material-ui/core';
 import {NOTIFY_TYPE, notify} from "../constants";
 import React, {useEffect, useState} from 'react';
 
