@@ -215,7 +215,7 @@ const Header = (props: Props) => {
                           Log in 
                         </HollowButton>
                       </Link>
-                      <Link to="/Tutorial" style={{textDecoration: 'none'}}>
+                      <Link to="/TryFree" style={{textDecoration: 'none'}}>
                         <FilledButton style={{  margin: '23px', fontFamily:'Lato'}}> 
                           Tutorial 
                         </FilledButton>

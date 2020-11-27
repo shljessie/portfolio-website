@@ -55,9 +55,9 @@ const PageHeader = (props: Props) => {
 
         <ButtonCont>
         <PageLink to="/videoeditor" style={{textDecoration: 'none'}}>
-        <FilledButton style={{width:'133px',  height: '41px'}}>
-          <Typography variant= 'button'>Get Started</Typography>
-        </FilledButton>
+          <FilledButton style={{width:'133px',  height: '41px'}}>
+            <Typography variant= 'button'>Get Started</Typography>
+          </FilledButton>
         </PageLink>
         
         <FilledButton style={{marginTop: theme.spacing(22)}} >

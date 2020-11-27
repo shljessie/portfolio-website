@@ -25,6 +25,29 @@ export const HollowButton = withStyles((theme: Theme) =>
   })
 )(Button);
 
+export const EditorButton = withStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      width: '100px',
+      height: '32px',
+      color: '#fff',
+      border: `1px solid #31343E`,
+      borderRadius: '0px',
+      padding: '10px',
+      outline: 'none',
+      cursor: 'pointer',
+      transition: 'all 0.1s',
+      textTransform: 'none',
+
+      backgroundColor: '#31343E',
+      '&:hover': {
+        boxShadow: `0 0 14px #31343E`,
+        backgroundColor: '#31343E',
+      },
+    },
+  })
+)(Button);
+
 const FilledButtonTemplate = withStyles((theme: Theme) =>
   createStyles({
     root: {

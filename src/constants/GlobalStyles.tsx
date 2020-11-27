@@ -1,4 +1,5 @@
 export const HEADER_HEIGHT = 70
+export const EDITOR_HEADER_HEIGHT= 45
 export const SIDE_MENU_PADDING_RIGHT = 30
 
 export const MAX_WIDTH = {
