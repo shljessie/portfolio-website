@@ -4,6 +4,7 @@ export const IMAGE_DIRECTORY_PATH = {
   header: ROOT_PATH + '/header',
   footer: ROOT_PATH + '/footer',
   technology: ROOT_PATH + '/technology',
+  general: ROOT_PATH + '/general',
   main: ROOT_PATH + '/main'
 }
 
@@ -39,4 +40,9 @@ export const TECHNOLOGY_IMAGE_URLS = {
     IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_2.mp4',
     IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_3.mp4'
   ]
+}
+
+
+export const GENERAL_IMAGE_URLS = {
+  backToTop: IMAGE_DIRECTORY_PATH.general + '/back_to_top_icon.png',
 }

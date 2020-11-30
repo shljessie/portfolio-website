@@ -16,3 +16,10 @@ export const NEWS_ITEM = {
 }
 
 export const PROFILE_BACKGROUND_COLOR = '#DBDFE2'
+
+export const Z_INDEXES = {
+  sideMenu: 1000,
+  header: 900,
+  scrollButton: 800,
+  innerCont: 100
+}

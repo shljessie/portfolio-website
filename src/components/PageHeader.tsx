@@ -69,7 +69,8 @@ const PageHeader = (props: Props) => {
           smooth={true}
           offset={-70}
           duration={500}
-          > MORE
+          > 
+          MORE
           </Link>
         </FilledButton>
     
