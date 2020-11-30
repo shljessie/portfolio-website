@@ -224,7 +224,7 @@ const UserHeader = () => {
       backgroundColorHover={HEADER_COMPONENT_THEME_COLORS[headerTheme].backgroundColorHover}
     >
       <DefaultInnerRootCont className={classes.inner}>
-        <Typography variant="subtitle2" style={{color: 'white'}}>Home {'>'} English Chill {'>'} Separate</Typography>
+        <Typography variant="body2" style={{color: 'gray'}}>Home  {'>'}  English Chill  {'>'} Separate</Typography>
                 <div className={classes.cont}>
                     <div className={classes.rightCont}>
                       <EditorButton ref={anchorRef} onClick={handleToggle} className={classes.profileButton} aria-controls={open ? 'menu-list-grow' : undefined}
