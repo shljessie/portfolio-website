@@ -1,5 +1,10 @@
 import {
+  Button,
   ClickAwayListener,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Grow,
   MenuItem,
   MenuList,
@@ -13,10 +18,12 @@ import {
 import React, { useContext, useEffect, useState } from "react"
 
 import { DefaultInnerRootCont } from "../components/Containers"
+import Dialog from '@material-ui/core/Dialog';
 import { EDITOR_HEADER_HEIGHT } from "../constants/GlobalStyles"
 import { EditorButton } from'../components/Buttons';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ThemeContext } from "../context/ThemeContext"
+import WarningIcon from '@material-ui/icons/Warning';
 import styled from "styled-components"
 import { useHistory } from "react-router-dom";
 
@@ -29,6 +36,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    color:'white'
   },
   logo: {
     cursor: 'pointer',
@@ -175,6 +183,10 @@ const UserHeader = () => {
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
+  
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
   const handleClose = (event: React.MouseEvent<EventTarget>) => {
     if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
@@ -255,11 +267,42 @@ const UserHeader = () => {
                         )}
                       </Popper>
                     </div>
-          <EditorButton> 
+          <EditorButton
+              onClick={handleClickOpen}> 
             <Typography variant="body2" style={{color: 'white'}}>
               Create new
             </Typography>
           </EditorButton>
+          <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <div>
+              <div style={{ display: 'flex', justifyContent:'center'}}>
+              <WarningIcon style= {{fontSize: 100, color: '#FFB800', marginTop: theme.spacing(2)}} />
+              </div>
+              <DialogTitle id="alert-dialog-title" style={{color: 'white'}}> 
+                  Do you want to create new file? 
+              </DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description" style={{color: 'gray'}}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tellus et, in tincidunt. 
+                Eu eget ut nunc mauris blandit etiam semper platea varius. Nam ante cras cras condimentum 
+                egestas id gravida faucibus egestas. Elementum, duis fringilla dolor, tempor.
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <EditorButton onClick={handleClose} style= {{backgroundColor: "#979797", marginBottom: theme.spacing(2)}}>
+                  Cancel
+                </EditorButton>
+                <EditorButton onClick={handleClose} style= {{backgroundColor: "#4E84FC", marginBottom: theme.spacing(2)}} autoFocus>
+                  Export
+                </EditorButton>
+              </DialogActions>
+              </div>
+            </Dialog>
           </div>
       </DefaultInnerRootCont>
     </Root>
