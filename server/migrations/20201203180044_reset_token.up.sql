@@ -1,0 +1,1 @@
+ALTER TABLE `api`.`users` ADD `reset_token` VARCHAR(255) DEFAULT NULL;

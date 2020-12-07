@@ -1,8 +1,20 @@
+
+
 # Music Swapper
 
 This is a Music Swapping Application created using Cochl. Machine Learning Technology
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Start the server
+
+Run this command into the project's folder
+
+```bash
+  docker-compose up --build
+```
+
+Once the docker-compose is started you can access the documentation [there](http://localhost/v1/documentation)
 
 ## Available Scripts
 

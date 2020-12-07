@@ -1,0 +1,322 @@
+openapi: 3.0.1
+info:
+  title: Music Swapper
+  version: 0.0.1
+paths:
+  /status:
+    get:
+      summary: /status
+      description: Check api status
+      security: []
+      tags:
+        - "Health"
+      responses:
+        200:
+          description: Status ok
+
+  /v1/user/{id}:
+    get:
+      summary: /v1/user/{id}
+      description: |
+        Get a user by his id. If the user's permission is "user" (2) he can only access his user.
+        If the user's permission is "admin" (1) he can access any user.
+      tags:
+        - "User"
+      parameters:
+        - in: query
+          name: id
+          example: 1
+          schema:
+            type: string
+          required: true
+      security:
+        - BearerAuth : []
+        - cookieAuth: []
+      responses:
+        200:
+          description: Status ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    $ref: '#/components/schemas/User'
+                  status:
+                    type: string
+                    description: Request status
+                    example: ok
+        400:
+          $ref: '#/components/responses/MissingParam'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/NoPermission'
+        404:
+          $ref: '#/components/responses/NotFound'
+
+  /v1/user/list:
+    get:
+      summary: /v1/user/list
+      description: Get a list of all users. Restricted to admin users.
+      tags:
+        - "User"
+      security:
+        - BearerAuth : []
+        - cookieAuth: []
+      responses:
+        200:
+          description: Status ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Request status
+                    example: ok
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      $ref: '#/components/schemas/UserInList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/NoPermission'
+
+  /v1/user/:
+    post:
+      summary: /v1/user/
+      description: Create user
+      tags:
+        - "User"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserBody'
+      responses:
+        200:
+          description: Status ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:                  
+                  data:
+                    type: object
+                    $ref: '#/components/schemas/User'
+                  status:
+                    type: string
+                    description: Request status
+                    example: ok
+        400:
+          $ref: '#/components/responses/EmailFormat'
+        409:
+          $ref: '#/components/responses/EmailAlreadyUsed'
+        422:
+          $ref: '#/components/responses/MissingField'
+
+  /v1/auth/login:
+    post:
+      summary: /v1/auth/login
+      description: Login user to get his temporary authentification token
+      tags:
+        - "Authentification"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserBody'
+      responses: 
+        200:
+          description: >
+            Return JWT token that can be used as a bearer token.
+            Also set the cookie "token" to authentify the session, the cookie expires in 24 hours.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: JWT bearer token
+                  status:
+                    type: string
+                    description: Request status
+                    example: ok
+          headers: 
+            Set-Cookie:
+              schema: 
+                type: string
+        401:
+          $ref: '#/components/responses/WrongPassword'
+        404:
+          $ref: '#/components/responses/NoAccount'
+ 
+  /v1/auth/logout:
+    get:
+      summary: /v1/auth/logout
+      description: Remove user's cookie
+      tags:
+        - "Authentification"
+      responses:
+        200:
+          description: Remove "token" cookie on the session
+ 
+  /v1/auth/validate:
+    get:
+      summary: /v1/auth/validate
+      description: Validate user's email
+      tags:
+        - "Authentification"
+      responses:
+        200:
+          description: Email validated
+        400:
+          $ref: '#/components/responses/MissingParam'
+        404:
+          $ref: '#/components/responses/NotFound'
+        409:
+          $ref: '#/components/responses/AlreadyValidated'
+
+components:
+  schemas:
+    UserBody:
+      type: object
+      properties:
+        email:
+          type: string
+          example: test@cochl.ai
+          format: string
+        password:
+          type: string
+          example: thisisacomplicatedpassword
+          format: string
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: uint
+          example: 1
+        email:
+          type: string
+          format: string
+          example: test@cochl.ai
+
+    UserInList:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+          format: uint
+        email:
+          type: string
+          example: test@cochl.ai
+          format: string
+        permission:
+          format: int
+          type: integer
+          example: 2
+          description: Permission level of the user
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Description of the error
+        status:
+          type: string
+          description: Status of the request
+        data:
+          type: object
+          description: Can contain data object giving more informations on the error
+
+  responses:
+
+    NotFound:
+      description: Required object does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    Unauthorized:
+      description: Not auth found in private request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    MissingParam:
+      description: Requested param missing
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    MissingField:
+      description: Requested field in request's body is missing
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    WrongPassword:
+      description: Password not correct for this account
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    EmailAlreadyUsed:
+      description: An account with this mail already exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    EmailFormat:
+      description: Wrong email format
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    NoAccount:
+      description: No account with this email
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    NoPermission:
+      description: User doesnt have permission level to access the ressource
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    AlreadyValidated:
+      description: User's email has already been validated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
