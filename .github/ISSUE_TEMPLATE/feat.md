@@ -1,3 +1,9 @@
+---
+name: Feature issue
+about: Use this template for new features.
+labels: feature
+---
+
 # Feature name
 
 Short feature description
