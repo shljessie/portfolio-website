@@ -2,7 +2,6 @@ import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Contai
 import React, { useContext } from "react"
 import { Typography, makeStyles } from "@material-ui/core"
 
-import { FUNCTION_ITEM_DATA } from "../constants/PageData"
 import {HOW_TO_DATA} from '../constants/PageData'
 import { HOW_TO_IMAGE_URLS } from "../constants/ImageUrls"
 import { ThemeContext } from "../context/ThemeContext"
@@ -98,7 +97,7 @@ const Howto = () => {
               <Container>
                   <div>
                     <Typography variant='h4' style={{ color: '#fff', marginTop: theme.spacing(3), marginBottom:  theme.spacing(4)}}>
-                      { FUNCTION_ITEM_DATA.benefits[tabIndex].title }
+                      How it works
                     </Typography>
 
                   
