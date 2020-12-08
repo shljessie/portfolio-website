@@ -7,15 +7,14 @@ import (
 	"strconv"
 	"strings"
 
-	"cochlear.ai/music-wrapper/middlewares"
-	"cochlear.ai/music-wrapper/model"
-	"cochlear.ai/music-wrapper/mysql"
+	"cochlear.ai/music-swapper/middlewares"
+	"cochlear.ai/music-swapper/model"
+	"cochlear.ai/music-swapper/mysql"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/gofiber/fiber/v2"
 	tusd "github.com/tus/tusd/pkg/handler"
 	"github.com/tus/tusd/pkg/s3store"
 )
@@ -153,9 +152,4 @@ func (f File) UploadService() *tusd.Handler {
 	}()
 
 	return handler
-}
-
-func (f File) GetFile(c *fiber.Ctx) error {
-
-	return nil
 }

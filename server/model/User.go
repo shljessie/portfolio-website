@@ -21,6 +21,7 @@ type User struct {
 	IsValidated   bool   `json:"is_validated"`
 	ValidateToken string `json:"validate_token"`
 	ResetToken    string `json:"reset_token"`
+	Upload        Upload
 }
 
 // UserClear struct.
@@ -92,7 +93,7 @@ func SendValidateEmail(email string, content string) {
 
 	m.SetBody("text/html", content)
 
-	d := gomail.NewDialer("smtp.gmail.com", 587, "tvictoria@cochlear.ai", os.Getenv("MAIL_PASSWORD"))
+	d := gomail.NewDialer("smtp.gmail.com", 587, os.Getenv("MAIL_USER"), os.Getenv("MAIL_PASSWORD"))
 
 	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
 

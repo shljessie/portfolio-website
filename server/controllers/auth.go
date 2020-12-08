@@ -5,10 +5,10 @@ import (
 	"os"
 	"time"
 
-	"cochlear.ai/music-wrapper/middlewares"
-	"cochlear.ai/music-wrapper/model"
-	"cochlear.ai/music-wrapper/mysql"
-	"cochlear.ai/music-wrapper/utils"
+	"cochlear.ai/music-swapper/middlewares"
+	"cochlear.ai/music-swapper/model"
+	"cochlear.ai/music-swapper/mysql"
+	"cochlear.ai/music-swapper/utils"
 	"golang.org/x/crypto/bcrypt"
 
 	"github.com/gofiber/fiber/v2"

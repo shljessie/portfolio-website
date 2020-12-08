@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"cochlear.ai/music-wrapper/model"
-	"cochlear.ai/music-wrapper/mysql"
-	"cochlear.ai/music-wrapper/utils"
+	"cochlear.ai/music-swapper/model"
+	"cochlear.ai/music-swapper/mysql"
+	"cochlear.ai/music-swapper/utils"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gofiber/fiber/v2"
 )

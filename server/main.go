@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"cochlear.ai/music-wrapper/mysql"
-	"cochlear.ai/music-wrapper/server"
-	"cochlear.ai/music-wrapper/utils"
+	"cochlear.ai/music-swapper/mysql"
+	"cochlear.ai/music-swapper/server"
+	"cochlear.ai/music-swapper/utils"
 )
 
 func main() {
