@@ -1,5 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles"
 import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
 import styled from 'styled-components';
 import theme from "../theme"
 
@@ -7,12 +7,14 @@ type StyledBurgerProps = {
   isOpen: boolean
 }
 
+const BURGER_MENU_BUTTON_SIZE = '24px'
+
 export const StyledBurger = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: inherit;
-  height: inherit;
+  width: ${ BURGER_MENU_BUTTON_SIZE };
+  height: ${ BURGER_MENU_BUTTON_SIZE };
   background: transparent;
   border: none;
   cursor: pointer;

@@ -1,11 +1,9 @@
-import React, { useContext } from "react"
 import { SIDE_MENU_PADDING_RIGHT, SIDE_MENU_TRANSITION } from "../constants/GlobalStyles"
 import { makeStyles, useMediaQuery } from "@material-ui/core"
 
-import { HEADER_COMPONENT_THEME_COLORS } from "../layout/Header"
 import { HorizontalDelimiter } from "./Delimiters"
 import { NavLinkItem } from "../constants/Links"
-import { ThemeContext } from "../context/ThemeContext"
+import React from "react"
 import UnstyledLink from "./UnstyledLink"
 import styled from 'styled-components';
 import theme from "../theme"
@@ -32,8 +30,6 @@ type StyledMenuProps = {
   isOpen: boolean
 }
 
-// setting theme if not using MUI
-// https://css-tricks.com/hamburger-menu-with-a-side-of-react-hooks-and-styled-components/
 export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
@@ -79,8 +75,6 @@ const SideMenuItems = (props: SideMenuItemsProps) => {
 
   const { item } = props
 
-  const { headerTheme } = useContext(ThemeContext)
-
   return (
     <>
       {
@@ -95,7 +89,7 @@ const SideMenuItems = (props: SideMenuItemsProps) => {
               href={item.url}
               variant='body1'
               height={SIDE_MENU_ITEM_HEIGHT}
-              color={HEADER_COMPONENT_THEME_COLORS[headerTheme].fontColor}
+              color={'white'}
             />
             <HorizontalDelimiter length='100%' margin={theme.spacing(0, 0)}/>
           </>
@@ -107,8 +101,6 @@ const SideMenuItems = (props: SideMenuItemsProps) => {
 const SideMenu = (props: Props) => {
 
   const classes = useStyles()
-
-  const { headerTheme } = useContext(ThemeContext);
 
   const { isSideMenuOpen, items } = props
 
