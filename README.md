@@ -6,7 +6,7 @@ This is a Music Swapping Application created using Cochl. Machine Learning Techn
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Start the server
+## Start the backend server
 
 Run this command into the project's folder
 
@@ -15,6 +15,14 @@ Run this command into the project's folder
 ```
 
 Once the docker-compose is started you can access the documentation [there](http://localhost/v1/documentation)
+
+**Important**
+
+To use file upload on the `file.localhost` subdomain you may need to add the domain to your local DNS.
+
+To do so run `sudo nano /etc/hosts` and add this `127.0.0.1   file.localhost` to the file. Save and close, then run `dscacheutil -flushcache; sudo killall -HUP mDNSResponder` to reset your local DNS and the local subdomain should be working.
+
+(This works on MacOS if you use another local environment you will need yo find your own way ¯\\_(ツ)_/¯)
 
 ## Available Scripts
 

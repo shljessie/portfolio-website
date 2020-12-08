@@ -1,4 +1,4 @@
-module cochlear.ai/music-wrapper
+module cochlear.ai/music-swapper
 
 go 1.15
 

@@ -56,6 +56,49 @@ paths:
         404:
           $ref: '#/components/responses/NotFound'
 
+  /v1/user/{id}/upload:
+    get:
+      summary: /v1/user/{id}/upload
+      description: |
+        Get all user's uploads
+      tags:
+        - "User"
+      parameters:
+        - in: query
+          name: id
+          example: 1
+          schema:
+            type: string
+          required: true
+      security:
+        - BearerAuth : []
+        - cookieAuth: []
+      responses:
+        200:
+          description: Status ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      $ref: '#/components/schemas/Upload'
+                  status:
+                    type: string
+                    description: Request status
+                    example: ok
+        400:
+          $ref: '#/components/responses/MissingParam'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/NoPermission'
+        404:
+          $ref: '#/components/responses/NotFound'
+
   /v1/user/list:
     get:
       summary: /v1/user/list
@@ -87,9 +130,9 @@ paths:
         403:
           $ref: '#/components/responses/NoPermission'
 
-  /v1/user/:
+  /v1/user:
     post:
-      summary: /v1/user/
+      summary: /v1/user
       description: Create user
       tags:
         - "User"
@@ -119,6 +162,22 @@ paths:
           $ref: '#/components/responses/EmailAlreadyUsed'
         422:
           $ref: '#/components/responses/MissingField'
+
+  /v1/files/:
+    post:
+      summary: /v1/files/
+      description: |
+        File upload with tus protocol. This is much more complicated than a simple POST request.
+        To make it work you should use a tus client (https://github.com/tus/tus-js-client)
+      tags:
+        - "File"
+      security:
+        - BearerAuth : []
+      responses:
+        200:
+          description: Successful upload
+        401:
+          $ref: '#/components/responses/Unauthorized'
 
   /v1/auth/login:
     post:
@@ -225,6 +284,29 @@ components:
           type: integer
           example: 2
           description: Permission level of the user
+
+    Upload:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+          format: uint
+        key:
+          type: string
+          example: 439bcc6bc99cb3e633558c42d5dd23e7
+        name:
+          type: string
+          example: test
+        extension:
+          type: string
+          example: mp4
+        size:
+          type: integer
+          example: 5253880
+        uri:
+          type: string
+          example: "/v1/files/a2f90c5c7f708abe9b49e4475fff08ad+4dj0ESVNNsM1SaWakuMGUdc3jQ1sslRob4nxc0KOFVHNol2huuokepuQxUYrDT9LIe14X8IbsfYaUkrYurxXz36cgMgjZun9TqvZL0TssxBUoR2.sjdbu.Xtk4xCBUqknieswHf19TPyHE53rmxqcQ--"
 
     Error:
       type: object
