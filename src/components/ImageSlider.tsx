@@ -4,7 +4,6 @@ import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Contai
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {Pagination} from 'swiper';
 
-import { FEATURE_DATA } from '../constants/PageData';
 import { FEATURE_IMAGE_URLS } from '../constants/ImageUrls'
 import React from "react";
 import { Typography } from "@material-ui/core"

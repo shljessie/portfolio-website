@@ -24,28 +24,3 @@ export const HOW_TO_DATA: {[key: string]: HowToDataProps[]} = {
     }
   ]
 }
-
-export type FeatureDataProps = {
-  description: string,
-}
-
-export const FEATURE_DATA: {[key: string]: FeatureDataProps[]} = {
-  features: [
-    {
-      description: 'Upload an audio or video file. Click to ' +
-        'add media or drag and drop a file.'
-    },
-    {
-      description: 'Music is detected in the numbered ' +
-        'sections. Click on a number or drag a '+
-        'new selection to start editing.'
-    },
-    {
-      description: 'We have recommended similar music to ' +
-        'the music we detected in your media file ' +
-        'Click on a numbered section to add music. '
-    }
-  ]
-}
-
-
