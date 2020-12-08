@@ -83,8 +83,8 @@ const customTypography: TypographyOptions = {
   },
   button: {
     fontFamily: 'Monserrat, sans-serif',
-    fontWeight: 700,
-    fontStyle: 'normal',
+    fontWeight: 500,
+    fontStyle: 'medium',
     fontSize: '14px',
     letterSpacing: '1px',
     lineHeight: '20px',

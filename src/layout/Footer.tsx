@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   },
   snsLogo: {
     height: '26px',
-    width: 'auto',
+    width: '26px',
     scale: 1,
     transition: 'transform 0.15s ease-in-out 0s',
   },
@@ -82,7 +82,6 @@ const useStyles = makeStyles(theme => ({
     height: 'auto',
     width: '220px',
     justifyContent: 'space-between'
-    // margin: theme.spacing(2, 0, 1)
   },
   unstyledExternalLink: {
     textDecoration: 'none',
@@ -91,10 +90,8 @@ const useStyles = makeStyles(theme => ({
     opacity: 1,
     textAlign: 'center',
     '&:hover': {
-      // opacity: 0.7
       color: LINK_HOVER_COLOR,
     },
-    // transition: 'opacity 0.15s ease-in-out 0s'
     transition: 'color .1s ease',
   },
   navMenuCont: {
@@ -140,7 +137,7 @@ const SnsLink = (props: SnsLinkProps) => {
   const classes = useStyles()
 
   return (
-    <a className={classes.snsLink} href={props.href}>
+    <a className={classes.snsLink} href={props.href}  target='_blank'>
       <img src={props.src} alt={props.alt} className={classes.snsLogo} />
     </a>
   )

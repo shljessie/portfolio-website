@@ -9,7 +9,6 @@ const themeOptions: ThemeOptions = {
 }
 
 let theme = createMuiTheme(themeOptions);
-// theme = responsiveFontSizes(theme);
 
 theme.typography.h1 = {
   ...theme.typography.h1,

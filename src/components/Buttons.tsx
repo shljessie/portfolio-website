@@ -8,7 +8,7 @@ export const HollowButton = withStyles((theme: Theme) =>
     root: {
       width: '77px',
       height: '29px',
-      color: '#fff',
+      color: '#8687FF',
       border: `1px solid #8687FF`,
       borderRadius: '6px',
       padding: '10px',
@@ -16,6 +16,7 @@ export const HollowButton = withStyles((theme: Theme) =>
       cursor: 'pointer',
       transition: 'all 0.1s',
       textTransform: 'none',
+      fontFamily: 'Montserrat',
 
       backgroundColor: 'transparent',
       '&:hover': {
@@ -38,6 +39,7 @@ export const EditorButton = withStyles((theme: Theme) =>
       cursor: 'pointer',
       transition: 'all 0.1s',
       textTransform: 'none',
+      fontFamily: 'Montserrat',
 
       backgroundColor: '#31343E',
       '&:hover': {

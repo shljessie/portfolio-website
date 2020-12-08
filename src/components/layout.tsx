@@ -2,50 +2,73 @@ import "./layout.css"
 
 import React , { useEffect, useState } from "react"
 
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import { GENERAL_IMAGE_URLS } from "../constants/ImageUrls"
 import { Z_INDEXES } from "../constants/GlobalStyles"
 import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
+import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   main: {
     minHeight: '100vh',
     backgroundColor: "#101010",
   },
+  backtotop:{
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  }
+  
 }))
 
-type BackToTopButtonProps = {
+type BackToTopContProps = {
   isVisible: boolean
 }
 
-const BackToTopButton = styled.img`
+const BackToTop = styled.div`
+  font-family: 'Lato';
+  font-weight: 500;
+  color: #A1A1A1;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 3px;
+  padding: 6px;
+`
+const BackToTopImgCont = styled.div`
+  -moz-animation: bounce 3s infinite;
+  -webkit-animation: bounce 3s infinite;
+  animation: bounce 3s infinite;
+ @keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+`
+
+const BackToTopCont = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   position: fixed;
   transition: all .3s ease-in-out;
-  visibility: ${ (props: BackToTopButtonProps) => props.isVisible ? 'visible' : 'hidden' };
-  opacity: ${ (props: BackToTopButtonProps) => props.isVisible ? 1 : 0 };
+  visibility: ${ (props: BackToTopContProps) => props.isVisible ? 'visible' : 'hidden' };
+  opacity: ${ (props: BackToTopContProps) => props.isVisible ? 1 : 0 };
   z-index: ${Z_INDEXES.scrollButton};
   width: 16px;
   height: auto;
-  bottom: 16px;
-  right: 16px;
+  bottom: 39%;
+  left: 90%;
   cursor: pointer;
-  padding: 8px;
-  @media (min-width: 600px) {
-    width: 18px;
-    right: 18px;
-    bottom: 18px;
-  }
-  @media (min-width: 960px) {
-    width: 20px;
-    right: 30px;
-    bottom: 30px;
-  }
-  @media (min-width: 1280px) {
-     width: 22px;
-     right: 60px;
-     bottom: 60px;
-  }
 `
+
 
 const Layout = ({ children }: Props) => {
   const classes = useStyles()
@@ -90,18 +113,26 @@ const Layout = ({ children }: Props) => {
         />
          <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap"
         />
-
-        {/* <Header/> */}
+        
         <div className={classes.main}>
           {children}
-          <BackToTopButton
-            src={GENERAL_IMAGE_URLS.backToTop}
-            alt='back_to_top_button'
+          <BackToTopCont
             onClick={scrollToTop}
-            isVisible={isVisible}
-          />
+            isVisible={isVisible}>
+            <BackToTopImgCont>
+              <ArrowUpwardIcon 
+                style={{
+                    color: '#A1A1A1', 
+                    padding: '6px',
+                    fontSize: 30,
+                    }}/>
+            </BackToTopImgCont>
+            <BackToTop className={classes.backtotop}>
+              BACK&nbsp;TO&nbsp;TOP
+            </BackToTop>
+          </BackToTopCont>
         </div>
       </>
   )

@@ -32,12 +32,11 @@ const useStyles = makeStyles(theme => ({
     margin: 0
   },
   navCont: {
-    display: 'flex',
     alignItems: 'center',
-    marginLeft: theme.spacing(14),
-    '& div': {
-      lineHeight: '44px',
-    }
+    lineHeight: '44px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    width:'170px'
   },
   navMenuRoot: {
     '&:hover #navMenu': {
@@ -97,10 +96,6 @@ const Root = styled.div`
   // transform: ${(props: HeaderProps) => props.isHeaderBackgroundTransparent ? 'translate3d(0,0,0)' : 'translateY(-100%)'};
   // opacity: ${(props: HeaderProps) => props.isHeaderBackgroundTransparent ? 1 : 0};
   background-color: ${(props: HeaderProps) => props.isHeaderBackgroundTransparent ? props.backgroundColorHover : props.backgroundColorNormal};
-`
-
-const ButtonContainer = styled.div`
-  align-items:'flex-end';
 `
 
 const BURGER_MENU_BUTTON_SIZE = '24px'
@@ -199,7 +194,6 @@ const Header = (props: Props) => {
             <div className={classes.navCont}>
               {
                 !isDesktop
-                //on mobile tablet
                   ? <>
                   <MobileMenuButton>
                     <BurgerMenu isSideMenuOpen={isSideMenuOpen} setIsSideMenuOpen={setIsSideMenuOpen} />
@@ -207,20 +201,18 @@ const Header = (props: Props) => {
                   <SideMenu isSideMenuOpen={isSideMenuOpen} items={HEADER_NAV_LINK_ITEMS} />
                 
                   </>
-                  : //when desktop
+                  :
                   <>
-                   <ButtonContainer>
                       <Link to="/Login" style={{textDecoration: 'none'}}>
-                        <HollowButton style={{color:'#8687FF', fontWeight: '500', fontFamily:'Lato'}}>
+                        <HollowButton>
                           Log in 
                         </HollowButton>
                       </Link>
                       <Link to="/TryFree" style={{textDecoration: 'none'}}>
-                        <FilledButton style={{  margin: '23px', fontFamily:'Lato'}}> 
+                        <FilledButton> 
                           Tutorial 
                         </FilledButton>
                       </Link>
-                  </ButtonContainer>
                 </>
               }
               <Modal isSideMenuOpen={isSideMenuOpen} onClick={() => setIsSideMenuOpen(false)}/>
