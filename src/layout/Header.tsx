@@ -1,10 +1,10 @@
 import {FilledButton, HollowButton} from '../components/Buttons'
-import { HEADER_HEIGHT, SIDE_MENU_PADDING_RIGHT } from "../constants/GlobalStyles"
 import React, { useState } from "react"
 import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core"
 
 import BurgerMenu from "../components/BurgerMenu"
 import { DefaultInnerRootCont } from "../components/Containers"
+import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
 import { Link } from "react-router-dom";
@@ -49,9 +49,8 @@ const Root = styled.div`
 
 const Header = () => {
   const classes = useStyles()
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
-
   const theme = useTheme()
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
 
   const isDesktop = useMediaQuery(theme.breakpoints.up(1080), {
     defaultMatches: true
@@ -67,10 +66,10 @@ const Header = () => {
             </div>
               {
                 !isDesktop
-                  ? <>
-                  <BurgerMenu isSideMenuOpen={isSideMenuOpen} setIsSideMenuOpen={setIsSideMenuOpen} />
-                  <SideMenu isSideMenuOpen={isSideMenuOpen} items={HEADER_NAV_LINK_ITEMS} />
-                
+                  ? 
+                  <>
+                    <BurgerMenu isSideMenuOpen={isSideMenuOpen} setIsSideMenuOpen={setIsSideMenuOpen} />
+                    <SideMenu isSideMenuOpen={isSideMenuOpen} items={HEADER_NAV_LINK_ITEMS} />
                   </>
                   :
                   <>

@@ -1,12 +1,10 @@
 import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
 import styled from 'styled-components';
 import theme from "../theme"
 
 type StyledBurgerProps = {
   isOpen: boolean
 }
-
 const BURGER_MENU_BUTTON_SIZE = '24px'
 
 export const StyledBurger = styled.button`
@@ -48,14 +46,7 @@ export const StyledBurger = styled.button`
   }
 `
 
-const useStyles = makeStyles(theme => ({
-  root: {}
-}))
-
 const BurgerMenu = (props: Props) => {
-
-  const classes = useStyles()
-
   const { isSideMenuOpen, setIsSideMenuOpen } = props
 
   return (
