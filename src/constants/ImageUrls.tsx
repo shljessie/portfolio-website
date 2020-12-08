@@ -6,6 +6,7 @@ export const IMAGE_DIRECTORY_PATH = {
   technology: ROOT_PATH + '/technology',
   general: ROOT_PATH + '/general',
   main: ROOT_PATH + '/main',
+  feature: ROOT_PATH + '/feature',
   howto: ROOT_PATH + '/main/howto',
 }
 
@@ -35,6 +36,24 @@ export const HOW_TO_IMAGE_URLS = {
     IMAGE_DIRECTORY_PATH.howto + '/howto_step_one.png',
     IMAGE_DIRECTORY_PATH.howto + '/howto_step_two.png',
     IMAGE_DIRECTORY_PATH.howto + '/howto_step_three.png'
+  ]
+}
+
+
+export const FEATURE_IMAGE_URLS = {
+  features: [
+    {
+      imageUrl:  IMAGE_DIRECTORY_PATH.feature + '/feature_one.png',
+      description: 'Unwanted music in your audio/ video'
+    },
+    {
+      imageUrl:  IMAGE_DIRECTORY_PATH.feature + '/feature_two.png',
+      description: 'Violations of music copyright infringements'
+    },
+    {
+      imageUrl:   IMAGE_DIRECTORY_PATH.feature + '/feature_three.png',
+      description: 'Need for similiar noncopyrighted music'
+    }
   ]
 }
 

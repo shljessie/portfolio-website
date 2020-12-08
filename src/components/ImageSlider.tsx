@@ -4,6 +4,8 @@ import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Contai
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, {Pagination} from 'swiper';
 
+import { FEATURE_DATA } from '../constants/PageData';
+import { FEATURE_IMAGE_URLS } from '../constants/ImageUrls'
 import React from "react";
 import { Typography } from "@material-ui/core"
 import theme from "../theme"
@@ -12,36 +14,23 @@ SwiperCore.use([Pagination]);
 
 export const ImageSlider = () => {
   const slides = [];
-
     slides.push(
       <>
-      <SwiperSlide key ={1} >
-      <Typography variant= "h5" style = {{color: 'white', marginBottom: theme.spacing(4)}}>
-        Unwanted music in your audio/ video
-      </Typography>
-          <img 
-          src= { `https://picsum.photos/id/${1}/500/300`}
-          alt= {`Slide ${1}`}  
-          />
-      </SwiperSlide>
-      <SwiperSlide key ={2} >
-      <Typography variant= "h5" style = {{color: 'white',marginBottom: theme.spacing(4)}}>
-        Violations of music copyright infringements
-      </Typography>
-          <img 
-          src= { `https://picsum.photos/id/${2}/500/300`}
-          alt= {`Slide ${2}`}  
-          />
-      </SwiperSlide>
-      <SwiperSlide key ={`3`} >
-      <Typography variant= "h5" style = {{color: 'white', marginBottom: theme.spacing(4)}}>
-        Need for similiar noncopyrighted music
-      </Typography>
-          <img 
-          src= { `https://picsum.photos/id/${3}/500/300`}
-          alt= {`Slide ${3}`}  
-          />
-      </SwiperSlide>
+        {
+          FEATURE_IMAGE_URLS.features.map((imageUrl, i) => {
+          return(
+            <SwiperSlide key ={i} >
+              <Typography variant= "h5" style = {{color: 'white', marginBottom: theme.spacing(4)}}>
+                {FEATURE_IMAGE_URLS.features[i].description}
+              </Typography>
+                  <img 
+                  src=  {FEATURE_IMAGE_URLS.features[i].imageUrl}
+                  alt= {`Slide ${i}`}  
+                  />
+          </SwiperSlide>
+          )
+        }) 
+      }
       </>
     );
 
