@@ -5,9 +5,9 @@ import (
 	"os"
 	"strconv"
 
-	"cochlear.ai/music-wrapper/model"
-	"cochlear.ai/music-wrapper/mysql"
-	"cochlear.ai/music-wrapper/utils"
+	"cochlear.ai/music-swapper/model"
+	"cochlear.ai/music-swapper/mysql"
+	"cochlear.ai/music-swapper/utils"
 	"github.com/gofiber/fiber/v2"
 	"github.com/goware/emailx"
 	"github.com/jinzhu/copier"
@@ -166,5 +166,45 @@ func (u UserController) Create(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status": "ok",
 		"data":   userClear,
+	})
+}
+
+// ListUpload list all upload records belonging to user
+func (u UserController) ListUpload(c *fiber.Ctx) error {
+
+	// Get user making the request from comtext
+	currentUser := c.Locals("user").(model.User)
+
+	var uploads []model.Upload
+
+	if c.Params("id") == "" {
+		return c.Status(utils.Errors["MissingParam"].Code).JSON(fiber.Map{
+			"status": "error",
+			"error":  utils.Errors["MissingParam"].Message,
+		})
+	}
+
+	id, _ := strconv.Atoi(c.Params("id"))
+
+	// User can only get his account. Only admin can access all users
+	if uint(id) != currentUser.ID && !utils.HasPermission(currentUser.Permission, "admin") {
+		return c.Status(utils.Errors["NoPermission"].Code).JSON(fiber.Map{
+			"status": "error",
+			"error":  utils.Errors["NoPermission"].Message,
+		})
+	}
+
+	result := mysql.DB.Where("user_id = ?", currentUser.ID).Order("created_at desc").Find(&uploads)
+
+	if result.Error != nil {
+		return c.Status(utils.Errors["NotFound"].Code).JSON(fiber.Map{
+			"status": "error",
+			"error":  utils.Errors["NotFound"].Message,
+		})
+	}
+
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"status": "ok",
+		"data":   uploads,
 	})
 }

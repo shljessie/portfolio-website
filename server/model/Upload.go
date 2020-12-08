@@ -8,6 +8,5 @@ type Upload struct {
 	Extension string `json:"extension"`
 	Size      int64  `json:"size"`
 	URI       string `json:"uri"`
-	UserID    int
-	User      User
+	UserID    int    `json:"-"`
 }

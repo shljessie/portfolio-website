@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"os"
 
-	"cochlear.ai/music-wrapper/controllers"
-	"cochlear.ai/music-wrapper/middlewares"
+	"cochlear.ai/music-swapper/controllers"
+	"cochlear.ai/music-swapper/middlewares"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -58,13 +58,8 @@ func NewRouter() *fiber.App {
 	// ------ Private routes ------
 	userGroupPrivate := v1.Group("/user", middlewares.AuthMiddleware())
 	userGroupPrivate.Get("/:id", user.Get)
+	userGroupPrivate.Get("/:id/upload", user.ListUpload)
 	userGroupPrivate.Get("/list", user.List)
-
-	// --- Files ---
-	file := new(controllers.File)
-	// ------ Private routes -------
-	fileGroupPrivate := v1.Group("/file")
-	fileGroupPrivate.Get("/", file.GetFile)
 
 	// --- Auth ---
 	auth := new(controllers.Auth)
