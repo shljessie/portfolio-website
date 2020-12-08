@@ -3,7 +3,8 @@ import React, { useContext } from "react"
 import { Typography, makeStyles } from "@material-ui/core"
 
 import { FUNCTION_ITEM_DATA } from "../constants/PageData"
-import { TECHNOLOGY_IMAGE_URLS } from "../constants/ImageUrls"
+import {HOW_TO_DATA} from '../constants/PageData'
+import { HOW_TO_IMAGE_URLS } from "../constants/ImageUrls"
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
 import theme from "../theme"
@@ -28,6 +29,14 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative'
+  },
+  imageCont:{
+    maxWidth: '100%', 
+    maxHeight: '100%',
+  },
+  image:{
+    maxWidth: '100%', 
+    maxHeight: '100%'
   }
 }))
 
@@ -48,8 +57,8 @@ type TabProps = {
 const Tab = styled.div`
   display: flex;
   align-items: center;
-  padding-left: 24px;
   width: 40%;
+  height: 200px;
   margin: 0px 30px;
   color: ${(props: TabProps) => props.isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.3)'};
   cursor: pointer;
@@ -63,18 +72,13 @@ type GifProps = {
   isActive: boolean
 }
 
-const FunctionGif = styled.video`
+const ImageCont = styled.div`
   display: ${(props: GifProps) => props.isActive ? 'unset' : 'none'};
-  width: 40%;
-`
-const StepsTitle = styled.div`
-  vertical-align: text-top;
-  font-weight:600;
-  font-size:25px;
-  margin-bottom: 36px;
+  width: 60vw;
+  height: 60vh;
 `
 
-const Howto = (props: Props) => {
+const Howto = () => {
 
   const classes = useStyles()
 
@@ -100,43 +104,35 @@ const Howto = (props: Props) => {
                   
                     <div className={classes.innerImgCont}>
                   {
-                    TECHNOLOGY_IMAGE_URLS.benefits.map((imgUrl, i) => {
+                    HOW_TO_IMAGE_URLS.steps.map((imgUrl, i) => {
                       return (
-                        <FunctionGif autoPlay muted loop playsInline isActive={tabIndex === i} style={{marginBottom: theme.spacing(8)}}>
-                          <source src={imgUrl} type="video/mp4" />
-                        </FunctionGif>
+                        <ImageCont className={classes.imageCont} isActive={tabIndex === i} style={{marginBottom: theme.spacing(7)}}>
+                          <img className={classes.image} src={imgUrl}  alt="how_to"/>
+                        </ImageCont>
                       )
                     })
                   }
               </div>
 
 
-                    <div>
                       <Tabs style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
-                        <Tab onClick={(e) => onTabIndexChange(e, 0)} isActive={tabIndex === 0} style= {{ height :'100px',}}>
-                          <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
-                            <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2)}}>1  Upload File</Typography>
-                            <Typography variant="body1" style={{marginBottom: '18px'}}>Upload an audio or video file. 
-                              Click to add media or drag and drop a file.</Typography>
-                          </div>
-                        </Tab>
-                        <Tab onClick={(e) => onTabIndexChange(e, 1)} isActive={tabIndex === 1} style= {{ height :'128px'}}>
-                          <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
-                          <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2)}}>2  Separate Audio</Typography>
-                          <Typography variant="body1">We detected music in the numbered sections. 
-                            All numbered section will be separated. 
-                              Click on a number or drag a new selections and Start editing.</Typography>
-                          </div>
-                        </Tab>
-                        <Tab onClick={(e) => onTabIndexChange(e, 2)} isActive={tabIndex === 2} style= {{ height :'100px'}}>
-                          <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
-                          <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2),marginTop: theme.spacing(4)}}>3  Swap Music</Typography>
-                          <Typography variant="body1" >We have recommended similar music to the ones we have detected and removed.
-                               Click on a numbered section to add music to.</Typography>
-                          </div>
-                        </Tab>
+                      {
+                        HOW_TO_DATA.steps.map((step, i) => {
+                          return(
+                            <Tab onClick={(e) => onTabIndexChange(e,i)} isActive={tabIndex === i} style={{height: '200px',}}>
+                              <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
+                                <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2)}}>
+                                { HOW_TO_DATA.steps[i].step }
+                                </Typography>
+                                <Typography variant="body1" style={{marginBottom: '18px'}}>
+                                { HOW_TO_DATA.steps[i].description }
+                                </Typography>
+                              </div>
+                            </Tab>
+                          )
+                        }) 
+                      }
                       </Tabs>
-                    </div>
                     
                 </div>
               </Container>
@@ -146,6 +142,5 @@ const Howto = (props: Props) => {
   )
 }
 
-type Props = {}
 
 export default Howto

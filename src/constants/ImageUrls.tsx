@@ -5,7 +5,8 @@ export const IMAGE_DIRECTORY_PATH = {
   footer: ROOT_PATH + '/footer',
   technology: ROOT_PATH + '/technology',
   general: ROOT_PATH + '/general',
-  main: ROOT_PATH + '/main'
+  main: ROOT_PATH + '/main',
+  howto: ROOT_PATH + '/main/howto',
 }
 
 export const HEADER_IMAGE_URL = {
@@ -29,11 +30,11 @@ export const FOOTER_IMAGE_URLS = {
 }
 
 
-export const TECHNOLOGY_IMAGE_URLS = {
-  benefits: [
-    IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_1.mp4',
-    IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_2.mp4',
-    IMAGE_DIRECTORY_PATH.technology + '/tech_benefits_3.mp4'
+export const HOW_TO_IMAGE_URLS = {
+  steps: [
+    IMAGE_DIRECTORY_PATH.howto + '/howto_step_one.png',
+    IMAGE_DIRECTORY_PATH.howto + '/howto_step_two.png',
+    IMAGE_DIRECTORY_PATH.howto + '/howto_step_three.png'
   ]
 }
 
