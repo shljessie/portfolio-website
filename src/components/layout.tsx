@@ -12,7 +12,7 @@ import theme from "../theme"
 const useStyles = makeStyles(theme => ({
   main: {
     minHeight: '100vh',
-    backgroundColor: "#101010",
+    backgroundColor: "#121212",
   },
   backtotop:{
     [theme.breakpoints.down('md')]: {

@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   snsLogo: {
-    height: '26px',
+    height: 'auto',
     width: '26px',
     scale: 1,
     transition: 'transform 0.15s ease-in-out 0s',

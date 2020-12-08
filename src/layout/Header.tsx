@@ -22,9 +22,9 @@ const useStyles = makeStyles(theme => ({
   },
   logo: {
     cursor: 'pointer',
-    height: '24px',
+    height: 'auto',
     width: 'auto',
-    margin: 0
+    marginTop: '5px'
   },
   buttonCont: {
     alignItems: 'center',

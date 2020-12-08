@@ -10,7 +10,7 @@ import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: '#101010',
+    backgroundColor: '#121212',
   },
   innerTextCont: {
     justifyContent: 'center',
@@ -92,7 +92,7 @@ const Howto = () => {
 
   return (
           <div className="howto">
-          <DefaultOuterRootCont style={{ backgroundColor: '#101010', marginBottom: theme.spacing(30) }}>
+          <DefaultOuterRootCont style={{ backgroundColor: '#121212', marginBottom: theme.spacing(30) }}>
             <DefaultInnerRootCont>
               <Container>
                   <div>

@@ -11,7 +11,7 @@ export const IMAGE_DIRECTORY_PATH = {
 }
 
 export const HEADER_IMAGE_URL = {
-  logo: IMAGE_DIRECTORY_PATH.header + '/header_logo_dark.png',
+  logo: IMAGE_DIRECTORY_PATH.header + '/logo.png',
 }
 
 export const MAIN_IMAGE_URL = {

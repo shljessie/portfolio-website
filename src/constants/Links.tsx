@@ -24,6 +24,10 @@ export const FOOTER_NAV_LINK_ITEMS: NavLinkItem[] = [
       {
         name: 'Cochl. Sense',
         url: '/cochl-sense/'
+      },
+      {
+        name: 'Documentation',
+        url: 'https://docs.cochl.ai/'
       }
     ]
   },
@@ -37,14 +41,6 @@ export const FOOTER_NAV_LINK_ITEMS: NavLinkItem[] = [
       {
         name: 'Stories',
         url: '/about-us/'
-      },
-      {
-        name: 'Newsroom',
-        url: '/newsroom/'
-      },
-      {
-        name: 'Press',
-        url: '/press/'
       },
       {
         name: 'Join Our Team',
