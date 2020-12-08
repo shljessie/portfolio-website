@@ -17,7 +17,7 @@ const HomePage = () => {
   return (
     <Layout>
         <Header />
-          <PageHeader title='MISSON STATEMENT'/>
+          <PageHeader/>
           <Howto />
           <ImageSlider />
           <SubscribeForm />

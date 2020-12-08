@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
-import { Typography, makeStyles } from "@material-ui/core"
+import { Typography, makeStyles, useTheme } from "@material-ui/core"
 
 import FilledButton from '../components/Buttons'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
@@ -35,20 +35,19 @@ const ButtonCont = styled.div`
 `
 
 
-const PageHeader = (props: Props) => {
-  const { title } = props
-
+const PageHeader = () => {
   const classes = useStyles()
+  const theme = useTheme()
 
   return (
     <DefaultOuterRootCont style={{ paddingTop: HEADER_HEIGHT}} >
       <DefaultInnerRootCont className={classes.innerRoot}>
         <Typography variant='h2' className={classes.title}>
-          { title }
+          MISSION STATEMENT
         </Typography>
 
         
-        <Typography variant= "body1" style= {{color: "white", marginTop: '48px', marginBottom: '81px', fontFamily: 'Montserrat'}} >
+        <Typography variant= "body1" style= {{color: "white", marginTop: theme.spacing(6), marginBottom: theme.spacing(10), fontFamily: 'Montserrat'}} >
         Lorem ipsum dolor sit amet,  
         <a href="#" style = {{textDecoration: 'none', color: '#8783C8'}}>  How it works</a> adipiscing elit. 
         Rhoncus maecenas ut mi <br/> faucibus augue vulputate. 
@@ -57,25 +56,25 @@ const PageHeader = (props: Props) => {
 
         <ButtonCont>
           
-        <PageLink to="/videoeditor" style={{textDecoration: 'none'}}>
-          <FilledButton style={{width:'133px',  height: '41px', fontWeight: '600'}}>
-              Get started
-          </FilledButton>
-        </PageLink>
-        
+            <PageLink to="/videoeditor" style={{textDecoration: 'none'}}>
+              <FilledButton style={{ width:'133px',  height: '41px', fontWeight: '600'}}>
+                  Get started
+              </FilledButton>
+            </PageLink>
+            
 
-        <Link
-          className={classes.innerRoot}
-          activeClass="active"
-          to="howto"
-          spy={true}
-          smooth={true}
-          offset={-70}
-          duration={500}
-          style={{ position: 'absolute', bottom: '5%',cursor: 'pointer'}}
-          > 
-          <img src={MAIN_IMAGE_URL.scroll}  alt='scroll_button'/>
-          </Link>
+            <Link
+              className={classes.innerRoot}
+              activeClass="active"
+              to="howto"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              style={{ position: 'absolute', bottom: '5%',cursor: 'pointer'}}
+              > 
+              <img src={MAIN_IMAGE_URL.scroll}  alt='scroll_button'/>
+              </Link>
     
         </ButtonCont>
 
@@ -83,10 +82,6 @@ const PageHeader = (props: Props) => {
       </DefaultInnerRootCont>
     </DefaultOuterRootCont>
   )
-}
-
-type Props = {
-  title: string
 }
 
 export default PageHeader
