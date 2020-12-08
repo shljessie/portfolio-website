@@ -21,7 +21,6 @@ const customTypography: TypographyOptions = {
   h2: {
     fontFamily: 'Montserrat, sans-serif',
     fontWeight: 800,
-    lineHeight: '20px',
     fontSize: '60px',
     letterSpacing: '0.2px',
   },

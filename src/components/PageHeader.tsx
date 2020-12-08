@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
 import { Typography, makeStyles } from "@material-ui/core"
 
 import FilledButton from '../components/Buttons'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import { Link } from "react-scroll";
+import {MAIN_IMAGE_URL} from '../constants/ImageUrls'
 import { Link as PageLink } from "react-router-dom";
 import React from "react"
 import styled from "styled-components"
@@ -54,13 +56,14 @@ const PageHeader = (props: Props) => {
         </Typography>
 
         <ButtonCont>
+          
         <PageLink to="/videoeditor" style={{textDecoration: 'none'}}>
-          <FilledButton style={{width:'133px',  height: '41px'}}>
-            <Typography variant= 'button'>Get Started</Typography>
+          <FilledButton style={{width:'133px',  height: '41px', fontWeight: '600'}}>
+              Get started
           </FilledButton>
         </PageLink>
         
-        <FilledButton style={{marginTop: theme.spacing(22)}} >
+
         <Link
           className={classes.innerRoot}
           activeClass="active"
@@ -69,10 +72,10 @@ const PageHeader = (props: Props) => {
           smooth={true}
           offset={-70}
           duration={500}
+          style={{ position: 'absolute', bottom: '5%',cursor: 'pointer'}}
           > 
-          MORE
+          <img src={MAIN_IMAGE_URL.scroll}  alt='scroll_button'/>
           </Link>
-        </FilledButton>
     
         </ButtonCont>
 

@@ -5,7 +5,7 @@ import { makeStyles, useMediaQuery, useTheme } from "@material-ui/core"
 import BurgerMenu from "../components/BurgerMenu"
 import { DefaultInnerRootCont } from "../components/Containers"
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
-import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
+import {HEADER_IMAGE_URL} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
 import { Link } from "react-router-dom";
 import { Modal } from "../components/Modal"
@@ -61,7 +61,7 @@ const Header = () => {
       <DefaultInnerRootCont className={classes.inner}>
             <div>
               <a href='/'>
-                <img className={classes.logo} src={HEADER_IMAGE_URLS['dark'].logo} alt='header_logo' />
+                <img className={classes.logo} src={HEADER_IMAGE_URL.logo} alt='header_logo' />
               </a>
             </div>
               {

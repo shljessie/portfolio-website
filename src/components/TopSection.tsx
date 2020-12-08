@@ -3,7 +3,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles"
 
 import { DefaultInnerRootCont } from "../components/Containers"
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
-import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
+import {HEADER_IMAGE_URL} from "../constants/ImageUrls";
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
 
@@ -147,7 +147,7 @@ const TopSection= (props: Props) => {
     >
       <DefaultInnerRootCont className={classes.inner}>
             <a href='/'>
-              <img className={classes.logo} src={HEADER_IMAGE_URLS[headerTheme].logo} alt='header_logo' />
+              <img className={classes.logo} src={HEADER_IMAGE_URL.logo} alt='header_logo' />
             </a>
 
           </DefaultInnerRootCont>

@@ -18,7 +18,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import BurgerMenu from "../components/BurgerMenu"
 import { DefaultInnerRootCont } from "../components/Containers"
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import {HEADER_IMAGE_URLS} from "../constants/ImageUrls";
+import {HEADER_IMAGE_URL} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
 import { Modal } from "../components/Modal"
 import { Link as RouterLink } from 'react-router-dom'
@@ -249,7 +249,7 @@ const UserHeader = () => {
     >
       <DefaultInnerRootCont className={classes.inner}>
             <a href='/'>
-              <img className={classes.logo} src={HEADER_IMAGE_URLS[headerTheme].logo} alt='header_logo' />
+              <img className={classes.logo} src={HEADER_IMAGE_URL.logo} alt='header_logo' />
             </a>
 
             <div className={classes.navCont}>

@@ -8,17 +8,12 @@ export const IMAGE_DIRECTORY_PATH = {
   main: ROOT_PATH + '/main'
 }
 
-type HeaderImageUrlsProps = {
-  logo: string
+export const HEADER_IMAGE_URL = {
+  logo: IMAGE_DIRECTORY_PATH.header + '/header_logo_dark.png',
 }
 
-export const HEADER_IMAGE_URLS: {[key: string]: HeaderImageUrlsProps} = {
-  light: {
-    logo: IMAGE_DIRECTORY_PATH.header + '/header_logo_light.png',
-  },
-  dark: {
-    logo: IMAGE_DIRECTORY_PATH.header + '/header_logo_dark.png',
-  }
+export const MAIN_IMAGE_URL = {
+  scroll: IMAGE_DIRECTORY_PATH.main + '/scroll.png',
 }
 
 export const FOOTER_IMAGE_URLS = {
