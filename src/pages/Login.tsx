@@ -7,8 +7,8 @@ import { DividerComponent }from '../layout/Divider'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
+import FormHeader from '../layout/FormHeader';
 import {InputCont} from "../components/InputCont";
-import LoginHeader from '../components/LoginHeader';
 import { Link as RouterLink } from 'react-router-dom'
 import {getRefreshToken} from "../shared/API";
 import styled from 'styled-components';
@@ -186,7 +186,7 @@ type SignInFormState = {
     
   return(
     <>
-    <LoginHeader/>
+    <FormHeader/>
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>

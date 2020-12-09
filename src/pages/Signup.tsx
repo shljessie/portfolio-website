@@ -14,8 +14,8 @@ import { DividerComponent }  from '../layout/Divider'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
+import FormHeader from '../layout/FormHeader';
 import {InputCont} from "../components/InputCont";
-import LoginHeader from '../components/LoginHeader';
 import {RootState} from "../modules";
 import { Link as RouterLink } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
@@ -259,7 +259,7 @@ type Props = StateProps & DispatchProps & OwnProps
     
   return(
     <>
-    <LoginHeader/>
+    <FormHeader/>
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>

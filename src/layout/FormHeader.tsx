@@ -29,8 +29,7 @@ const Root = styled.div`
   background-color: #31343E;
 `
 
-const LoginHeader= (props: Props) => {
-  const {} = props
+const FormHeader= () => {
   const classes = useStyles()
 
   return (
@@ -44,7 +43,4 @@ const LoginHeader= (props: Props) => {
   )
 }
 
-type Props = {
-}
-
-export default LoginHeader
+export default FormHeader

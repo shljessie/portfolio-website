@@ -5,8 +5,8 @@ import React, {useEffect, useState} from 'react';
 import { DefaultOuterRootCont } from '../components/Containers'
 import FilledButton from '../components/Buttons'
 import  FormFooter from '../layout/FormFooter'
+import FormHeader from '../layout/FormHeader';
 import {InputCont} from "../components/InputCont";
-import LoginHeader from '../components/LoginHeader';
 import { Link as RouterLink } from 'react-router-dom'
 import {postForgotPassword} from "../shared/API";
 import theme from '../theme';
@@ -165,7 +165,7 @@ type EmailInput = {
     
   return(
     <>
-    <LoginHeader/>
+    <FormHeader/>
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>

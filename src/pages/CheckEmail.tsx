@@ -8,7 +8,7 @@ import {
 import { DefaultOuterRootCont } from '../components/Containers'
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
-import LoginHeader from '../components/LoginHeader';
+import FormHeader from '../layout/FormHeader';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom'
 import theme from '../theme';
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     
   return(
     <>
-    <LoginHeader/>
+    <FormHeader/>
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>
