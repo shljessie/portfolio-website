@@ -15,9 +15,9 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
+import LoginHeader from '../components/LoginHeader';
 import {RootState} from "../modules";
 import { Link as RouterLink } from 'react-router-dom'
-import TopSection from '../components/TopSection';
 import { bindActionCreators } from 'redux';
 import {signUpActions} from "../modules/signUpStateManager";
 import styled from 'styled-components';
@@ -259,7 +259,7 @@ type Props = StateProps & DispatchProps & OwnProps
     
   return(
     <>
-    <TopSection/>
+    <LoginHeader/>
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>

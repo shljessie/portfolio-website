@@ -8,9 +8,9 @@ import {
 import { DefaultOuterRootCont } from '../components/Containers'
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
+import LoginHeader from '../components/LoginHeader';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom'
-import TopSection from '../components/TopSection';
 import theme from '../theme';
 
 const useStyles = makeStyles(theme => ({
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     
   return(
     <>
-    <TopSection/>
+    <LoginHeader/>
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>

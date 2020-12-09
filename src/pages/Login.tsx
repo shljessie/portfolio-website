@@ -8,8 +8,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import FilledButton from '../components/Buttons'
 import FormFooter from '../layout/FormFooter'
 import {InputCont} from "../components/InputCont";
+import LoginHeader from '../components/LoginHeader';
 import { Link as RouterLink } from 'react-router-dom'
-import TopSection from '../components/TopSection';
 import {getRefreshToken} from "../shared/API";
 import styled from 'styled-components';
 import theme from '../theme';
@@ -186,7 +186,7 @@ type SignInFormState = {
     
   return(
     <>
-    <TopSection/>
+    <LoginHeader/>
     <DefaultOuterRootCont>
     <div className={classes.root}>
     <main className={classes.main}>

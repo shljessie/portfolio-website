@@ -8,10 +8,15 @@ export const IMAGE_DIRECTORY_PATH = {
   main: ROOT_PATH + '/main',
   feature: ROOT_PATH + '/feature',
   howto: ROOT_PATH + '/main/howto',
+  login: ROOT_PATH + '/login',
 }
 
 export const HEADER_IMAGE_URL = {
   logo: IMAGE_DIRECTORY_PATH.header + '/logo.png',
+}
+
+export const LOGIN_HEADER_IMAGE_URL = {
+  logo: IMAGE_DIRECTORY_PATH.login + '/login_logo.png',
 }
 
 export const MAIN_IMAGE_URL = {

@@ -255,7 +255,6 @@ const UserHeader = () => {
             <div className={classes.navCont}>
               {
                 !isDesktop
-                //on mobile tablet
                   ? <>
                   <MobileMenuButton>
                     <BurgerMenu isSideMenuOpen={isSideMenuOpen} setIsSideMenuOpen={setIsSideMenuOpen} />
@@ -263,7 +262,7 @@ const UserHeader = () => {
                   <SideMenu isSideMenuOpen={isSideMenuOpen} items={HEADER_NAV_LINK_ITEMS} />
                 
                   </>
-                  : //when desktop
+                  :
                   <>
                   <div className={classes.cont}>
                     <div className={classes.rightCont}>

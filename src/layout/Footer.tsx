@@ -116,15 +116,6 @@ const useStyles = makeStyles(theme => ({
       marginTop: 'unset',
     }
   },
-  navMenuUnit: {
-    // width: '33.3%',
-    // maxWidth: '250px',
-    marginTop: theme.spacing(2),
-    display: 'inline-block',
-    [theme.breakpoints.up('md')]: {
-      marginLeft: theme.spacing(8),
-    },
-  }
 }))
 
 type SnsLinkProps = {
