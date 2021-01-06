@@ -18,7 +18,6 @@ const HomePage = () => {
         <Header />
           <PageHeader/>
           <Howto />
-          <ImageSlider />
           <Footer/>
     </Layout>
   )

@@ -24,8 +24,10 @@ const useStyles = makeStyles(theme => ({
   topRow: {
     width: '100%',
     display: 'flex',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+    textAlign: 'start',
     flexWrap: 'wrap',
+    marginBottom: theme.spacing(9),
     [theme.breakpoints.up('md')]: {
       flexWrap: 'unset',
     },
@@ -185,20 +187,6 @@ const NavMenuCategoryCont = ({ navLinkItem }: NaveMenuCategoryContProps) => {
   )
 }
 
-const NavMenuCont = () => {
-  const classes = useStyles()
-
-  return (
-    <div className={classes.navMenuCont}>
-      {
-        FOOTER_NAV_LINK_ITEMS.map((navLinkItem, i) => {
-          return <NavMenuCategoryCont key={i} navLinkItem={navLinkItem}/>
-        })
-      }
-    </div>
-  )
-}
-
 const BottomRow = () => {
   const classes = useStyles()
 
@@ -237,7 +225,7 @@ const Footer = (props: Props) => {
       <DefaultInnerRootCont>
         <div className={classes.topRow}>
             <Typography variant="h6">Jessie Lee</Typography>
-          <NavMenuCont/>
+            <Typography variant="body2"> This website has been fully coded by Jessie Lee</Typography>
         </div>
         <BottomRow/>
       </DefaultInnerRootCont>

@@ -3,8 +3,12 @@ import './App.css';
 import React , { useEffect, useState }from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
+import CochlInternship from './pages/CochlInternship'
 import Home from './pages/Home';
+import MercedesBenz from './pages/MercedesBenz'
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import MyCourseIndex from './pages/MyCourseIndex'
+import PageTemplate from './pages/PageTemplate';
 import icon from './images/icon.jpeg'
 import styled from "styled-components"
 import terms from './pages/terms'
@@ -44,6 +48,10 @@ function App() {
          <Router>
             <Route exact path="/" component={Home} />
             <Route path="/terms" component={terms} />
+            <Route path="/PageTemplate" component={PageTemplate} />
+            <Route path="/MercedesBenz" component={MercedesBenz} />
+            <Route path="/CochlInternship" component={CochlInternship} />
+            <Route path="/MercedesBenz" component={MercedesBenz} />
           </Router>
     </div>
   </MuiThemeProvider>

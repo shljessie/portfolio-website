@@ -64,7 +64,7 @@ const PageTemplate = (props: Props) => {
                   variant='h3'	
                   style={{marginTop: theme.spacing(1), fontWeight: 'bold',fontFamily: 'Lato', textAlign: 'start'}}	
                 >	
-                 Mercedes Benz Sound Recognition AI User Display
+                 Mercedes Benz Sound Recognition AI
                 </Typography>	
           </div>	
         </DefaultInnerRootCont>

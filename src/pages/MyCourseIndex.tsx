@@ -55,16 +55,16 @@ const PageTemplate = (props: Props) => {
           <div className={classes.headerCont}>	
                 <Typography variant='body2'>	
                   <div className={classes.headerSubtitle}>	
-                    <div>Mercedes Benz</div>	
+                    <div>MyCourseIndex</div>	
                     <VerticalDelimiter length='24px' thickness='2px' color='#fff'/>	
-                    <div>2020.12.01 ~ 2021.01.15</div>	
+                    <div>2020.09.01 ~ 2021.12.31</div>	
                   </div>	
                 </Typography>	
                 <Typography	
                   variant='h3'	
                   style={{marginTop: theme.spacing(1), fontWeight: 'bold',fontFamily: 'Lato', textAlign: 'start'}}	
                 >	
-                 Mercedes Benz Sound Recognition AI User Display
+                 MyCourseIndex
                 </Typography>	
           </div>	
         </DefaultInnerRootCont>
