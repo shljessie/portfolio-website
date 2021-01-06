@@ -145,9 +145,10 @@ const Howto = () => {
                     <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Coronavirus Twitter Sentiment Analysis</Typography>
                     <Typography variant="body1" className={classes.textbody}>
                       Natural Language Processing Sentiment analysis of Tweets related to Coronavirus from 10 global countries.
+                      Data Visualizations Explaining the Final results of our findings are avaiable <a href="https://covid-thebois.netlify.app/visual.html">here</a>
                       <br/>Team Project at <a href="https://cornelldata.science/" style={{textDecoration: 'none', color: 'lightpink'}}> Cornell Data Science  ,</a>
                     </Typography>
-                    <FilledButton  className={classes.readMoreButton} href="/PageTemplate">
+                    <FilledButton  className={classes.readMoreButton} href="https://covid-thebois.netlify.app/index.html">
                       <Typography variant="body1"> Read More </Typography>
                     </FilledButton>
                   </ProjectTextRightCont>
