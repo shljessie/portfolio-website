@@ -8,8 +8,8 @@ export const HollowButton = withStyles((theme: Theme) =>
     root: {
       width: '77px',
       height: '29px',
-      color: '#8687FF',
-      border: `1px solid #8687FF`,
+      color: '#4923f4',
+      border: `1px solid #4923f4`,
       borderRadius: '6px',
       padding: '10px',
       outline: 'none',
@@ -20,7 +20,7 @@ export const HollowButton = withStyles((theme: Theme) =>
 
       backgroundColor: 'transparent',
       '&:hover': {
-        boxShadow: `0 0 14px #8687FF`,
+        boxShadow: `0 0 14px #4923f4`,
       },
     },
   })
@@ -56,23 +56,23 @@ const FilledButtonTemplate = withStyles((theme: Theme) =>
       width: '77px',
       height: '29px',
       color: '#fff',
-      border: `2px solid #8687FF`,
+      border: `2px solid #4923f4`,
       borderRadius: '6px',
       padding: '10px',
       outline: 'none',
       cursor: 'pointer',
       transition: 'all 0.1s',
 
-      backgroundColor: '#8687FF',
+      backgroundColor: '#4923f4',
       '&:hover': {
-        backgroundColor: '#8687FF',
-        boxShadow: `0 0 14px #8687FF`,
+        backgroundColor: '#4923f4',
+        boxShadow: `0 0 14px #4923f4`,
       },
     },
     disabled: {
       color: `#fff`,
       border: '2px solid #565656',
-      background: `#8687FF`,
+      background: `#4923f4`,
     }
   })
 )(Button);

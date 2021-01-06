@@ -37,11 +37,7 @@ export const ImageSlider = () => {
   return (
     <DefaultOuterRootCont>
       <DefaultInnerRootCont>
-      <Typography variant="h2" style={{color:'white', marginBottom: theme.spacing(4)}}>Discover. Change. Go Live</Typography>
-      <Typography variant="subtitle2" style={{color:'white' }}>If you have experienced...</Typography>
-        <Swiper pagination>
-          {slides}
-        </Swiper>
+
       </DefaultInnerRootCont>
     </DefaultOuterRootCont>
   );

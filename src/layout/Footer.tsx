@@ -3,13 +3,14 @@ import * as React from 'react'
 import { FOOTER_NAV_LINK_ITEMS, NavLinkItem } from "../constants/Links"
 
 import { DefaultInnerRootCont } from "../components/Containers"
-import { FOOTER_IMAGE_URLS } from "../constants/ImageUrls"
 import { LINK_HOVER_COLOR } from "../theme/palette"
-import { SNS_LINKS } from "../constants/Urls"
 import { Typography } from "@material-ui/core"
 import UnstyledLink from "../components/UnstyledLink"
 import { VerticalDelimiter } from "../components/Delimiters"
+import github from '../images/github.png'
+import linkedin from'../images/linkedin.png'
 import {makeStyles} from "@material-ui/core/styles";
+import medium from '../images/medium.png'
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
@@ -80,7 +81,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     height: 'auto',
-    width: '220px',
+    width: '150px',
     justifyContent: 'space-between'
   },
   unstyledExternalLink: {
@@ -96,7 +97,7 @@ const useStyles = makeStyles(theme => ({
   },
   navMenuCont: {
     width: '100%',
-    maxWidth: '640px',
+    maxWidth: '340px',
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
@@ -206,24 +207,21 @@ const BottomRow = () => {
       <div className={classes.flexWrapper}>
         <div style={{display: 'flex', alignItems: 'center', marginRight: theme.spacing(5)}}>
           <Typography variant='body2' style={{color: '#fff'}}>
-            &copy; 2020 Cochlear.ai
+            &copy; 2020 Jessie Lee
           </Typography>
         </div>
         <div className={classes.termsCont}>
-          <UnstyledExternalLink href='' name='Cookie Settings'/>
+          <UnstyledExternalLink href='https://docs.google.com/document/d/1QFNgcO9zj-Xf6fsRxyjCGN0nNiHyRKlDmDp75iOOtJo/edit' name='Resume'/>
           <VerticalDelimiter color='#fff' length='20px'/>
-          <UnstyledExternalLink href='/termsofservice' name='Terms of Service'/>
+          <UnstyledExternalLink href='/terms' name='Frequently asked Questions'/>
           <VerticalDelimiter color='#fff' length='20px'/>
-          <UnstyledExternalLink href='' name='Privacy  Policy'/>
+          <UnstyledExternalLink href="mailto: sl994@cornell.edu" name='sl994@cornell.edu'/>
         </div>
       </div>
       <div className={classes.snsCont}>
-        <SnsLink href={SNS_LINKS.medium} src={FOOTER_IMAGE_URLS.sns.medium} alt='medium_logo'/>
-        <SnsLink href={SNS_LINKS.facebook} src={FOOTER_IMAGE_URLS.sns.facebook} alt='facebook_logo'/>
-        <SnsLink href={SNS_LINKS.instagram} src={FOOTER_IMAGE_URLS.sns.instagram} alt='instagram_logo'/>
-        <SnsLink href={SNS_LINKS.linkedIn} src={FOOTER_IMAGE_URLS.sns.linkedIn} alt='linkedin_logo'/>
-        <SnsLink href={SNS_LINKS.twitter} src={FOOTER_IMAGE_URLS.sns.twitter} alt='twitter_logo'/>
-        <SnsLink href={SNS_LINKS.github} src={FOOTER_IMAGE_URLS.sns.github} alt='github_logo'/>
+        <SnsLink href={'https://www.linkedin.com/in/jessie-l-3a188519b/'} src={linkedin} alt='linkedin_logo'/>
+        <SnsLink href={'https://github.com/shljessie'} src={github} alt='github_logo'/>
+        <SnsLink href={'https://medium.com/@jessielee.shl'} src={medium} alt='medium_logo'/>
       </div>
     </div>
   )
@@ -238,7 +236,7 @@ const Footer = (props: Props) => {
     <div className={classes.root}>
       <DefaultInnerRootCont>
         <div className={classes.topRow}>
-          <img className={classes.logo} src={FOOTER_IMAGE_URLS.logo} alt='footer_logo' />
+            <Typography variant="h6">Jessie Lee</Typography>
           <NavMenuCont/>
         </div>
         <BottomRow/>

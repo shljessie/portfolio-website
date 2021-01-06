@@ -1,0 +1,4 @@
+export const FADE_DISTANCE_NORMAL = '10%'
+export const FADE_DISTANCE_SHORT = '3%'
+export const REVEAL_DURATION_NORMAL = 1000
+export const REVEAL_DURATION_FAST = 500

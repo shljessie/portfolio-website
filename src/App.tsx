@@ -1,41 +1,64 @@
 import './App.css';
 
+import React , { useEffect, useState }from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
-import Account from './pages/Account'
-import CheckEmail from './pages/CheckEmail'
 import Home from './pages/Home';
-import Login from './pages/Login'
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import React from 'react';
-import ResetPassword from './pages/ResetPassword'
-import Signup from './pages/Signup'
-import TermsofService from './pages/TermsofService'
-import TryFree from './pages/TryFree'
-import UploadVideo from './pages/UploadVideo'
-import VideoEditor from './pages/VideoEditor'
+import icon from './images/icon.jpeg'
+import styled from "styled-components"
+import terms from './pages/terms'
 import theme from './theme'
 
+const BackToTopImgCont = styled.div`
+  -moz-animation: bounce 1s infinite;
+  -webkit-animation: bounce 1s infinite;
+  animation: bounce 3s infinite;
+ @keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+}
+`
+
 function App() {
+  const [loading, setLoading] = useState(true)
+  
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000)
+  }, [])
+
+
   return (
 
+    <>
+    {loading === false ? (
     <MuiThemeProvider theme={theme}>
-      <div className="App">
-           <Router>
-              <Route exact path="/" component={Home} />
-              <Route path="/login" component={Login} />
-              <Route path="/resetpassword" component={ResetPassword} />
-              <Route path="/checkemail" component={CheckEmail} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/termsofservice" component={TermsofService} />
-              <Route path="/uploadvideo" component={UploadVideo} />
-              <Route path="/tryfree" component={TryFree} />
-              <Route path="/account" component={Account} />
-              <Route path="/videoeditor" component={VideoEditor} />
-            </Router>
-      </div>
-    </MuiThemeProvider>
+    <div className="App">
+         <Router>
+            <Route exact path="/" component={Home} />
+            <Route path="/terms" component={terms} />
+          </Router>
+    </div>
+  </MuiThemeProvider>
+      ) : (
+        <>
+        <div style={{backgroundColor: 'white', height: '100vh', display: 'flex', flexDirection: 'column',justifyContent: 'center', alignItems: 'center'}}>
+        <BackToTopImgCont>
+        <img  src= {icon} alt='login_image' style={{height: '400px', marginLeft: theme.spacing(5)}}/>
+        </BackToTopImgCont>
+        </div>
+        </>
+      )}
+      </>
   );
+
 }
 
 export default App;

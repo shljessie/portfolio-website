@@ -2,15 +2,14 @@ import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Contai
 import React, { useContext } from "react"
 import { Typography, makeStyles } from "@material-ui/core"
 
-import {HOW_TO_DATA} from '../constants/PageData'
-import { HOW_TO_IMAGE_URLS } from "../constants/ImageUrls"
+import FilledButton from '../components/Buttons'
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
 import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: '#121212',
+    backgroundColor: 'black',
   },
   innerTextCont: {
     justifyContent: 'center',
@@ -36,6 +35,12 @@ const useStyles = makeStyles(theme => ({
   image:{
     maxWidth: '100%', 
     maxHeight: '100%'
+  },
+  textbody:{
+    width: '90%',
+    margin: '0px auto',
+    flexDirection: 'column',
+    textAlign: 'start'
   }
 }))
 
@@ -45,36 +50,32 @@ const Container = styled.div`
   align-items:'center';
 `
 
-const Tabs = styled.div`
-height: '50px';
+const ProjectCont = styled.div`
+  width: 75vw;
+  height: 45vh;
+  margin: auto;
+  margin-bottom: 70px;
+  border-radius: 30px;
+  background-color: black;
+  display:flex;
+  flex-direction: row;
+  align-content: center;
 `
-
-type TabProps = {
-  isActive: boolean
-}
-
-const Tab = styled.div`
+const ProjectImageRightCont = styled.div`
+  width: 60%;
+  height: 45vh;
+  border-radius: 30px;
+  background-color: red;
+`
+const ProjectTextRightCont = styled.div`
+  width: 45%;
+  height: 45vh;
+  border-radius: 30px;
+  color: white;
   display: flex;
-  align-items: center;
-  width: 40%;
-  height: 200px;
-  margin: 0px 30px;
-  color: ${(props: TabProps) => props.isActive ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.3)'};
-  cursor: pointer;
-  &:hover {
-    color: rgba(255, 255, 255, 1);
-  }
-  transition: all .3s ease-in-out;
-`
-
-type GifProps = {
-  isActive: boolean
-}
-
-const ImageCont = styled.div`
-  display: ${(props: GifProps) => props.isActive ? 'unset' : 'none'};
-  width: 60vw;
-  height: 60vh;
+  flex-direction: column;
+  padding-left: 20px;
+  justify-content: center;
 `
 
 const Howto = () => {
@@ -92,48 +93,86 @@ const Howto = () => {
 
   return (
           <div className="howto">
-          <DefaultOuterRootCont style={{ backgroundColor: '#121212', marginBottom: theme.spacing(30) }}>
+          <DefaultOuterRootCont style={{ backgroundColor: 'black', marginBottom: theme.spacing(90) }}>
             <DefaultInnerRootCont>
               <Container>
-                  <div>
-                    <Typography variant='h4' style={{ color: '#fff', marginTop: theme.spacing(3), marginBottom:  theme.spacing(4)}}>
-                      How it works
+                <ProjectCont>
+                  <ProjectImageRightCont>
+                    <img src="https://cdn-images-1.medium.com/max/800/1*3nnrdgb8xkiLPQFd0vV7aQ.gif" style={{width: '100%', height: '100%'}}></img>
+                  </ProjectImageRightCont>
+                  <ProjectTextRightCont>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}>Mercedes Benz Sound AI </Typography>
+                    <Typography variant="body1"className={classes.textbody} >
+                      Making the Mercedes Benz Cockpit Display for non-verbal Sound Recognition AI.
+                      Internship project at <a href="https://www.cochl.ai/" style={{textDecoration: 'none', color: 'lightpink'}}> Cochl. </a>
                     </Typography>
-
-                  
-                    <div className={classes.innerImgCont}>
-                  {
-                    HOW_TO_IMAGE_URLS.steps.map((imgUrl, i) => {
-                      return (
-                        <ImageCont className={classes.imageCont} isActive={tabIndex === i} style={{marginBottom: theme.spacing(7)}}>
-                          <img className={classes.image} src={imgUrl}  alt="how_to"/>
-                        </ImageCont>
-                      )
-                    })
-                  }
-              </div>
-
-
-                      <Tabs style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
-                      {
-                        HOW_TO_DATA.steps.map((step, i) => {
-                          return(
-                            <Tab onClick={(e) => onTabIndexChange(e,i)} isActive={tabIndex === i} style={{height: '200px',}}>
-                              <div style={{display:'flex', flexDirection: 'column', textAlign: 'start'}}>
-                                <Typography variant="h6" style={{verticalAlign: 'text-top', marginBottom: theme.spacing(2)}}>
-                                { HOW_TO_DATA.steps[i].step }
-                                </Typography>
-                                <Typography variant="body1" style={{marginBottom: '18px'}}>
-                                { HOW_TO_DATA.steps[i].description }
-                                </Typography>
-                              </div>
-                            </Tab>
-                          )
-                        }) 
-                      }
-                      </Tabs>
-                    
-                </div>
+                    <FilledButton style={{ marginTop: theme.spacing(6),width:'133px',  height: '41px', left: '36%', fontWeight: '800', display: 'flex-end', alignItems: 'right'}}>
+                      <Typography variant="body1"> Read More </Typography>
+                    </FilledButton>
+                  </ProjectTextRightCont>
+                </ProjectCont>
+                <ProjectCont>
+                  <ProjectImageRightCont>
+                    <img src="https://miro.medium.com/max/600/1*cQz5oTC2BleFN7ZcbQxiLw.gif" style={{width: '100%', height: '100%'}}></img>
+                  </ProjectImageRightCont>
+                  <ProjectTextRightCont>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}>MyCourseIndex.com </Typography>
+                    <Typography variant="body1"className={classes.textbody} >
+                      A course material search system made with Machine Learning and Natural Language Processing using
+                      BERT QA system and Named Entity Recognition.
+                      Team Project for <a href="https://cornelldata.science/" style={{textDecoration: 'none', color: 'lightpink'}}> Cornell Data Science  ,</a>
+                      <a href="https://www.mycourseindex.com/about" style={{textDecoration: 'none', color: 'lightblue'}}> MyCourseIndex Team </a>
+                    </Typography>
+                    <FilledButton style={{ marginTop: theme.spacing(6),width:'133px',  height: '41px', left: '36%', fontWeight: '800', display: 'flex-end', alignItems: 'right'}}>
+                      <Typography variant="body1"> Read More </Typography>
+                    </FilledButton>
+                  </ProjectTextRightCont>
+                </ProjectCont>
+                <ProjectCont>
+                  <ProjectImageRightCont>
+                    <img src="https://cdn-images-1.medium.com/max/800/1*M5GAniz9ZLDuEuVOSKCDiQ.gif" style={{width: '100%', height: '100%'}}></img>
+                  </ProjectImageRightCont>
+                  <ProjectTextRightCont>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Coronavirus Twitter Sentiment Analysis</Typography>
+                    <Typography variant="body1" className={classes.textbody}>
+                      Natural Language Processing Sentiment analysis of Tweets related to Coronavirus from 10 global countries.
+                      <br/>Team Project at <a href="https://cornelldata.science/" style={{textDecoration: 'none', color: 'lightpink'}}> Cornell Data Science  ,</a>
+                    </Typography>
+                    <FilledButton style={{ marginTop: theme.spacing(6),width:'133px',  height: '41px', left: '36%', fontWeight: '800', display: 'flex-end', alignItems: 'right'}}>
+                      <Typography variant="body1"> Read More </Typography>
+                    </FilledButton>
+                  </ProjectTextRightCont>
+                </ProjectCont>
+                <ProjectCont>
+                  <ProjectImageRightCont>
+                    <img src="https://cdn-images-1.medium.com/max/1600/1*gZd98LBsHirc0pFf3H4ygw.gif" style={{width: '100%', height: '100%'}}></img>
+                  </ProjectImageRightCont>
+                  <ProjectTextRightCont>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Music Swapper: Sound Recognition AI </Typography>
+                    <Typography variant="body1"className={classes.textbody} >
+                      Music Swapping Application made with React, Typescript, and GraphQL using Sound Recognition AI.
+                      Internship project at <a href="https://www.cochl.ai/" style={{textDecoration: 'none', color: 'blue', fontSize: '20px'}}> Cochl. </a>
+                    </Typography>
+                    <FilledButton style={{ marginTop: theme.spacing(6),width:'133px',  height: '41px', left: '36%', fontWeight: '800', display: 'flex-end', alignItems: 'right'}}>
+                      <Typography variant="body1"> Read More </Typography>
+                    </FilledButton>
+                  </ProjectTextRightCont>
+                </ProjectCont>
+                <ProjectCont>
+                  <ProjectImageRightCont>
+                    <img src="https://cdn-images-1.medium.com/max/1600/1*gAIZ4bHnEw9xyx8fU7xOtg.gif" style={{width: '100%', height: '100%'}}></img>
+                  </ProjectImageRightCont>
+                  <ProjectTextRightCont>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Cochl Website : GraphQL & 3D Data Visualization </Typography>
+                    <Typography variant="body1"className={classes.textbody} >
+                      Music Swapping Application made with React, Typescript, and GraphQL using Sound Recognition AI.
+                      Internship project at <a href="https://www.cochl.ai/" style={{textDecoration: 'none', color: 'blue', fontSize: '20px'}}> Cochl. </a>
+                    </Typography>
+                    <FilledButton style={{ marginTop: theme.spacing(6),width:'133px',  height: '41px', left: '36%', fontWeight: '800', display: 'flex-end', alignItems: 'right'}}>
+                      <Typography variant="body1"> Read More </Typography>
+                    </FilledButton>
+                  </ProjectTextRightCont>
+                </ProjectCont>
               </Container>
             </DefaultInnerRootCont>
           </DefaultOuterRootCont>

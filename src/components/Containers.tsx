@@ -46,6 +46,18 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     textTransform: 'uppercase'
   },
+  smallpageTitleCont: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '220px',
+    [theme.breakpoints.up('sm')]: {
+      height: '220px',
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '220px',
+    },
+  },
 }))
 
 type DefaultProps = {
@@ -55,7 +67,6 @@ type DefaultProps = {
 }
 
 export const LayoutRootCont = styled.div`
-  padding-top: ${HEADER_HEIGHT}px;
 `
 
 export const DefaultOuterRootCont = styled.div`
@@ -75,8 +86,6 @@ export const DefaultInnerRootCont = (props: DefaultProps) => {
   )
 }
 
-type PageTitleContProps = DefaultProps & {
-}
 
 export const PageTitleCont = (props: PageTitleContProps) => {
   const classes = useStyles()
@@ -103,3 +112,18 @@ export const DarkOuterRootCont = styled.div`
     color: #fff;
   }
 `
+type PageTitleContProps = DefaultProps & {
+  isDark?: boolean
+}
+export const SmallPageTitleCont = (props: PageTitleContProps) => {
+  const classes = useStyles()
+  const { children, isDark } = props
+
+  return (
+    <div className={classes.smallpageTitleCont} style={{ backgroundColor: 'white' }}>
+      <Typography variant='h4' className={classes.title} style={{ color: '#4923f4', marginTop: HEADER_HEIGHT, textTransform:'none', }}>
+        {children}
+      </Typography>
+    </div>
+  )
+}

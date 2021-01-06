@@ -19,42 +19,29 @@ export const HEADER_NAV_LINK_ITEMS: NavLinkItem[] = [
 
 export const FOOTER_NAV_LINK_ITEMS: NavLinkItem[] = [
   {
-    name: 'Products',
+    name: 'About Me',
     items: [
       {
-        name: 'Cochl. Sense',
+        name: 'Creative Exploration',
         url: '/cochl-sense/'
       },
       {
-        name: 'Documentation',
-        url: 'https://docs.cochl.ai/'
-      }
+        name: 'Honest Stories',
+        url: '/cochl-sense/'
+      },
     ]
   },
   {
-    name: 'Company',
+    name: 'Professional',
     items: [
       {
-        name: 'Technology',
+        name: 'Timeline',
         url: '/technology/'
       },
       {
-        name: 'Stories',
+        name: 'Internship Journal',
         url: '/about-us/'
       },
-      {
-        name: 'Join Our Team',
-        url: '/career/'
-      }
     ]
   },
-  {
-    name: 'Support',
-    items: [
-      {
-        name: 'Let\'s Talk',
-        url: '/contact-us/'
-      }
-    ]
-  }
 ]

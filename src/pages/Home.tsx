@@ -6,7 +6,6 @@ import Howto from '../components/Howto'
 import ImageSlider from "../components/ImageSlider"
 import Layout from "../components/layout"
 import PageHeader from "../components/PageHeader"
-import SubscribeForm from '../components/SubscribeForm'
 import { ThemeContext } from "../context/ThemeContext"
 
 const HomePage = () => {
@@ -20,7 +19,6 @@ const HomePage = () => {
           <PageHeader/>
           <Howto />
           <ImageSlider />
-          <SubscribeForm />
           <Footer/>
     </Layout>
   )

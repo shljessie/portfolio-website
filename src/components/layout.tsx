@@ -12,7 +12,7 @@ import theme from "../theme"
 const useStyles = makeStyles(theme => ({
   main: {
     minHeight: '100vh',
-    backgroundColor: "#121212",
+    backgroundColor: "black",
   },
   backtotop:{
     [theme.breakpoints.down('md')]: {
@@ -64,7 +64,7 @@ const BackToTopCont = styled.div`
   z-index: ${Z_INDEXES.scrollButton};
   width: 16px;
   height: auto;
-  bottom: 39%;
+  bottom: 60%;
   left: 90%;
   cursor: pointer;
 `
@@ -115,6 +115,8 @@ const Layout = ({ children }: Props) => {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap"
         />
+                <link 
+          href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&display=swap" rel="stylesheet"/>
         
         <div className={classes.main}>
           {children}

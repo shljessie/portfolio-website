@@ -3,8 +3,8 @@ export const EDITOR_HEADER_HEIGHT= 45
 export const SIDE_MENU_PADDING_RIGHT = 30
 
 export const MAX_WIDTH = {
-  desktop: '1200px',
-  tablet: '800px',
+  desktop: '1350px',
+  tablet: '700px',
   mobile: '410px'
 }
 export const SIDE_MENU_TRANSITION = {

@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 .App {
   text-align: center;
-  background-color: #121212;
+  background-color: black;
 }
 #root{
-  background-color: #121212;
+  background-color: black;
 }
 .root{
-  background-color: #121212;
+  background-color: black;
 }
 body{
-  background-color: #121212;
+  background-color: black;
 }
 .App-logo {
   height: 40vmin;
@@ -31,7 +31,7 @@ body{
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {

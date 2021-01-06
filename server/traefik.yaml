@@ -1,3 +1,0 @@
-providers:
-  docker: 
-    endpoint: "unix:///tmp/docker.sock"

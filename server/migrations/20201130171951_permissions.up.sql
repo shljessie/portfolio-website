@@ -1,1 +1,0 @@
-ALTER TABLE `api`.`users` ADD `permission` INT NOT NULL DEFAULT 2;
