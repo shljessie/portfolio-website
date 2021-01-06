@@ -132,7 +132,7 @@ const Howto = () => {
                       Team Project for <a href="https://cornelldata.science/" style={{textDecoration: 'none', color: 'lightpink'}}> Cornell Data Science  ,</a>
                       <a href="https://www.mycourseindex.com/about" style={{textDecoration: 'none', color: 'lightblue'}}> MyCourseIndex Team </a>
                     </Typography>
-                    <FilledButton className={classes.readMoreButton} href="/PageTemplate">
+                    <FilledButton className={classes.readMoreButton} href="/MyCourseIndex">
                       <Typography variant="body1"> Read More </Typography>
                     </FilledButton>
                   </ProjectTextRightCont>
