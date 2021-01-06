@@ -9,17 +9,17 @@ export const dialog = '#11161C';
 
 const customPalette: PaletteOptions = {
   primary: {
-    main: '#fff',
+    main: '#000',
   },
   secondary: {
-    main: '#fff',
+    main: '#000',
   },
   error: {
     main: red.A400,
   },
   background: {
-    paper: 'black',
-    default: 'black'
+    paper: 'white',
+    default: 'white'
   },
   action: {
     active: '#9300FF',

@@ -70,9 +70,9 @@ const customTypography: TypographyOptions = {
   body1: {
     fontFamily: 'Barlow, sans-serif',
     fontWeight: 400,
-    fontSize: '12px',
+    fontSize: '15px',
     letterSpacing: '0.1px',
-    lineHeight: '23.92px',
+    lineHeight: '30px',
   },
   body2: {
     fontFamily: 'Lato, sans-serif',

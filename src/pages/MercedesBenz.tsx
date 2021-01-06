@@ -1,10 +1,11 @@
-import { DarkOuterRootCont, DefaultInnerRootCont, DefaultOuterRootCont, LayoutRootCont, PageTitleCont } from "../components/Containers"
+import { DarkOuterRootCont, DefaultInnerRootCont, DefaultOuterRootCont, LayoutRootCont } from "../components/Containers"
+import React , { useContext } from "react"
 
-import Footer from '../layout/Footer'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import Header from "../layout/Header"
 import Layout from "../components/layout"
-import React from "react"
+import ReactPlayer from 'react-player'
+import { ThemeContext } from "../context/ThemeContext"
 import { Typography } from "@material-ui/core"
 import { VerticalDelimiter } from "../components/Delimiters"
 import architecture from '../images/architecture.png'
@@ -15,6 +16,7 @@ import useCases from '../images/benzUseCases.png'
 
 const useStyles = makeStyles(theme => ({
   root: {	
+    backgroundColor:'white'
   },
   innerRoot: {
   },	
@@ -29,8 +31,8 @@ const useStyles = makeStyles(theme => ({
   },	
   headerImage: {	
     display: 'block',	
-    height: '560px',	
-    width: '90%',
+    height: '460px',	
+    width: '65%',
     margin: '-90px auto 0',	
     maxWidth: '1150px',	
   },	
@@ -44,16 +46,21 @@ const useStyles = makeStyles(theme => ({
   },
   image:{
     maxWidth: '950px',	
+  },
+  video:{
+    outline: 'none',
+    alignItems: 'center',
   }
 }))
 
 const PageTemplate = (props: Props) => {
   const {} = props
   const classes = useStyles()
+  const { setHeaderTheme } = useContext(ThemeContext);	
 
   return (
     <Layout>
-      <LayoutRootCont>
+      <LayoutRootCont style={{backgroundColor: 'white', height: '600vh'}}>
       <Header />
       <DarkOuterRootCont className={classes.header}>
         <DefaultInnerRootCont style={{display: 'flex'}} className={classes.innerRoot}>
@@ -76,13 +83,17 @@ const PageTemplate = (props: Props) => {
       </DarkOuterRootCont>
         <img src="https://cdn-images-1.medium.com/max/800/1*3nnrdgb8xkiLPQFd0vV7aQ.gif" alt='news_main_image' className={classes.headerImage}/>	
 
-    <DefaultOuterRootCont style={{color: 'white'}}>
+    <DefaultOuterRootCont style={{color: 'black'}}>
           <DefaultInnerRootCont className={classes.headerCont} style={{textAlign: 'start'}}>
-            <Typography variant='subtitle1'>	
+            <Typography variant='h5'>	
               Sound Recognition AI in Mercedes Benz
             </Typography>	
             <br/>
-            <Typography variant='body1'>
+            <Typography variant='body1' style={{fontSize: '19px'}}>
+            During my Internship at Cochl. , I created a live demo of Cochl's Sound Recognition AI implemented in
+            Mercedes Benz user display.
+            {/* show full demo image here */}
+            <br/>
             Daimler and Merecedes Benz partenered with Cochl. AI to add Cochl.'s Sound Recognition AI to Mercedes-Benz.
             Cochl. worked with Mercedes Benz's UX team to design a complete user experience of in-Car sound recognition.
             With this technology, we can detect car machine errors, control cars with sounds, examine the conditions of the users in the car, 
@@ -90,8 +101,8 @@ const PageTemplate = (props: Props) => {
             </Typography>
             <br/>
             <br/>
-            <Typography variant='body1'>
-            My job here was to create a full version demo of integrated with the Cochl. Sound Recognition AI. Cochl.'s' Dev team,
+            <Typography variant='body1' style={{fontSize: '19px'}}>
+            My job here was to create a full demo of Mercedes Benz cockpit integrated with the Cochl. Sound Recognition AI. Cochl.'s' Dev team,
             along with the UX team designed the Mercedes Benz Cockpit display according the MBUX design guidelines. There were many factors 
             to consider such as when an action should be triggered and when to display to the user that the machine has understood what the
             user has done. After the design process I worked on visualizing the design with Front-End Software Development and then moved 
@@ -107,17 +118,19 @@ const PageTemplate = (props: Props) => {
             <br/>
             <br/>
             <br/>
-            <Typography variant='body1'>
-            The above is a list of the desired uses of Cochl.'s Sound Recognition Serivce into Mercedes Benz. The uses span from
-            car function controls to enterntainment within the Car. As you can see, there are various use cases that we planned to add
-            to Mercedes Benz. There are a number of fun use cases such as the 'Harmonization' service that recognizes the sound of people 
-            singing in a car and sings along with the user.
+            <Typography variant='body1' style={{fontSize: '19px'}}>
+            The above is a list of the uses of Cochl.'s Sound Recognition Serivce into Mercedes Benz. The uses span from
+            car function controls to enterntainment within the Car. There are a number of fun use cases such as the 'Harmonization' service that recognizes the sound of people 
+            singing in a car and sings along with the user. 
+            <br/>
+            Below is a demo of testing out the Harmonization effect.
             <br/>
             <br/>
-            <video width="750" height="440" controls>
-                <source src="./images/Haromization.mp4" type="video/mp4"/>
-              Demo of Harmonization Testing
-            </video>
+            <div style={{display:'flex',flexDirection: 'column',alignItems: 'center', justifyContent:'center'}}>
+              <ReactPlayer url='benz.mp4' controls = {true} style={{outline: 'none',}}/>
+              Testing the Harmonization effect on our backend
+            </div>
+            <br/>
             <br/>
             <br/>
             </Typography>
@@ -126,9 +139,10 @@ const PageTemplate = (props: Props) => {
             <br/>
             <br/>
             <br/>
-            <Typography variant='body1'>
-            The above is an image of the software architecture structure. The SDK reads in any sound signals it recieves from the environment and 
-            For our AU computing device, we used NVIDIA Jetson TX2. 
+            <Typography variant='body1' style={{fontSize: '19px'}}>
+            The software architecture structure is structured as above.
+            For our AI computing device, we used NVIDIA Jetson TX2. 
+            <br/>
             First, when the user selects what sort of sound mode they will be using. Once it is selected, 
             the web display sends a signal to the web server to turn on the according mode. The web server then signals the SDK to set the according mode.
             This mode can be any mode like the Harmonization Mode, or the Secret Language Setting Mode. 

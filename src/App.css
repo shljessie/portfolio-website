@@ -16,6 +16,9 @@ body{
   height: 40vmin;
   pointer-events: none;
 }
+.video:focus{
+  outline: none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
