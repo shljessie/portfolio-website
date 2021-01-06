@@ -115,7 +115,7 @@ const Howto = () => {
                       Making the Mercedes Benz Cockpit Display for non-verbal Sound Recognition AI.
                       Internship project at <a href="https://www.cochl.ai/" style={{textDecoration: 'none', color: 'lightpink'}}> Cochl. </a>
                     </Typography>
-                    <FilledButton className={classes.readMoreButton} href="/PageTemplate" >
+                    <FilledButton className={classes.readMoreButton} href="/MercedesBenz" >
                       <Typography variant="body1"> Read More </Typography>
                     </FilledButton>
                   </ProjectTextRightCont>
