@@ -3,6 +3,7 @@ import React, { useContext } from "react"
 import { Typography, makeStyles } from "@material-ui/core"
 
 import FilledButton from '../components/Buttons'
+import ReactPlayer from 'react-player'
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
 import theme from "../theme"
@@ -74,7 +75,7 @@ const ProjectImageRightCont = styled.div`
   width: 60%;
   height: 45vh;
   border-radius: 30px;
-  background-color: red;
+  background-color: none;
 `
 const ProjectTextRightCont = styled.div`
   width: 45%;
@@ -142,7 +143,7 @@ const Howto = () => {
                     <img src="https://cdn-images-1.medium.com/max/800/1*M5GAniz9ZLDuEuVOSKCDiQ.gif" style={{width: '100%', height: '100%'}}></img>
                   </ProjectImageRightCont>
                   <ProjectTextRightCont>
-                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Coronavirus Twitter Sentiment Analysis</Typography>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Data Science: Coronavirus Twitter Sentiment Analysis</Typography>
                     <Typography variant="body1" className={classes.textbody}>
                       Natural Language Processing Sentiment analysis of Tweets related to Coronavirus from 10 global countries.
                       Data Visualizations Explaining the Final results of our findings are avaiable <a href="https://covid-thebois.netlify.app/visual.html">here</a>
@@ -155,10 +156,13 @@ const Howto = () => {
                 </ProjectCont>
                 <ProjectCont>
                   <ProjectImageRightCont>
-                    <img src="https://cdn-images-1.medium.com/max/1600/1*gZd98LBsHirc0pFf3H4ygw.gif" style={{width: '100%', height: '100%'}}></img>
+                  <div style={{display:'flex',flexDirection: 'column',alignItems: 'center', justifyContent:'center'}}>
+                    <ReactPlayer url='dataviz.mov' controls = {false} playing={true} style={{outline: 'none',}}/>
+                    Testing the Harmonization effect on our backend
+                  </div>
                   </ProjectImageRightCont>
                   <ProjectTextRightCont>
-                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}>  Cochl Internship : SoundRecognition AI , GraphQL and Data Visualization </Typography>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}>  Cochl Internship : non-verbal SoundRecognition AI</Typography>
                     <Typography variant="body1"className={classes.textbody} >
                       Making user applications with Sound Recognition AI and handling data within software. GraphQL, React, Gatsby, Typescript.
                       Internship Journal and list of projects I conducted at at <a href="https://www.cochl.ai/" style={{textDecoration: 'none', color: 'blue', fontSize: '20px'}}> Cochl. </a>
@@ -170,10 +174,11 @@ const Howto = () => {
                 </ProjectCont>
                 <ProjectCont>
                   <ProjectImageRightCont>
-                    <img src="https://cdn-images-1.medium.com/max/1600/1*gAIZ4bHnEw9xyx8fU7xOtg.gif" style={{width: '100%', height: '100%'}}></img>
+                    <img src="https://user-images.githubusercontent.com/27461460/65466719-a79e2580-de9a-11e9-965e-c4c28a98346e.gif" style={{ height: '100%'}}></img>
+                    <img src="https://user-images.githubusercontent.com/59305253/90607691-87a6eb80-e23c-11ea-8677-67a346911be6.gif" style={{ height: '100%', marginLeft: "20%"}}></img>
                   </ProjectImageRightCont>
                   <ProjectTextRightCont>
-                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Dooboolab Internship: Calendar Carousel, HackaTalk, Prime </Typography>
+                    <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}> Dooboolab Internship: OpenSource Contribution </Typography>
                     <Typography variant="body1"className={classes.textbody}>
                       React Native UI Component development, OpenSource Chatting Application with GraphQL, and Web development with Prime
                       Internship project at Dooboolab.

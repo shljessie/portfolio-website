@@ -51,6 +51,7 @@ function App() {
             <Route path="/PageTemplate" component={PageTemplate} />
             <Route path="/MercedesBenz" component={MercedesBenz} />
             <Route path="/CochlInternship" component={CochlInternship} />
+            <Route path="/MyCourseIndex" component={MyCourseIndex} />
           </Router>
     </div>
   </MuiThemeProvider>
