@@ -225,7 +225,6 @@ const Footer = (props: Props) => {
       <DefaultInnerRootCont>
         <div className={classes.topRow}>
             <Typography variant="h6">Jessie Lee</Typography>
-            <Typography variant="body2"> This website has been fully coded by Jessie Lee</Typography>
         </div>
         <BottomRow/>
       </DefaultInnerRootCont>

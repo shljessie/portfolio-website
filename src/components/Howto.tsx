@@ -183,7 +183,7 @@ const Howto = () => {
                       React Native UI Component development, OpenSource Chatting Application with GraphQL, and Web development with Prime
                       Internship project at Dooboolab.
                     </Typography>
-                    <FilledButton  className={classes.readMoreButton} href="/Dooboolab">
+                    <FilledButton  className={classes.readMoreButton} href="https://medium.com/dooboolab/the-making-of-dooboo-uis-calendar-carousel-74bf8b0579a9">
                       <Typography variant="body1"> Read More </Typography>
                     </FilledButton>
                   </ProjectTextRightCont>

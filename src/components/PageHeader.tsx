@@ -56,11 +56,11 @@ const PageHeader = () => {
 
         <ButtonCont>
           
-            <PageLink to="https://docs.google.com/document/d/1QFNgcO9zj-Xf6fsRxyjCGN0nNiHyRKlDmDp75iOOtJo/edit" style={{textDecoration: 'none'}}>
+            <a href="https://docs.google.com/document/d/1QFNgcO9zj-Xf6fsRxyjCGN0nNiHyRKlDmDp75iOOtJo/edit" style={{textDecoration: 'none'}}>
               <FilledButton style={{ width:'133px',  height: '41px', fontWeight: '800'}}>
                  <Typography variant="body1"> Resume </Typography>
               </FilledButton>
-            </PageLink>
+            </a>
             <Link
               activeClass="active"
               to="howto"

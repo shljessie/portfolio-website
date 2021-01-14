@@ -18,35 +18,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     textAlign: 'center'
   },
-  employeesCont: {
-    display: 'flex',
-    alignItems: 'flex-start',
-    flexWrap: 'wrap',
-  },
-  employeeImageCont: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-    backgroundColor: '#DBDFE2',
-    overflow: 'hidden',
-    width: '100%',
-    height: 'auto',
-  },
-  employeeImage: {
-    width: '100%',
-    height: 'auto',
-    display: 'block'
-  },
-  employeeItemCont: {
-    height: 'auto',
-    width: '100%'
-  },
-  employeeItemRoot: {
-    marginBottom: theme.spacing(6),
-    [theme.breakpoints.up('md')]: {
-      marginBottom: theme.spacing(14)
-    },
-  },
   yearCont: {
     margin: theme.spacing(0.5, 2),
     [theme.breakpoints.up('sm')]: {
@@ -55,12 +26,10 @@ const useStyles = makeStyles(theme => ({
   },
   timelineCont: {
     width: '100%',
-    height: ABOUT_US_TIMELINE_DATA.length * TIMELINE_ITEM_HEIGHT + 110,
+    height: '50%',
     position: 'relative',
-    margin: theme.spacing(14, 0)
   },
   timelineTextCont: {
-    padding: theme.spacing(2, 4),
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(2.5, 6),
     },
@@ -233,23 +202,11 @@ const TimeLineItem = (props: TimeLineItemProps) => {
       <DashedLine isDesktop={isDesktop}>
         <div/>
       </DashedLine>
-      <YearComp isTop={true} isDesktop={isDesktop}>
-        <Typography variant='subtitle1' className={classes.yearCont}>
-          2020
-        </Typography>
-      </YearComp>
-
       {
         ABOUT_US_TIMELINE_DATA.map((data, i) => (
           <TimeLineItem isLeft={data.isLeft} month={data.month} title={data.title} index={i} isDesktop={isDesktop}/>
         ))
       }
-
-      <YearComp isTop={false} isDesktop={isDesktop}>
-        <Typography variant='subtitle1' className={classes.yearCont}>
-          2017
-        </Typography>
-      </YearComp>
     </div>
   )
 }

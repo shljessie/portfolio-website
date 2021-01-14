@@ -1,4 +1,5 @@
 import { DefaultInnerRootCont, DefaultOuterRootCont, LayoutRootCont, SmallPageTitleCont } from "../components/Containers"
+import React , { useContext }  from "react"
 
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -7,8 +8,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Footer from '../layout/Footer'
 import Header from '../layout/Header'
 import Layout from "../components/layout"
-import React from "react"
 import { TERMS_CONDITIONS_DATA } from '../constants/PageData'
+import { ThemeContext } from "../context/ThemeContext"
 import { Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"
@@ -38,6 +39,7 @@ const PageTemplate = () => {
 
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState<string | false>(false);
+  const { setHeaderTheme } = useContext(ThemeContext);	
 
   const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
     setExpanded(isExpanded ? panel : false);
