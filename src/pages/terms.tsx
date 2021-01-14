@@ -12,7 +12,6 @@ import { TERMS_CONDITIONS_DATA } from '../constants/PageData'
 import { ThemeContext } from "../context/ThemeContext"
 import { Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import styled from "styled-components"
 import theme from '../theme'
 
 const useStyles = makeStyles(theme => ({

@@ -10,9 +10,7 @@ import ReactPlayer from 'react-player'
 import { ThemeContext } from "../context/ThemeContext"
 import { Typography } from "@material-ui/core"
 import { VerticalDelimiter } from "../components/Delimiters"
-import architecture from '../images/architecture.png'
 import { makeStyles } from "@material-ui/core/styles"
-import structure from '../images/cochl.structure.png'
 import theme from "../theme"
 import useCases from '../images/benzUseCases.png'
 

@@ -6,7 +6,6 @@ import React, { useContext, useState } from "react"
 
 import Layout  from "../components/layout"
 import { NewsItem } from "../components/NewsItem"
-import { REVEAL_DURATION_NORMAL } from "../constants/RevealProps"
 import { ResponsiveGrid } from "../components/ResponsiveGrid"
 import { ThemeContext } from "../context/ThemeContext"
 import { VerticalDelimiter } from "../components/Delimiters"

@@ -3,12 +3,8 @@ import { Typography, makeStyles, useTheme } from "@material-ui/core"
 
 import FilledButton from '../components/Buttons'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
-import { Link } from "react-scroll";
-import { Link as PageLink } from "react-router-dom";
 import React from "react"
-import TimeLineCont from './Timeline'
 import styled from "styled-components"
-import theme from "../theme"
 
 const useStyles = makeStyles(theme => ({
   innerRoot: {
@@ -48,7 +44,7 @@ const About = () => {
   return (
     <DefaultOuterRootCont style={{ paddingTop: HEADER_HEIGHT}} >
       <DefaultInnerRootCont className={classes.innerRoot}>   
-      <Typography variant= "subtitle2" style= {{marginTop: theme.spacing(16), marginBottom: theme.spacing(10), textAlign: 'start', maxWidth: '65%'}} >
+      <Typography variant= "subtitle2" style= {{marginTop: theme.spacing(10), marginBottom: theme.spacing(10), textAlign: 'start', maxWidth: '65%'}} >
         Hi !   I'm Jessie Lee.
         <br/>  
         A sophmore majoring in Information Science (B.S.) with
@@ -68,11 +64,17 @@ const About = () => {
         from complex data using a variety of machine learning methods.
         I have also worked as a Software Engineer at Dooboolab and Cochl. You can find our more about
         me by reading my resume by clicking the button to the right!
+        <br/>
+        <br/>
+        Languages I'm most confident in: 
+              <br/>
+              Python, GraphQL, React, Javascript, Typescript, 
+              HTML, CSS, d3.js
         </Typography>
 
         <ButtonCont style={{display:'flex', flexDirection: 'column'}}>
           <img src="jessie.png" style={{width:'90%',marginBottom: theme.spacing(3),marginTop: theme.spacing(16)}}></img>
-          
+    
             <a href="https://docs.google.com/document/d/1QFNgcO9zj-Xf6fsRxyjCGN0nNiHyRKlDmDp75iOOtJo/edit" style={{textDecoration: 'none'}}>
               <FilledButton style={{ width:'133px',  height: '41px', fontWeight: '800'}}>
                  <Typography variant="body1"> Resume </Typography>

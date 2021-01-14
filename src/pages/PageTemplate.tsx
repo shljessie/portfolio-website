@@ -1,11 +1,10 @@
 import { DarkOuterRootCont, DefaultInnerRootCont, DefaultOuterRootCont, LayoutRootCont, PageTitleCont } from "../components/Containers"
-import React, { useContext, useState } from "react"
 
 import Footer from '../layout/Footer'
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
 import Header from "../layout/Header"
 import Layout from "../components/layout"
-import { ThemeContext } from "../context/ThemeContext"
+import React from "react"
 import { Typography } from "@material-ui/core"
 import { VerticalDelimiter } from "../components/Delimiters"
 import { makeStyles } from "@material-ui/core/styles"

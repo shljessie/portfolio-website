@@ -1,9 +1,8 @@
 import * as React from 'react'
 
-import { FOOTER_NAV_LINK_ITEMS, NavLinkItem } from "../constants/Links"
-
 import { DefaultInnerRootCont } from "../components/Containers"
 import { LINK_HOVER_COLOR } from "../theme/palette"
+import { NavLinkItem } from "../constants/Links"
 import { Typography } from "@material-ui/core"
 import UnstyledLink from "../components/UnstyledLink"
 import { VerticalDelimiter } from "../components/Delimiters"
@@ -225,6 +224,7 @@ const Footer = (props: Props) => {
       <DefaultInnerRootCont>
         <div className={classes.topRow}>
             <Typography variant="h6">Jessie Lee</Typography>
+            <Typography variant="body1">Data Science & Interactive Technology</Typography>
         </div>
         <BottomRow/>
       </DefaultInnerRootCont>
