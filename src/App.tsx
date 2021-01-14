@@ -53,6 +53,7 @@ function App() {
             <Route path="/CochlInternship" component={CochlInternship} />
             <Route path="/MyCourseIndex" component={MyCourseIndex} />
           </Router>
+        <Home/>
     </div>
   </MuiThemeProvider>
       ) : (
