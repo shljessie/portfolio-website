@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/portfolio-website/static/css/main.871952d7.chunk.css",
+    "main.js": "/portfolio-website/static/js/main.e25a2149.chunk.js",
+    "main.js.map": "/portfolio-website/static/js/main.e25a2149.chunk.js.map",
+    "runtime-main.js": "/portfolio-website/static/js/runtime-main.bc50570f.js",
+    "runtime-main.js.map": "/portfolio-website/static/js/runtime-main.bc50570f.js.map",
+    "static/js/2.285acb55.chunk.js": "/portfolio-website/static/js/2.285acb55.chunk.js",
+    "static/js/2.285acb55.chunk.js.map": "/portfolio-website/static/js/2.285acb55.chunk.js.map",
+    "static/js/3.c930ea37.chunk.js": "/portfolio-website/static/js/3.c930ea37.chunk.js",
+    "static/js/3.c930ea37.chunk.js.map": "/portfolio-website/static/js/3.c930ea37.chunk.js.map",
+    "index.html": "/portfolio-website/index.html",
+    "static/css/main.871952d7.chunk.css.map": "/portfolio-website/static/css/main.871952d7.chunk.css.map",
+    "static/js/2.285acb55.chunk.js.LICENSE.txt": "/portfolio-website/static/js/2.285acb55.chunk.js.LICENSE.txt",
+    "static/media/benzUseCases.27ef7203.png": "/portfolio-website/static/media/benzUseCases.27ef7203.png",
+    "static/media/github.ca8a5220.png": "/portfolio-website/static/media/github.ca8a5220.png",
+    "static/media/icon.4381546f.jpeg": "/portfolio-website/static/media/icon.4381546f.jpeg",
+    "static/media/linkedin.c77686e9.png": "/portfolio-website/static/media/linkedin.c77686e9.png",
+    "static/media/medium.e3e9030f.png": "/portfolio-website/static/media/medium.e3e9030f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bc50570f.js",
+    "static/js/2.285acb55.chunk.js",
+    "static/css/main.871952d7.chunk.css",
+    "static/js/main.e25a2149.chunk.js"
+  ]
+}
