@@ -81,7 +81,7 @@ const PageTemplate = (props: Props) => {
           </div>	
         </DefaultInnerRootCont>
       </DarkOuterRootCont>
-        <img src="https://cdn-images-1.medium.com/max/800/1*3nnrdgb8xkiLPQFd0vV7aQ.gif" alt='news_main_image' className={classes.headerImage}/>	
+        <img src="benzMain.png" alt='news_main_image' className={classes.headerImage}/>	
 
     <DefaultOuterRootCont style={{color: 'black'}}>
           <DefaultInnerRootCont className={classes.headerCont} style={{textAlign: 'start'}}>

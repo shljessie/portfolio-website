@@ -108,7 +108,7 @@ const Howto = () => {
               <Container>
                 <ProjectCont>
                   <ProjectImageRightCont>
-                    <img src="https://cdn-images-1.medium.com/max/800/1*3nnrdgb8xkiLPQFd0vV7aQ.gif" style={{width: '100%', height: '100%'}}></img>
+                    <img src="benzMain.png" style={{width: '100%', height: '100%'}}></img>
                   </ProjectImageRightCont>
                   <ProjectTextRightCont>
                     <Typography variant="h6" style={{ marginBottom: theme.spacing(4)}}>Mercedes Benz Sound AI </Typography>
@@ -183,7 +183,7 @@ const Howto = () => {
                       React Native UI Component development, OpenSource Chatting Application with GraphQL, and Web development with Prime
                       Internship project at Dooboolab.
                     </Typography>
-                    <FilledButton  className={classes.readMoreButton} href="https://medium.com/dooboolab/the-making-of-dooboo-uis-calendar-carousel-74bf8b0579a9">
+                    <FilledButton  className={classes.readMoreButton} href="/Dooboolab">
                       <Typography variant="body1"> Read More </Typography>
                     </FilledButton>
                   </ProjectTextRightCont>
