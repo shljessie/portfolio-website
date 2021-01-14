@@ -1,7 +1,7 @@
 import './App.css';
 
 import React , { useEffect, useState }from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import CochlInternship from './pages/CochlInternship'
 import Home from './pages/Home';
@@ -46,14 +46,16 @@ function App() {
     <MuiThemeProvider theme={theme}>
     <div className="App">
          <Router>
+           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/terms" component={terms} />
             <Route path="/PageTemplate" component={PageTemplate} />
             <Route path="/MercedesBenz" component={MercedesBenz} />
             <Route path="/CochlInternship" component={CochlInternship} />
             <Route path="/MyCourseIndex" component={MyCourseIndex} />
+            </Switch>
+            <Home/>
           </Router>
-        <Home/>
     </div>
   </MuiThemeProvider>
       ) : (

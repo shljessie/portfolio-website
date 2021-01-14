@@ -1,8 +1,12 @@
 import { DefaultInnerRootCont, DefaultOuterRootCont } from "../components/Containers"
 import React, { useContext } from "react"
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Typography, makeStyles } from "@material-ui/core"
 
+import CochlInternship from '../pages/CochlInternship'
 import FilledButton from '../components/Buttons'
+import MercedesBenz from '../pages/MercedesBenz'
+import MyCourseIndex from '../pages/MyCourseIndex'
 import ReactPlayer from 'react-player'
 import { ThemeContext } from "../context/ThemeContext"
 import styled from "styled-components"
@@ -183,7 +187,7 @@ const Howto = () => {
                       React Native UI Component development, OpenSource Chatting Application with GraphQL, and Web development with Prime
                       Internship project at Dooboolab.
                     </Typography>
-                    <FilledButton  className={classes.readMoreButton} href="/Dooboolab">
+                    <FilledButton  className={classes.readMoreButton} href="https://github.com/dooboolab/dooboo-ui/tree/master/packages/CalendarCarousel">
                       <Typography variant="body1"> Read More </Typography>
                     </FilledButton>
                   </ProjectTextRightCont>
@@ -191,6 +195,13 @@ const Howto = () => {
               </Container>
             </DefaultInnerRootCont>
           </DefaultOuterRootCont>
+          <Router>
+           <Switch>
+            <Route path="/MercedesBenz" component={MercedesBenz} />
+            <Route path="/CochlInternship" component={CochlInternship} />
+            <Route path="/MyCourseIndex" component={MyCourseIndex} />
+            </Switch>
+          </Router>
           </div>
   )
 }
