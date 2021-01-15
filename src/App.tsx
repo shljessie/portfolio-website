@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import MercedesBenz from './pages/MercedesBenz'
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import MyCourseIndex from './pages/MyCourseIndex'
-import PageTemplate from './pages/PageTemplate';
 import icon from './images/icon.jpeg'
 import styled from "styled-components"
 import terms from './pages/terms'
@@ -49,7 +48,6 @@ function App() {
            <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/terms" component={terms} />
-            <Route path="/PageTemplate" component={PageTemplate} />
             <Route path="/MercedesBenz" component={MercedesBenz} />
             <Route path="/CochlInternship" component={CochlInternship} />
             <Route path="/MyCourseIndex" component={MyCourseIndex} />
