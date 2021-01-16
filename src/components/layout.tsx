@@ -3,7 +3,6 @@ import "./layout.css"
 import React , { useEffect, useState } from "react"
 
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import { GENERAL_IMAGE_URLS } from "../constants/ImageUrls"
 import { Z_INDEXES } from "../constants/GlobalStyles"
 import { makeStyles } from "@material-ui/core/styles"
 import styled from "styled-components"

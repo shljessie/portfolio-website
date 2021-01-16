@@ -1,22 +1,14 @@
-import {FilledButton, HollowButton} from '../components/Buttons'
 import React, { useState } from "react"
 import {Typography, makeStyles, useMediaQuery, useTheme} from "@material-ui/core"
 
 import BurgerMenu from "../components/BurgerMenu"
 import { DefaultInnerRootCont } from "../components/Containers"
-import { FOOTER_IMAGE_URLS } from "../constants/ImageUrls"
 import { HEADER_HEIGHT } from "../constants/GlobalStyles"
-import {HEADER_IMAGE_URL} from "../constants/ImageUrls";
 import { HEADER_NAV_LINK_ITEMS } from "../constants/Links"
-import { LINK_HOVER_COLOR } from "../theme/palette"
-import { Link } from "react-router-dom";
-import MailSharpIcon from '@material-ui/icons/MailSharp';
 import { Modal } from "../components/Modal"
-import { SNS_LINKS } from "../constants/Urls"
 import SideMenu from "../components/SideMenu"
 import github from '../images/github.png'
 import linkedin from'../images/linkedin.png'
-import medium from '../images/medium.png'
 import styled from "styled-components"
 
 const useStyles = makeStyles(theme => ({
